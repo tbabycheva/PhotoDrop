@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="j9b-1d-tq5">
             <objects>
-                <viewController id="r71-B0-3Te" sceneMemberID="viewController">
+                <viewController id="r71-B0-3Te" customClass="MapViewController" customModule="PhotoDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LvF-7J-9C7"/>
                         <viewControllerLayoutGuide type="bottom" id="v7M-0x-FS3"/>
@@ -20,12 +20,62 @@
                     <view key="view" contentMode="scaleToFill" id="4TE-ZP-CWR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-cW-ida">
+                                <rect key="frame" x="160" y="512" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHA-CJ-SIi">
+                                <rect key="frame" x="60" y="512" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Points"/>
+                                <connections>
+                                    <segue destination="P7F-n8-CC3" kind="show" id="Fnw-hs-FPo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje">
+                                <rect key="frame" x="265" y="512" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="PhotoList"/>
+                                <connections>
+                                    <segue destination="Y2b-Re-S3v" kind="show" id="IOr-ni-9zZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55S-eE-Gdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57" y="131"/>
+        </scene>
+        <!--PhotoList-->
+        <scene sceneID="b29-8L-V1N">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PhotoList" id="Y2b-Re-S3v" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJa-o2-RT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="44"/>
+        </scene>
+        <!--Points-->
+        <scene sceneID="vdj-T4-CP6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Points" id="P7F-n8-CC3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6cz-38-IRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="745" y="175"/>
+        </scene>
+        <!--Drop-->
+        <scene sceneID="C0g-tx-Rvu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Drop" id="ZEg-Wm-wY4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOJ-e5-5tY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="120"/>
         </scene>
     </scenes>
 </document>
