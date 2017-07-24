@@ -8,18 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BDFD71F26923700A6BBF5 /* AppDelegate.swift */; };
-		218BDFDD1F26923800A6BBF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFDB1F26923800A6BBF5 /* Main.storyboard */; };
 		218BDFDF1F26923800A6BBF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFDE1F26923800A6BBF5 /* Assets.xcassets */; };
 		218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */; };
+		B98DD84B1F26995A000231E9 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD84A1F26995A000231E9 /* Map.storyboard */; };
+		B98DD84D1F269975000231E9 /* Points.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD84C1F269975000231E9 /* Points.storyboard */; };
+		B98DD84F1F26997F000231E9 /* Drop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD84E1F26997F000231E9 /* Drop.storyboard */; };
+		B98DD8511F269984000231E9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD8501F269984000231E9 /* Settings.storyboard */; };
+		B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD8521F26998E000231E9 /* PhotoList.storyboard */; };
+		B98DD8551F2699A1000231E9 /* Photo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD8541F2699A1000231E9 /* Photo.storyboard */; };
+		B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD8561F269A12000231E9 /* MapViewController.swift */; };
+		B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD8581F269A21000231E9 /* PointsViewController.swift */; };
+		B98DD85B1F269A32000231E9 /* DropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD85A1F269A32000231E9 /* DropViewController.swift */; };
+		B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */; };
+		B98DD85F1F269A49000231E9 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */; };
+		B98DD8611F269A53000231E9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD8601F269A53000231E9 /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		218BDFD41F26923700A6BBF5 /* PhotoDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		218BDFDC1F26923800A6BBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		218BDFDE1F26923800A6BBF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		218BDFE11F26923800A6BBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218BDFE31F26923800A6BBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B98DD84A1F26995A000231E9 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		B98DD84C1F269975000231E9 /* Points.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Points.storyboard; sourceTree = "<group>"; };
+		B98DD84E1F26997F000231E9 /* Drop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Drop.storyboard; sourceTree = "<group>"; };
+		B98DD8501F269984000231E9 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		B98DD8521F26998E000231E9 /* PhotoList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoList.storyboard; sourceTree = "<group>"; };
+		B98DD8541F2699A1000231E9 /* Photo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Photo.storyboard; sourceTree = "<group>"; };
+		B98DD8561F269A12000231E9 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B98DD8581F269A21000231E9 /* PointsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
+		B98DD85A1F269A32000231E9 /* DropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropViewController.swift; sourceTree = "<group>"; };
+		B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
+		B98DD8601F269A53000231E9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				218BDFD71F26923700A6BBF5 /* AppDelegate.swift */,
-				218BDFDB1F26923800A6BBF5 /* Main.storyboard */,
+				B98DD8621F269A85000231E9 /* Storyboards */,
+				B98DD8631F269A91000231E9 /* View Controllers */,
 				218BDFE91F26925100A6BBF5 /* Resources */,
 			);
 			path = PhotoDrop;
@@ -67,6 +90,32 @@
 				218BDFE31F26923800A6BBF5 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		B98DD8621F269A85000231E9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B98DD84A1F26995A000231E9 /* Map.storyboard */,
+				B98DD84C1F269975000231E9 /* Points.storyboard */,
+				B98DD84E1F26997F000231E9 /* Drop.storyboard */,
+				B98DD8501F269984000231E9 /* Settings.storyboard */,
+				B98DD8521F26998E000231E9 /* PhotoList.storyboard */,
+				B98DD8541F2699A1000231E9 /* Photo.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		B98DD8631F269A91000231E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B98DD8561F269A12000231E9 /* MapViewController.swift */,
+				B98DD8581F269A21000231E9 /* PointsViewController.swift */,
+				B98DD85A1F269A32000231E9 /* DropViewController.swift */,
+				B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */,
+				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
+				B98DD8601F269A53000231E9 /* PhotoViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,8 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */,
+				B98DD8551F2699A1000231E9 /* Photo.storyboard in Resources */,
+				B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */,
+				B98DD84D1F269975000231E9 /* Points.storyboard in Resources */,
 				218BDFDF1F26923800A6BBF5 /* Assets.xcassets in Resources */,
-				218BDFDD1F26923800A6BBF5 /* Main.storyboard in Resources */,
+				B98DD8511F269984000231E9 /* Settings.storyboard in Resources */,
+				B98DD84B1F26995A000231E9 /* Map.storyboard in Resources */,
+				B98DD84F1F26997F000231E9 /* Drop.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,20 +197,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */,
+				B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */,
+				B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */,
+				B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */,
+				B98DD8611F269A53000231E9 /* PhotoViewController.swift in Sources */,
+				B98DD85B1F269A32000231E9 /* DropViewController.swift in Sources */,
+				B98DD85F1F269A49000231E9 /* PhotoListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		218BDFDB1F26923800A6BBF5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				218BDFDC1F26923800A6BBF5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -308,6 +360,7 @@
 				218BDFE81F26923800A6BBF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
