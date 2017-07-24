@@ -15,6 +15,12 @@ class PhotoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

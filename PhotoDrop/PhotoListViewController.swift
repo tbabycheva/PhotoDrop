@@ -9,18 +9,20 @@
 import UIKit
 
 class PhotoListViewController: UIViewController {
-
+    
+@IBOutlet weak var photoListTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    @IBAction func mapButtonTapped(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -33,3 +35,36 @@ class PhotoListViewController: UIViewController {
     */
 
 }
+
+extension PhotoListViewController: UITableViewDelegate {
+}
+
+extension PhotoListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 1
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath)
+        
+        return cell
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+

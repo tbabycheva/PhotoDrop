@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Photo View Controller-->
         <scene sceneID="sgB-Ly-gQl">
             <objects>
-                <viewController id="ay9-6C-557" sceneMemberID="viewController">
+                <viewController id="ay9-6C-557" customClass="PhotoViewController" customModule="PhotoDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Az5-Ja-N7q"/>
                         <viewControllerLayoutGuide type="bottom" id="A7h-Cl-FQQ"/>
@@ -22,9 +22,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwS-Ga-GWu">
-                                <rect key="frame" x="312" y="20" width="34" height="30"/>
+                                <rect key="frame" x="310" y="28" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="uLe-bD-F9p"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
