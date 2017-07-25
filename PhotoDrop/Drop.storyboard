@@ -29,6 +29,14 @@
                                     <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
+                                <rect key="frame" x="149" y="586" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Photo"/>
+                                <connections>
+                                    <segue destination="8FB-P5-UuS" kind="show" id="5aR-Xc-iyL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -36,6 +44,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJZ-US-Dwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6" y="121"/>
+        </scene>
+        <!--DropPreview-->
+        <scene sceneID="mdd-mN-AqC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DropPreview" id="8FB-P5-UuS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6b-rb-CbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="537" y="314"/>
         </scene>
     </scenes>
 </document>
