@@ -17,6 +17,7 @@ class Drop: CloudKitSyncable {
   var numberOfLikes: Int
   var location: CLLocationCoordinate2D
   var image: UIImage?
+  var hasLiked: Bool?
 
   init(
     title: String,
