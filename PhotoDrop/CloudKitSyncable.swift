@@ -2,10 +2,6 @@ import Foundation
 import CloudKit
 
 protocol CloudKitSyncable: class {
-
-  func getRecordZoneID() -> CKRecordZoneID
-
-  var share: CKShare? { get set }
   var record: CKRecord? { get set }
 
   static var recordType: String { get }
@@ -17,17 +13,8 @@ protocol CloudKitSyncable: class {
 }
 
 extension CloudKitSyncable {
-  func getShare() -> CKShare {
-
-    let record = getRecord()
-    let share = self.share ?? CKShare(rootRecord: record)
-
-    self.share = share
-    return share
-  }
-
   func getRecord() -> CKRecord {
-    let record = self.record ?? CKRecord(recordType: Self.recordType, zoneID: getRecordZoneID())
+    let record = self.record ?? CKRecord(recordType: Self.recordType)
 
     for (key, value) in recordDictionary {
       record[key] = value
@@ -46,9 +33,6 @@ extension CloudKitSyncable {
       (records, recordIDs, error) -> Void in
       if let error = error {
         NSLog("error \(error.localizedDescription)")
-      }
-      for record in records ?? [] {
-        NSLog("record saved: \(record.recordID.recordName)")
       }
       completion?(records, error)
     }
@@ -78,7 +62,6 @@ extension CloudKitSyncable {
     var pulledObjects: [Self] = []
 
     let query = CKQuery(recordType: Self.recordType, predicate: predicate)
-
     let queryOperation = CKQueryOperation(query: query)
 
     let perObjectBlock = { (fetchedRecord: CKRecord) -> Void in
@@ -90,7 +73,7 @@ extension CloudKitSyncable {
       pulledObject?(record)
     }
 
-    var queryCompletionBlock: ((CKQueryCursor?, Error?) -> Void)?
+    var queryCompletionBlock: (CKQueryCursor?, Error?) -> Void = { (_, _) in }
     queryCompletionBlock = { (queryCursor: CKQueryCursor?, error: Error?) -> Void in
 
       if let queryCursor = queryCursor {
@@ -103,7 +86,6 @@ extension CloudKitSyncable {
           Self.database.add(continuedQueryOperation)
         }
       } else {
-        queryCompletionBlock=nil
         completion?(pulledObjects, error)
       }
     }
