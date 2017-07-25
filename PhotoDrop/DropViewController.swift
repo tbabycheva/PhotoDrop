@@ -7,13 +7,79 @@
 //
 
 import UIKit
+import AVFoundation
 
-class DropViewController: UIViewController {
+class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+    
+    var cameraOutput: AVCapturePhotoOutput!
+    var cameraSession: AVCaptureSession!
+    var camPreviewLayer: AVCaptureVideoPreviewLayer!
+    
+    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageView.isHidden = true
 
-        // Do any additional setup after loading the view.
+        cameraSession = AVCaptureSession()
+        cameraSession.sessionPreset = AVCaptureSessionPresetPhoto
+        cameraOutput = AVCapturePhotoOutput()
+        
+        let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        
+        if let input = try? AVCaptureDeviceInput(device: camera) {
+            if (cameraSession.canAddInput(input)) {
+                cameraSession.addInput(input)
+                if (cameraSession.canAddOutput(cameraOutput)) {
+                    cameraSession.addOutput(cameraOutput)
+                    camPreviewLayer = AVCaptureVideoPreviewLayer(session: cameraSession)
+                    camPreviewLayer.frame = cameraView.bounds
+                    cameraView.layer.addSublayer(camPreviewLayer)
+                    cameraSession.startRunning()
+                }
+            } else {
+                print("Could not add input.")
+            }
+        } else {
+            print("An error occurred.")
+        }
+        
+    }
+    
+    // Taking the picture
+    
+    @IBAction func takePhotoButtonTapped(_ sender: Any) {
+        let settings = AVCapturePhotoSettings()
+        let previewType = settings.availablePreviewPhotoPixelFormatTypes.first!
+        let previewFormat = [
+            kCVPixelBufferPixelFormatTypeKey as String: previewType,
+            kCVPixelBufferHeightKey as String: 160,
+            kCVPixelBufferWidthKey as String: 160
+        ]
+        settings.previewPhotoFormat = previewFormat
+        
+        cameraOutput.capturePhoto(with: settings, delegate: self)
+    }
+    
+    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+        
+        if let error = error {
+            print("An error has occured: \(error.localizedDescription)")
+        }
+     if let sampleBuffer = photoSampleBuffer,
+        let previewBuffer = previewPhotoSampleBuffer,
+        let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
+            print(UIImage(data: dataImage)?.size as Any)
+        
+        guard let dataProvider = CGDataProvider(data: dataImage as CFData),
+              let cgImageRef = CGImage(jpegDataProviderSource: dataProvider, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
+            else { return }
+        let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+        
+        self.imageView.image = image
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -21,21 +87,5 @@ class DropViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

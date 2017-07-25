@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,21 +22,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
-                                <rect key="frame" x="22" y="28" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAP-oG-9F0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="566"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
+                                        <rect key="frame" x="8" y="8" width="34" height="30"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Glr-hA-0P6" firstAttribute="top" secondItem="SAP-oG-9F0" secondAttribute="topMargin" id="cI0-mV-nEt"/>
+                                    <constraint firstItem="Glr-hA-0P6" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leadingMargin" id="ry2-fH-NT9"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
+                                <rect key="frame" x="149" y="617" width="77" height="30"/>
+                                <state key="normal" title="Take Photo"/>
                                 <connections>
-                                    <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
+                                    <action selector="takePhotoButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="nIG-SX-RmL"/>
+                                    <segue destination="8FB-P5-UuS" kind="show" id="5aR-Xc-iyL"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-pw-A2s">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SAP-oG-9F0" secondAttribute="trailing" id="DdM-8e-fDA"/>
+                            <constraint firstItem="lZv-X8-pl4" firstAttribute="top" secondItem="SAP-oG-9F0" secondAttribute="bottom" constant="31" id="E1j-pb-KdQ"/>
+                            <constraint firstItem="YJX-pw-A2s" firstAttribute="centerX" secondItem="lZv-X8-pl4" secondAttribute="centerX" id="GuV-v3-Npj"/>
+                            <constraint firstItem="YJX-pw-A2s" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leadingMargin" constant="51" id="TMs-pg-uhp"/>
+                            <constraint firstAttribute="bottom" secondItem="lZv-X8-pl4" secondAttribute="bottom" constant="20" symbolic="YES" id="WeR-Eu-gId"/>
+                            <constraint firstItem="YJX-pw-A2s" firstAttribute="top" secondItem="oKe-XZ-mhv" secondAttribute="bottom" constant="249" id="Z6i-DA-9Eq"/>
+                            <constraint firstItem="SAP-oG-9F0" firstAttribute="centerX" secondItem="YJX-pw-A2s" secondAttribute="centerX" id="aSP-r7-ozO"/>
+                            <constraint firstItem="SAP-oG-9F0" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="eHL-NM-ofL"/>
+                            <constraint firstItem="YJX-pw-A2s" firstAttribute="centerY" secondItem="s2D-MQ-qck" secondAttribute="centerY" id="jpq-zl-kPk"/>
+                            <constraint firstItem="SAP-oG-9F0" firstAttribute="top" secondItem="oKe-XZ-mhv" secondAttribute="bottom" id="kr1-5r-z3n"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraView" destination="SAP-oG-9F0" id="YZt-Qz-NSd"/>
+                        <outlet property="imageView" destination="YJX-pw-A2s" id="o9S-bn-thF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJZ-US-Dwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="121"/>
+            <point key="canvasLocation" x="6" y="122"/>
+        </scene>
+        <!--DropPreview-->
+        <scene sceneID="mdd-mN-AqC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DropPreview" id="8FB-P5-UuS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6b-rb-CbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="537" y="314"/>
         </scene>
     </scenes>
 </document>
