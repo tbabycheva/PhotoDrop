@@ -15,5 +15,13 @@ class DropPreviewViewController: UIViewController {
 
         
     }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func postButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }
