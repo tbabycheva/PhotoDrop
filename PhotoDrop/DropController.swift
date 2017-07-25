@@ -13,7 +13,7 @@ import MapKit
 
 class DropController {
     
-    let shared = DropController()
+    static let shared = DropController()
     var drops = [Drop]()
     let dropsPullNotification = Notification.Name(rawValue: "dropPullNotifiaction")
     
