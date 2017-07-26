@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210A3B4F1F2904D900218B61 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210A3B4E1F2904D900218B61 /* MapKit.framework */; };
 		218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BDFD71F26923700A6BBF5 /* AppDelegate.swift */; };
 		218BDFDF1F26923800A6BBF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFDE1F26923800A6BBF5 /* Assets.xcassets */; };
 		218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */; };
+		2A1364101F28F7F0008A3038 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A13640F1F28F7F0008A3038 /* UserController.swift */; };
 		3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */; };
 		3FF2CC161F279F8C00C68903 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC151F279F8C00C68903 /* User.swift */; };
 		3FF2CC181F279F9F00C68903 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC171F279F9F00C68903 /* Drop.swift */; };
@@ -34,7 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		210A3B4E1F2904D900218B61 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		218BDFD41F26923700A6BBF5 /* PhotoDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PhotoDrop/AppDelegate.swift; sourceTree = "<group>"; };
 		218BDFDE1F26923800A6BBF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				210A3B4F1F2904D900218B61 /* MapKit.framework in Frameworks */,
 				3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,22 +75,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		210A3B501F29066C00218B61 /* CloudKit */ = {
-			isa = PBXGroup;
-			children = (
-				3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */,
-			);
-			name = CloudKit;
-			sourceTree = "<group>";
-		};
-		210A3B511F29068C00218B61 /* ModelControllers */ = {
-			isa = PBXGroup;
-			children = (
-				B9DD7A181F28044D00CAE0D9 /* DropController.swift */,
-			);
-			name = ModelControllers;
-			sourceTree = "<group>";
-		};
 		218BDFCB1F26923700A6BBF5 = {
 			isa = PBXGroup;
 			children = (
@@ -114,12 +96,12 @@
 		218BDFD61F26923700A6BBF5 /* PhotoDrop */ = {
 			isa = PBXGroup;
 			children = (
-				218BDFD71F26923700A6BBF5 /* AppDelegate.swift */,
-				210A3B501F29066C00218B61 /* CloudKit */,
+				3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */,
 				3FF2CC141F279F6B00C68903 /* Protocols */,
 				3FF2CC111F279F1800C68903 /* Models */,
 				2A01FA8A1F280C0D008FD95F /* ModelControllers */,
 				B98DD8621F269A85000231E9 /* Storyboards */,
+				B98DD8631F269A91000231E9 /* View Controllers */,
 				218BDFE91F26925100A6BBF5 /* Resources */,
 			);
 			path = PhotoDrop;
@@ -165,7 +147,6 @@
 		3FF2CC1C1F27A1C300C68903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				210A3B4E1F2904D900218B61 /* MapKit.framework */,
 				3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -231,12 +212,9 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WC4MWVKQFQ;
+						DevelopmentTeam = WCS73R8992;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
-							com.apple.Maps.iOS = {
-								enabled = 1;
-							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -420,10 +398,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RobHand.PhotoDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -434,10 +412,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RobHand.PhotoDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
