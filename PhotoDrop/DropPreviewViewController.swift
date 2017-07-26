@@ -9,7 +9,7 @@
 import UIKit
 import  MapKit
 
-class DropPreviewViewController: UIViewController {
+class DropPreviewViewController: UIViewController, UITextFieldDelegate {
     
     var dropViewController: DropViewController?
     var image: UIImage?
@@ -21,10 +21,14 @@ class DropPreviewViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleTextField.delegate = self
 
         titleTextField.text = dropViewController?.photoTitle
         previewImage.image = image
     }
+    
+    
     
     @IBAction func backButtonTapped(_ sender: Any) {
         
@@ -40,4 +44,10 @@ class DropPreviewViewController: UIViewController {
         dropViewController?.dismiss(animated: true, completion: nil)
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        titleTextField.resignFirstResponder()
+        return true
+    }
+    
 }
