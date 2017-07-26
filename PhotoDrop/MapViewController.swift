@@ -55,6 +55,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 }
 
+
+// MARK: Current User Location
+
+extension MapViewController {
+    
+    // Get current user location coordinates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let sourceLocation = manager.location?.coordinate else { return }
+        self.sourceLocation = sourceLocation
+        
+        let span = MKCoordinateSpanMake(1.2, 1.2)
+        let region = MKCoordinateRegionMake(sourceLocation, span)
+        mapView.setRegion(region, animated: true)
+        
+        manager.stopUpdatingLocation()
+    }
+}
+
+
 // MARK: Creating and Displaying Gems
 
 extension MapViewController {
