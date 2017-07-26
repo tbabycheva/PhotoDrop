@@ -23,7 +23,7 @@ class UserController {
         user.push()
     }
     
-    func pullUser(userRecordID: CKRecordID, completion: @escaping (User?) -> Void) {
+    func pullUserWith(userRecordID: CKRecordID, completion: @escaping (User?) -> Void) {
         
         let userID = userRecordID
         let recordToMatch = CKReference(recordID: userID, action: .deleteSelf)
@@ -31,15 +31,37 @@ class UserController {
         
         var pullUser: User?
         User.pull(predicate: predicate, objectsPerPage: 1, pulledObject: { (user) in pullUser = user
-        }, completion: {_ in completion(pullUser) 
+        }, completion: {_ in completion(pullUser)
         })
     }
-        
     
-    func pullCurrentUser(user: User, username: String, numberOfRecievedDropLikes: Int, numberOfGivenDropLikes: Int, numberOfDrops: Int) {
-        user.username = username
-        user.numberOfRecievedDropLikes = numberOfRecievedDropLikes
-        user.numberOfGivenDropLikes = numberOfGivenDropLikes
-        user.numberOfDrops = numberOfDrops
+    func fetchRecordID(complete: @escaping (_ instance: CKRecordID?, _ error: Error?) -> ()) {
+        let container = CKContainer.default()
+        container.fetchUserRecordID() {
+            recordID, error in
+            if error != nil {
+                print(error!.localizedDescription)
+                complete(nil, error)
+            } else {
+                print("fetched ID \(recordID?.recordName)")
+                complete(recordID, nil)
+            }
+        }
+    }
+    
+    func pullCurrentUserWith(completion: @escaping (User?) -> Void) {
+        let container = CKContainer.default()
+        pullUserWith(userRecordID: container .fetchUserRecordID(completionHandler: { (recordID, error) in
+            guard let recordID = recordID else {
+                if let error = error {
+                    print("error")
+                    return
+                }
+                completion(recordID)
+                return
+            }
+            
+        }), completion: completion)
+        
     }
 }
