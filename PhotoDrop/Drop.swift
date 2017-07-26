@@ -40,7 +40,7 @@ class Drop: CloudKitSyncable {
 
   static let recordType = "Drop"
 
-  static let database: CKDatabase = CKContainer.default().privateCloudDatabase
+  static let database: CKDatabase = CKContainer.default().publicCloudDatabase
 
   private struct Keys {
     static let title = "title"

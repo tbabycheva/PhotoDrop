@@ -34,7 +34,7 @@ class DropPreviewViewController: UIViewController {
     
     @IBAction func postButtonTapped(_ sender: Any) {
         
-        DropController.shared.createDropWith(title: titleTextField.text!, timestamp: Date(), location: CLLocationCoordinate2D(latitude: Double(longitudeTextField.text!)!, longitude: Double(longitudeTextField.text!)!) , image: UIImage(), completion: nil)
+        DropController.shared.createDropWith(title: titleTextField.text!, timestamp: Date(), location: CLLocationCoordinate2D(latitude: Double(latitudeTextField.text!)!, longitude: Double(longitudeTextField.text!)!) , image: UIImage(), completion: nil)
         
         dismiss(animated: true, completion: nil)
         dropViewController?.dismiss(animated: true, completion: nil)

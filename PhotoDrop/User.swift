@@ -37,7 +37,7 @@ class User: CloudKitSyncable {
 
   static let recordType = "User"
 
-  static let database: CKDatabase = CKContainer.default().privateCloudDatabase
+  static let database: CKDatabase = CKContainer.default().publicCloudDatabase
 
   private struct Keys {
     static let username = "username"
