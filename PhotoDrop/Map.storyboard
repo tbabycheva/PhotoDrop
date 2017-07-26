@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r71-B0-3Te">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r71-B0-3Te">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,43 +22,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHA-CJ-SIi">
-                                <rect key="frame" x="60" y="512" width="43" height="30"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EIf-wT-bnA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHA-CJ-SIi" userLabel="Points Button">
+                                <rect key="frame" x="54" y="549" width="50" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="Cfh-kQ-LkY"/>
+                                    <constraint firstAttribute="width" constant="50" id="Cfh-kQ-LkY"/>
                                 </constraints>
-                                <state key="normal" title="Points"/>
+                                <state key="normal" title=" Points"/>
                                 <connections>
                                     <segue destination="P7F-n8-CC3" kind="show" id="Fnw-hs-FPo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje">
-                                <rect key="frame" x="265" y="512" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje" userLabel="PhotoList Button">
+                                <rect key="frame" x="271.5" y="549" width="65" height="30"/>
                                 <state key="normal" title="PhotoList"/>
                                 <connections>
                                     <segue destination="Y2b-Re-S3v" kind="show" id="IOr-ni-9zZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-cW-ida">
-                                <rect key="frame" x="134" y="512" width="106" height="104"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-cW-ida" userLabel="Camera Button">
+                                <rect key="frame" x="135.5" y="512" width="104" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="SC9-bv-IbO"/>
+                                    <constraint firstAttribute="width" secondItem="OOL-cW-ida" secondAttribute="height" multiplier="1:1" id="XMI-sc-ETO"/>
+                                </constraints>
                                 <state key="normal" image="photo-camera-outline" backgroundImage="Oval 2"/>
                                 <connections>
                                     <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-RY-Mej" userLabel="Current Location Button">
+                                <rect key="frame" x="343" y="42" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="9PW-4Z-ow3"/>
+                                    <constraint firstAttribute="width" secondItem="bmf-RY-Mej" secondAttribute="height" multiplier="1:1" id="cmb-M8-Xka"/>
+                                </constraints>
+                                <state key="normal" image="location-cursor"/>
+                                <connections>
+                                    <action selector="currentLocationButtonTapped:" destination="r71-B0-3Te" eventType="touchUpInside" id="OqO-Jb-QYl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53609974540000005" green="1" blue="0.99327762159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="v7M-0x-FS3" firstAttribute="top" secondItem="QHA-CJ-SIi" secondAttribute="bottom" constant="125" id="Fek-ah-h1V"/>
-                            <constraint firstItem="QHA-CJ-SIi" firstAttribute="baseline" secondItem="P0c-s7-Hje" secondAttribute="baseline" id="MLW-E9-Fxc"/>
-                            <constraint firstItem="QHA-CJ-SIi" firstAttribute="top" secondItem="OOL-cW-ida" secondAttribute="top" id="bA1-7c-G1s"/>
-                            <constraint firstItem="P0c-s7-Hje" firstAttribute="leading" secondItem="OOL-cW-ida" secondAttribute="trailing" constant="25" id="bRs-HF-9uY"/>
-                            <constraint firstItem="OOL-cW-ida" firstAttribute="leading" secondItem="QHA-CJ-SIi" secondAttribute="trailing" constant="31" id="cGK-NR-QsL"/>
-                            <constraint firstItem="v7M-0x-FS3" firstAttribute="top" secondItem="OOL-cW-ida" secondAttribute="bottom" constant="51" id="m3n-cn-HCH"/>
+                            <constraint firstAttribute="trailing" secondItem="EIf-wT-bnA" secondAttribute="trailing" id="1YE-PG-mUF"/>
+                            <constraint firstItem="bmf-RY-Mej" firstAttribute="top" secondItem="LvF-7J-9C7" secondAttribute="bottom" constant="22" id="7v7-Jp-7N5"/>
+                            <constraint firstItem="QHA-CJ-SIi" firstAttribute="centerY" secondItem="OOL-cW-ida" secondAttribute="centerY" id="AYz-5J-Nox"/>
+                            <constraint firstAttribute="bottom" secondItem="EIf-wT-bnA" secondAttribute="bottom" id="DZw-VO-f64"/>
+                            <constraint firstItem="P0c-s7-Hje" firstAttribute="centerY" secondItem="OOL-cW-ida" secondAttribute="centerY" id="PvU-WZ-mVM"/>
+                            <constraint firstItem="v7M-0x-FS3" firstAttribute="top" secondItem="OOL-cW-ida" secondAttribute="bottom" constant="51" id="ajK-CA-bNF"/>
+                            <constraint firstItem="P0c-s7-Hje" firstAttribute="leading" secondItem="OOL-cW-ida" secondAttribute="trailing" constant="32" id="bRs-HF-9uY"/>
+                            <constraint firstItem="OOL-cW-ida" firstAttribute="leading" secondItem="QHA-CJ-SIi" secondAttribute="trailing" constant="32" id="cGK-NR-QsL"/>
+                            <constraint firstItem="EIf-wT-bnA" firstAttribute="top" secondItem="4TE-ZP-CWR" secondAttribute="top" id="hLc-23-auH"/>
+                            <constraint firstItem="EIf-wT-bnA" firstAttribute="leading" secondItem="4TE-ZP-CWR" secondAttribute="leading" id="jTr-Xr-2HA"/>
                             <constraint firstItem="OOL-cW-ida" firstAttribute="centerX" secondItem="4TE-ZP-CWR" secondAttribute="centerX" id="pAe-Bx-V5f"/>
-                            <constraint firstItem="QHA-CJ-SIi" firstAttribute="leading" secondItem="4TE-ZP-CWR" secondAttribute="leadingMargin" constant="44" id="zus-rH-CPT"/>
+                            <constraint firstAttribute="trailing" secondItem="bmf-RY-Mej" secondAttribute="trailing" constant="16" id="pQH-um-xmb"/>
+                            <constraint firstItem="EIf-wT-bnA" firstAttribute="top" secondItem="4TE-ZP-CWR" secondAttribute="top" id="qc0-Rk-ugJ"/>
+                            <constraint firstAttribute="bottom" secondItem="EIf-wT-bnA" secondAttribute="bottom" id="xB5-Ga-AWB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="EIf-wT-bnA" id="yeG-LD-FLH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55S-eE-Gdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,6 +118,7 @@
     </scenes>
     <resources>
         <image name="Oval 2" width="89" height="90"/>
+        <image name="location-cursor" width="128" height="128"/>
         <image name="photo-camera-outline" width="61" height="48"/>
     </resources>
 </document>
