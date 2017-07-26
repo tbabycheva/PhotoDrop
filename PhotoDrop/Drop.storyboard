@@ -44,7 +44,6 @@
                                 <state key="normal" title="Take Photo"/>
                                 <connections>
                                     <action selector="takePhotoButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="nIG-SX-RmL"/>
-                                    <segue destination="8FB-P5-UuS" kind="show" id="5aR-Xc-iyL"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-pw-A2s">
@@ -68,6 +67,7 @@
                     <connections>
                         <outlet property="cameraView" destination="SAP-oG-9F0" id="YZt-Qz-NSd"/>
                         <outlet property="imageView" destination="YJX-pw-A2s" id="o9S-bn-thF"/>
+                        <segue destination="8FB-P5-UuS" kind="show" identifier="toDropPreview" id="ab3-6t-R55"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJZ-US-Dwn" userLabel="First Responder" sceneMemberID="firstResponder"/>

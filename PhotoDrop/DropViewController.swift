@@ -80,6 +80,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
         
         self.imageView.image = image
+        
+        performSegue(withIdentifier: "toDropPreview", sender: nil)
         }
     }
     
@@ -90,6 +92,12 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toDropPreview" {
+            let image = self.imageView.image
+            let dropPreviewVC = segue.destination as? DropPreviewViewController
+            dropPreviewVC?.image = image
+        }
         
     }
 
