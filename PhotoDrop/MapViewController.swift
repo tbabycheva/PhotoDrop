@@ -88,5 +88,28 @@ extension MapViewController {
     }
 }
 
+// MARK: - Customizing Gems
+
+extension MapViewController {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyGem"
+        
+        // exclude the annotation for current user location
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        
+        var annotationView:MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.image = UIImage(named: "gold")
+        }
+        
+        return annotationView
+    }
+}
 
 
