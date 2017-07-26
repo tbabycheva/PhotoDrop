@@ -16,6 +16,8 @@
 		3FF2CC181F279F9F00C68903 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC171F279F9F00C68903 /* Drop.swift */; };
 		3FF2CC1A1F279FFD00C68903 /* DropLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC191F279FFD00C68903 /* DropLike.swift */; };
 		3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */; };
+		3FF5CCE81F29259600D8531C /* GeoFenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE71F29259600D8531C /* GeoFenceController.swift */; };
+		3FF5CCEA1F2925A400D8531C /* CurrentLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */; };
 		B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */; };
 		B9894EC21F27E3B9008F4829 /* DropPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */; };
 		B98DD84B1F26995A000231E9 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD84A1F26995A000231E9 /* Map.storyboard */; };
@@ -46,6 +48,8 @@
 		3FF2CC191F279FFD00C68903 /* DropLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropLike.swift; sourceTree = "<group>"; };
 		3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoDrop.entitlements; sourceTree = "<group>"; };
 		3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		3FF5CCE71F29259600D8531C /* GeoFenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoFenceController.swift; sourceTree = "<group>"; };
+		3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationController.swift; sourceTree = "<group>"; };
 		B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DropPreview.storyboard; sourceTree = "<group>"; };
 		B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropPreviewViewController.swift; sourceTree = "<group>"; };
 		B98DD84A1F26995A000231E9 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -96,12 +100,12 @@
 		218BDFD61F26923700A6BBF5 /* PhotoDrop */ = {
 			isa = PBXGroup;
 			children = (
-				3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */,
-				3FF2CC141F279F6B00C68903 /* Protocols */,
 				3FF2CC111F279F1800C68903 /* Models */,
+				3FF2CC141F279F6B00C68903 /* Protocols */,
+				3FF5CCEB1F2925A700D8531C /* Controllers */,
 				2A01FA8A1F280C0D008FD95F /* ModelControllers */,
-				B98DD8621F269A85000231E9 /* Storyboards */,
 				B98DD8631F269A91000231E9 /* View Controllers */,
+				B98DD8621F269A85000231E9 /* Storyboards */,
 				218BDFE91F26925100A6BBF5 /* Resources */,
 			);
 			path = PhotoDrop;
@@ -110,6 +114,7 @@
 		218BDFE91F26925100A6BBF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */,
 				218BDFDE1F26923800A6BBF5 /* Assets.xcassets */,
 				218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */,
 				218BDFE31F26923800A6BBF5 /* Info.plist */,
@@ -150,6 +155,15 @@
 				3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FF5CCEB1F2925A700D8531C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */,
+				3FF5CCE71F29259600D8531C /* GeoFenceController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		B98DD8621F269A85000231E9 /* Storyboards */ = {
@@ -212,7 +226,11 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
+<<<<<<< HEAD
 						DevelopmentTeam = X7J6W2VA9A;
+=======
+						DevelopmentTeam = F83BNBJ3DN;
+>>>>>>> d90ce0bcbc59338deb2ffd3b076e3816a90a0144
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -276,6 +294,8 @@
 				B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */,
 				B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */,
 				3FF2CC161F279F8C00C68903 /* User.swift in Sources */,
+				3FF5CCE81F29259600D8531C /* GeoFenceController.swift in Sources */,
+				3FF5CCEA1F2925A400D8531C /* CurrentLocationController.swift in Sources */,
 				B98DD8611F269A53000231E9 /* PhotoViewController.swift in Sources */,
 				B98DD85B1F269A32000231E9 /* DropViewController.swift in Sources */,
 				3FF2CC1A1F279FFD00C68903 /* DropLike.swift in Sources */,
@@ -398,10 +418,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = X7J6W2VA9A;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
+=======
+				DEVELOPMENT_TEAM = F83BNBJ3DN;
+				INFOPLIST_FILE = PhotoDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Amnykon.PhotoDrop;
+>>>>>>> d90ce0bcbc59338deb2ffd3b076e3816a90a0144
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -412,10 +439,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = X7J6W2VA9A;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
+=======
+				DEVELOPMENT_TEAM = F83BNBJ3DN;
+				INFOPLIST_FILE = PhotoDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Amnykon.PhotoDrop;
+>>>>>>> d90ce0bcbc59338deb2ffd3b076e3816a90a0144
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
