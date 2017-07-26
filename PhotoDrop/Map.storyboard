@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r71-B0-3Te">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r71-B0-3Te">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -46,19 +46,39 @@
                                     <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-RY-Mej">
+                                <rect key="frame" x="320" y="50" width="23" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="location-cursor"/>
+                                <connections>
+                                    <action selector="currentLocationButtonTapped:" destination="r71-B0-3Te" eventType="touchUpInside" id="egs-xB-nPs"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EIf-wT-bnA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EIf-wT-bnA" secondAttribute="trailing" id="1YE-PG-mUF"/>
+                            <constraint firstAttribute="bottom" secondItem="EIf-wT-bnA" secondAttribute="bottom" id="DZw-VO-f64"/>
                             <constraint firstItem="v7M-0x-FS3" firstAttribute="top" secondItem="QHA-CJ-SIi" secondAttribute="bottom" constant="125" id="Fek-ah-h1V"/>
                             <constraint firstItem="QHA-CJ-SIi" firstAttribute="baseline" secondItem="P0c-s7-Hje" secondAttribute="baseline" id="MLW-E9-Fxc"/>
                             <constraint firstItem="QHA-CJ-SIi" firstAttribute="top" secondItem="OOL-cW-ida" secondAttribute="top" id="bA1-7c-G1s"/>
                             <constraint firstItem="P0c-s7-Hje" firstAttribute="leading" secondItem="OOL-cW-ida" secondAttribute="trailing" constant="25" id="bRs-HF-9uY"/>
                             <constraint firstItem="OOL-cW-ida" firstAttribute="leading" secondItem="QHA-CJ-SIi" secondAttribute="trailing" constant="31" id="cGK-NR-QsL"/>
+                            <constraint firstItem="EIf-wT-bnA" firstAttribute="top" secondItem="4TE-ZP-CWR" secondAttribute="top" id="hLc-23-auH"/>
+                            <constraint firstItem="EIf-wT-bnA" firstAttribute="leading" secondItem="4TE-ZP-CWR" secondAttribute="leading" id="jTr-Xr-2HA"/>
                             <constraint firstItem="v7M-0x-FS3" firstAttribute="top" secondItem="OOL-cW-ida" secondAttribute="bottom" constant="51" id="m3n-cn-HCH"/>
                             <constraint firstItem="OOL-cW-ida" firstAttribute="centerX" secondItem="4TE-ZP-CWR" secondAttribute="centerX" id="pAe-Bx-V5f"/>
+                            <constraint firstItem="EIf-wT-bnA" firstAttribute="top" secondItem="4TE-ZP-CWR" secondAttribute="top" id="qc0-Rk-ugJ"/>
+                            <constraint firstAttribute="bottom" secondItem="EIf-wT-bnA" secondAttribute="bottom" id="xB5-Ga-AWB"/>
                             <constraint firstItem="QHA-CJ-SIi" firstAttribute="leading" secondItem="4TE-ZP-CWR" secondAttribute="leadingMargin" constant="44" id="zus-rH-CPT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="EIf-wT-bnA" id="yeG-LD-FLH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55S-eE-Gdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,6 +111,7 @@
     </scenes>
     <resources>
         <image name="Oval 2" width="89" height="90"/>
+        <image name="location-cursor" width="8" height="8"/>
         <image name="photo-camera-outline" width="61" height="48"/>
     </resources>
 </document>

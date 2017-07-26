@@ -7,7 +7,16 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    
+    
+    @IBAction func currentLocationButtonTapped(_ sender: Any) {
+    }
 
 }
