@@ -11,6 +11,8 @@ import  MapKit
 
 class DropPreviewViewController: UIViewController {
     
+    var dropViewCntroller: DropViewController?
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var longitudeTextField: UITextField!
     @IBOutlet weak var latitudeTextField: UITextField!
@@ -18,12 +20,14 @@ class DropPreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        titleTextField.text = dropViewCntroller?.photoTitle
     }
     
     
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        
+        dropViewCntroller?.photoTitle = titleTextField.text
         dismiss(animated: true, completion: nil)
     }
     
@@ -32,6 +36,7 @@ class DropPreviewViewController: UIViewController {
         DropController.shared.createDropWith(title: titleTextField.text!, timestamp: Date(), location: CLLocationCoordinate2D(latitude: Double(latitudeTextField.text!)!, longitude: Double(longitudeTextField.text!)!) , image: UIImage(), completion: nil)
         
         dismiss(animated: true, completion: nil)
+        dropViewCntroller?.dismiss(animated: true, completion: nil)
     }
 
 }

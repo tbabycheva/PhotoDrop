@@ -14,6 +14,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var cameraOutput: AVCapturePhotoOutput!
     var cameraSession: AVCaptureSession!
     var camPreviewLayer: AVCaptureVideoPreviewLayer!
+    var photoTitle: String?
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -85,6 +86,10 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBAction func backButtonTapped(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
 
