@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,37 +22,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-cW-ida">
-                                <rect key="frame" x="160" y="512" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHA-CJ-SIi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHA-CJ-SIi">
                                 <rect key="frame" x="60" y="512" width="43" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="Cfh-kQ-LkY"/>
+                                </constraints>
                                 <state key="normal" title="Points"/>
                                 <connections>
                                     <segue destination="P7F-n8-CC3" kind="show" id="Fnw-hs-FPo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje">
                                 <rect key="frame" x="265" y="512" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="PhotoList"/>
                                 <connections>
                                     <segue destination="Y2b-Re-S3v" kind="show" id="IOr-ni-9zZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-cW-ida">
+                                <rect key="frame" x="134" y="512" width="106" height="104"/>
+                                <state key="normal" image="photo-camera-outline" backgroundImage="Oval 2"/>
+                                <connections>
+                                    <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v7M-0x-FS3" firstAttribute="top" secondItem="QHA-CJ-SIi" secondAttribute="bottom" constant="125" id="Fek-ah-h1V"/>
+                            <constraint firstItem="QHA-CJ-SIi" firstAttribute="baseline" secondItem="P0c-s7-Hje" secondAttribute="baseline" id="MLW-E9-Fxc"/>
+                            <constraint firstItem="QHA-CJ-SIi" firstAttribute="top" secondItem="OOL-cW-ida" secondAttribute="top" id="bA1-7c-G1s"/>
+                            <constraint firstItem="P0c-s7-Hje" firstAttribute="leading" secondItem="OOL-cW-ida" secondAttribute="trailing" constant="25" id="bRs-HF-9uY"/>
+                            <constraint firstItem="OOL-cW-ida" firstAttribute="leading" secondItem="QHA-CJ-SIi" secondAttribute="trailing" constant="31" id="cGK-NR-QsL"/>
+                            <constraint firstItem="v7M-0x-FS3" firstAttribute="top" secondItem="OOL-cW-ida" secondAttribute="bottom" constant="51" id="m3n-cn-HCH"/>
+                            <constraint firstItem="OOL-cW-ida" firstAttribute="centerX" secondItem="4TE-ZP-CWR" secondAttribute="centerX" id="pAe-Bx-V5f"/>
+                            <constraint firstItem="QHA-CJ-SIi" firstAttribute="leading" secondItem="4TE-ZP-CWR" secondAttribute="leadingMargin" constant="44" id="zus-rH-CPT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55S-eE-Gdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57" y="131"/>
+            <point key="canvasLocation" x="56.799999999999997" y="130.88455772113943"/>
         </scene>
         <!--PhotoList-->
         <scene sceneID="b29-8L-V1N">
@@ -78,4 +89,8 @@
             <point key="canvasLocation" x="812" y="120"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Oval 2" width="89" height="90"/>
+        <image name="photo-camera-outline" width="61" height="48"/>
+    </resources>
 </document>
