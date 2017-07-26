@@ -36,10 +36,11 @@
 /* Begin PBXFileReference section */
 		210A3B4E1F2904D900218B61 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		218BDFD41F26923700A6BBF5 /* PhotoDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PhotoDrop/AppDelegate.swift; sourceTree = "<group>"; };
 		218BDFDE1F26923800A6BBF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		218BDFE11F26923800A6BBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218BDFE31F26923800A6BBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A13640F1F28F7F0008A3038 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
 		3FF2CC151F279F8C00C68903 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FF2CC171F279F9F00C68903 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		218BDFCB1F26923700A6BBF5 = {
 			isa = PBXGroup;
 			children = (
+				218BDFD71F26923700A6BBF5 /* AppDelegate.swift */,
 				218BDFD61F26923700A6BBF5 /* PhotoDrop */,
 				218BDFD51F26923700A6BBF5 /* Products */,
 				3FF2CC1C1F27A1C300C68903 /* Frameworks */,
@@ -116,8 +118,7 @@
 				210A3B501F29066C00218B61 /* CloudKit */,
 				3FF2CC141F279F6B00C68903 /* Protocols */,
 				3FF2CC111F279F1800C68903 /* Models */,
-				210A3B511F29068C00218B61 /* ModelControllers */,
-				B98DD8631F269A91000231E9 /* View Controllers */,
+				2A01FA8A1F280C0D008FD95F /* ModelControllers */,
 				B98DD8621F269A85000231E9 /* Storyboards */,
 				218BDFE91F26925100A6BBF5 /* Resources */,
 			);
@@ -132,6 +133,15 @@
 				218BDFE31F26923800A6BBF5 /* Info.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A01FA8A1F280C0D008FD95F /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A13640F1F28F7F0008A3038 /* UserController.swift */,
+				B9DD7A181F28044D00CAE0D9 /* DropController.swift */,
+			);
+			name = ModelControllers;
 			sourceTree = "<group>";
 		};
 		3FF2CC111F279F1800C68903 /* Models */ = {
@@ -221,7 +231,7 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WCS73R8992;
+						DevelopmentTeam = WC4MWVKQFQ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -283,6 +293,7 @@
 				B9894EC21F27E3B9008F4829 /* DropPreviewViewController.swift in Sources */,
 				218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */,
 				3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */,
+				2A1364101F28F7F0008A3038 /* UserController.swift in Sources */,
 				B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */,
 				B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */,
 				B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */,
@@ -409,10 +420,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WCS73R8992;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RobHand.PhotoDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -423,10 +434,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WCS73R8992;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RobHand.PhotoDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

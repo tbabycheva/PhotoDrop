@@ -45,11 +45,14 @@ class DropController {
         }, pageFinished: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)}, completion: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)}) 
     }
     
-    func hasLikedDrop() {
-        
+    func pullDetailDropWith(drop: Drop, hasLiked: Bool, image: UIImage, dropperUserName: String) {
+        drop.hasLiked = hasLiked
+        drop.image = image as UIImage?
+        drop.dropperUserName = dropperUserName
     }
     
-    func hasReportedDrop() {
+    //should this be reportedUser? 
+    func pullReportedDrop() { 
         
     }
 }
