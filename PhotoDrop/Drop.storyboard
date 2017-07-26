@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.53609974538419336" green="1" blue="0.99327762160030697" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="0Yv-uI-Wwb"/>
                             <constraint firstItem="YJX-pw-A2s" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leadingMargin" constant="51" id="1xx-ZV-WbN"/>

@@ -82,7 +82,7 @@
                                 <rect key="frame" x="51" y="282" width="273" height="310"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.53609974540000005" green="1" blue="0.99327762159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Hzx-Rb-R5R" firstAttribute="top" secondItem="Lb1-jx-JC0" secondAttribute="bottom" constant="37" id="0jE-27-lHw"/>
                             <constraint firstItem="C53-sZ-5Ka" firstAttribute="top" secondItem="h3y-yo-DR5" secondAttribute="bottom" constant="38" id="9k4-OU-hrk"/>
