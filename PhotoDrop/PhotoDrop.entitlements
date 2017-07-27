@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.com.babycheva.PhotoDrops</string>
+		<string>iCloud.com.KennyPeterson.PhotoDrop</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>

@@ -15,24 +15,38 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var cameraSession: AVCaptureSession!
     var camPreviewLayer: AVCaptureVideoPreviewLayer!
     var photoTitle: String?
+    var cameraState: Bool?
+
+    var cameraPosition = AVCaptureDevicePosition.back
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var takePhotoButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var flashToggle: UIButton!
+    @IBOutlet weak var cameraPositionToggle: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageView.isHidden = true
-        view.bringSubview(toFront: takePhotoButton)
 
+        cameraLoad()
+        
+    }
+    
+    func cameraLoad() {
+        
+        view.addSubview(backButton)
+        view.addSubview(takePhotoButton)
+        imageView.isHidden = true
+        
         cameraSession = AVCaptureSession()
         cameraSession.sessionPreset = AVCaptureSessionPresetPhoto
         cameraOutput = AVCapturePhotoOutput()
         
-        let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
-        if let input = try? AVCaptureDeviceInput(device: backCamera) {
+        if let input = try? AVCaptureDeviceInput(device: camera) {
             if (cameraSession.canAddInput(input)) {
                 cameraSession.addInput(input)
                 if (cameraSession.canAddOutput(cameraOutput)) {
@@ -41,6 +55,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
                     camPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
                     camPreviewLayer.frame = cameraView.bounds
                     camPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+                    
                     cameraView.layer.addSublayer(camPreviewLayer)
                     cameraSession.startRunning()
                 }
@@ -51,6 +66,14 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             print("An error occurred.")
         }
         
+    }
+    
+    @IBAction func flashToggleButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func cameraPositionTogglePressed(_ sender: Any) {
+        toggleCamera()
     }
     
     // Taking the picture
@@ -88,6 +111,22 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         
         performSegue(withIdentifier: "toDropPreview", sender: nil)
         }
+    }
+    
+    func toggleFlash() {
+        
+        
+        
+    }
+    
+    func toggleCamera() {
+        
+        if cameraPosition == AVCaptureDevicePosition.front {
+            cameraPosition = AVCaptureDevicePosition.back
+        } else {
+            cameraPosition = AVCaptureDevicePosition.back
+        }
+        cameraLoad()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {

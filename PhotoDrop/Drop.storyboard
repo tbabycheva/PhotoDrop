@@ -21,41 +21,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SAP-oG-9F0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-pw-A2s">
+                                <rect key="frame" x="67" y="269" width="240" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAP-oG-9F0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-pw-A2s">
-                                        <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
-                                        <rect key="frame" x="24" y="23" width="34" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
-                                        <rect key="frame" x="142" y="553" width="90" height="90"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Take Photo" image="Circle-clipart-frame">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="takePhotoButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="nIG-SX-RmL"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3h-lt-2Ib">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
+                                                <rect key="frame" x="30" y="30" width="34" height="30"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
+                                                <rect key="frame" x="254" y="30" width="91" height="30"/>
+                                                <state key="normal" title="Flash: On/Off"/>
+                                                <connections>
+                                                    <action selector="flashToggleButtonPressed:" destination="sav-ME-bra" eventType="touchUpInside" id="dn5-E9-Rvw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eb-p0-Ft5">
+                                                <rect key="frame" x="270" y="68" width="75" height="30"/>
+                                                <state key="normal" title="Front/Back"/>
+                                                <connections>
+                                                    <action selector="cameraPositionTogglePressed:" destination="sav-ME-bra" eventType="touchUpInside" id="I5J-wW-hd9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
+                                                <rect key="frame" x="142" y="533" width="90" height="90"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Take Photo" image="Oval 2">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="45"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="takePhotoButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="nIG-SX-RmL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0Eb-p0-Ft5" secondAttribute="trailing" constant="30" id="66F-bt-7fd"/>
+                                            <constraint firstItem="0Eb-p0-Ft5" firstAttribute="top" secondItem="Ilc-ck-Ouy" secondAttribute="bottom" constant="8" id="7ws-qj-6PA"/>
+                                            <constraint firstItem="Ilc-ck-Ouy" firstAttribute="top" secondItem="R3h-lt-2Ib" secondAttribute="top" constant="30" id="ENN-qW-XZY"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ilc-ck-Ouy" secondAttribute="trailing" constant="30" id="Pv7-Zv-k1q"/>
+                                            <constraint firstItem="Glr-hA-0P6" firstAttribute="top" secondItem="R3h-lt-2Ib" secondAttribute="top" constant="30" id="Tzr-Uv-Bi9"/>
+                                            <constraint firstItem="Glr-hA-0P6" firstAttribute="leading" secondItem="R3h-lt-2Ib" secondAttribute="leading" constant="30" id="kUe-wq-kKC"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="R3h-lt-2Ib" secondAttribute="bottom" id="Ils-vf-7W2"/>
+                                    <constraint firstAttribute="trailing" secondItem="R3h-lt-2Ib" secondAttribute="trailing" id="UMb-tc-VIF"/>
+                                    <constraint firstItem="R3h-lt-2Ib" firstAttribute="top" secondItem="SAP-oG-9F0" secondAttribute="top" id="eYd-9Y-FJm"/>
+                                    <constraint firstItem="R3h-lt-2Ib" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leading" id="uuS-u8-RGz"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.53609974538419336" green="1" blue="0.99327762160030697" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SAP-oG-9F0" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="top" id="SRz-25-F7T"/>
+                            <constraint firstAttribute="trailing" secondItem="SAP-oG-9F0" secondAttribute="trailing" id="dqc-Wv-vzM"/>
+                            <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="SAP-oG-9F0" secondAttribute="bottom" id="iQA-uI-9pe"/>
+                            <constraint firstItem="SAP-oG-9F0" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="sme-7e-Uyn"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Glr-hA-0P6" id="WiM-JR-jnS"/>
+                        <outlet property="cameraPositionToggle" destination="0Eb-p0-Ft5" id="0pq-KC-47O"/>
                         <outlet property="cameraView" destination="SAP-oG-9F0" id="YZt-Qz-NSd"/>
+                        <outlet property="flashToggle" destination="Ilc-ck-Ouy" id="8Qy-Ca-BeH"/>
                         <outlet property="imageView" destination="YJX-pw-A2s" id="o9S-bn-thF"/>
+                        <outlet property="overlayView" destination="R3h-lt-2Ib" id="AjY-n2-aAb"/>
                         <outlet property="takePhotoButton" destination="lZv-X8-pl4" id="Ult-rt-5J8"/>
                         <segue destination="8FB-P5-UuS" kind="show" identifier="toDropPreview" id="ab3-6t-R55"/>
                     </connections>
@@ -74,6 +123,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Circle-clipart-frame" width="666" height="666"/>
+        <image name="Oval 2" width="89" height="90"/>
     </resources>
 </document>
