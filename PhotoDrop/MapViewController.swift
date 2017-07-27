@@ -182,7 +182,7 @@ extension MapViewController {
             annotationView?.image = UIImage(named: "gold")
             
             // Pin thumbnail setup
-            let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
+            let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
             showDistanceButton.setImage(UIImage(named: "distance-white"), for: .normal)
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton

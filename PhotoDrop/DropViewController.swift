@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate {
     
     var cameraOutput: AVCapturePhotoOutput!
     var cameraSession: AVCaptureSession!
@@ -18,25 +18,29 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var takePhotoButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imageView.isHidden = true
+        view.bringSubview(toFront: takePhotoButton)
 
         cameraSession = AVCaptureSession()
         cameraSession.sessionPreset = AVCaptureSessionPresetPhoto
         cameraOutput = AVCapturePhotoOutput()
         
-        let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
-        if let input = try? AVCaptureDeviceInput(device: camera) {
+        if let input = try? AVCaptureDeviceInput(device: backCamera) {
             if (cameraSession.canAddInput(input)) {
                 cameraSession.addInput(input)
                 if (cameraSession.canAddOutput(cameraOutput)) {
                     cameraSession.addOutput(cameraOutput)
                     camPreviewLayer = AVCaptureVideoPreviewLayer(session: cameraSession)
+                    camPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
                     camPreviewLayer.frame = cameraView.bounds
+                    camPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientation.portrait
                     cameraView.layer.addSublayer(camPreviewLayer)
                     cameraSession.startRunning()
                 }
@@ -52,6 +56,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     // Taking the picture
     
     @IBAction func takePhotoButtonTapped(_ sender: Any) {
+        
         let settings = AVCapturePhotoSettings()
         let previewType = settings.availablePreviewPhotoPixelFormatTypes.first!
         let previewFormat = [
