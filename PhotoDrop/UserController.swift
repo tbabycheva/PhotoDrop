@@ -35,33 +35,18 @@ class UserController {
         })
     }
     
-    func fetchRecordID(complete: @escaping (_ instance: CKRecordID?, _ error: Error?) -> ()) {
+    func pullCurrentUser(completion: @escaping (User?) -> Void) {
         let container = CKContainer.default()
-        container.fetchUserRecordID() {
+        pullUserWith(userRecordID: container.fetchUserRecordID() {
             recordID, error in
-            if error != nil {
-                print(error!.localizedDescription)
-                complete(nil, error)
+            if error = error {
+                print("error")
+                return
             } else {
                 print("fetched ID \(recordID?.recordName)")
-                complete(recordID, nil)
-            }
-        }
-    }
-    
-    func pullCurrentUserWith(completion: @escaping (User?) -> Void) {
-        let container = CKContainer.default()
-        pullUserWith(userRecordID: container .fetchUserRecordID(completionHandler: { (recordID, error) in
-            guard let recordID = recordID else {
-                if let error = error {
-                    print("error")
-                    return
-                }
                 completion(recordID)
                 return
             }
-            
-        }), completion: completion)
-        
+        }, completion: completion)
     }
 }
