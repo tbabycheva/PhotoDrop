@@ -49,10 +49,14 @@ class DropController {
         drop.hasLiked = hasLiked
         drop.image = image as UIImage?
         drop.dropperUserName = dropperUserName
+        
     }
     
-    //should this be reportedUser? 
-    func pullReportedDrop() { 
+    func pullCKAsset() {
+        
+    }
+    
+    func pushCKAsset() {
         
     }
 }
