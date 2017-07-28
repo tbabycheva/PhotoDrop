@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167927C1F2BA5B700DEF0BD /* Assets.xcassets */; };
 		218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BDFD71F26923700A6BBF5 /* AppDelegate.swift */; };
 		218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */; };
 		219EE2991F2957A200CED555 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219EE2981F2957A200CED555 /* Map.storyboard */; };
-		21F7A0151F293E51001D152E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F7A0141F293E51001D152E /* Assets.xcassets */; };
 		2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */; };
 		2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */; };
 		2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */; };
@@ -43,12 +43,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2167927C1F2BA5B700DEF0BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		218BDFD41F26923700A6BBF5 /* PhotoDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PhotoDrop/AppDelegate.swift; sourceTree = "<group>"; };
 		218BDFE11F26923800A6BBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218BDFE31F26923800A6BBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219EE2981F2957A200CED555 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
-		21F7A0141F293E51001D152E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDropUserController.swift; sourceTree = "<group>"; };
 		2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
 		2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUserController.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */,
-				21F7A0141F293E51001D152E /* Assets.xcassets */,
+				2167927C1F2BA5B700DEF0BD /* Assets.xcassets */,
 				218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */,
 				218BDFE31F26923800A6BBF5 /* Info.plist */,
 			);
@@ -285,6 +285,7 @@
 			files = (
 				218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */,
 				2A480D371F2B9A9700EBA965 /* Launch.storyboard in Resources */,
+				2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */,
 				B98DD8551F2699A1000231E9 /* Photo.storyboard in Resources */,
 				219EE2991F2957A200CED555 /* Map.storyboard in Resources */,
 				B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */,
@@ -292,7 +293,6 @@
 				B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */,
 				B98DD8511F269984000231E9 /* Settings.storyboard in Resources */,
 				2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */,
-				21F7A0151F293E51001D152E /* Assets.xcassets in Resources */,
 				B98DD84F1F26997F000231E9 /* Drop.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
