@@ -14,9 +14,8 @@ import MapKit
 class DropController {
     
     static let shared = DropController()
-    var drops = [Drop]()
     let dropsPullNotification = Notification.Name(rawValue: "dropPullNotifiaction")
-//    var photoDrop: UIImage?
+    var drops = [Drop]()
     
     init() {
         
@@ -46,10 +45,15 @@ class DropController {
         }, pageFinished: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)}, completion: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)})
     }
     
-    func pullDetailDropWith(drop: Drop, hasLiked: Bool, image: UIImage, dropperUserName: String) {
-        drop.hasLiked = hasLiked
-        drop.image = image as UIImage?
-        drop.dropperUserName = dropperUserName
+    func pullDetailDropWith(for drop: Drop, completion: (Drop) -> Void) {
+        if drop.hasDetailDrop {
+            completion (drop)
+        }
+        //image
+        Drop.get
+        //hasLiked
+        
+        //dropperUsername
         
     }
 }
