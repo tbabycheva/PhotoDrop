@@ -8,18 +8,36 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var userNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userNameTextField.delegate = self
 
     }
     
     @IBAction func userNameSubmitButtonTapped(_ sender: Any) {
         if let username = userNameTextField.text, !username.isEmpty {
-            PhotoDropUserController.shared.createCurrentUserWith(username: username)
+            
+            if username.characters.count >= 4 {
+                
+                PhotoDropUserController.shared.createCurrentUserWith(username: username)
+                
+            } else {
+                
+                let alert = UIAlertController(title: "Invalid", message: "Username must contain four or more characters.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userNameTextField.resignFirstResponder()
+        return true
     }
 }
