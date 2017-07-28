@@ -13,7 +13,7 @@ class PhotoDropUserController {
     
     static let shared = PhotoDropUserController()
     var cloudKitUserID: CKRecordID?
-    var currentPhotoDropUser: User?
+    var currentPhotoDropUser: PhotoDropUser?
     
     init() {
         
@@ -21,7 +21,7 @@ class PhotoDropUserController {
     
     func createCurrentUserWith(username: String) {
         guard let cloudKitUserID = cloudKitUserID else { return }
-        let user = User(username: username, userRecordId: cloudKitUserID)
+        let user = PhotoDropUser(username: username, userRecordId: cloudKitUserID)
         user.push()
     }
     
@@ -30,14 +30,14 @@ class PhotoDropUserController {
         currentPhotoDropUser?.push()
     }
     
-    func pullUserWith(userRecordID: CKRecordID, completion: @escaping (User?) -> Void) {
-        User.database.fetch(withRecordID: userRecordID) { (record, error) in
+    func pullUserWith(userRecordID: CKRecordID, completion: @escaping (PhotoDropUser?) -> Void) {
+        PhotoDropUser.database.fetch(withRecordID: userRecordID) { (record, error) in
             guard let record = record else { return }
-            completion(User(record: record))
+            completion(PhotoDropUser(record: record))
         }
     }
     
-    func pullCurrentUser(completion: @escaping (User?) -> Void) {
+    func pullCurrentUser(completion: @escaping (PhotoDropUser?) -> Void) {
         
         CKContainer.default().fetchUserRecordID { (userRecordID, error) in
             
@@ -52,7 +52,7 @@ class PhotoDropUserController {
             let predicate = NSPredicate(format: "userRecordId == %@", userReference)
             
             
-            User.pull(predicate: predicate, objectsPerPage: 1, completion: { (user, error) in
+            PhotoDropUser.pull(predicate: predicate, objectsPerPage: 1, completion: { (user, error) in
                 self.currentPhotoDropUser = user?.first
                 completion(user?.first)
             })

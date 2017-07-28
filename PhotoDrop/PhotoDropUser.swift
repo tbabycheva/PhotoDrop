@@ -9,11 +9,10 @@
 import Foundation
 import CloudKit
 
-class User: CloudKitSyncable {
+class PhotoDropUser: CloudKitSyncable {
     var username: String
     //cloudKit userID
     var userRecordId: CKRecordID
-//    var defaultUserRecordID: CKReference
     
     /* points */
     var numberOfRecievedDropLikes: Int
@@ -23,14 +22,12 @@ class User: CloudKitSyncable {
     init(
         username: String,
         userRecordId: CKRecordID,
-//        defaultUserRecordID: CKReference,
         numberOfRecievedDropLikes: Int = 0,
         numberOfGivenDropLikes: Int = 0,
         numberOfDrops: Int = 0
         ) {
         self.username = username
         self.userRecordId = userRecordId
-//        self.defaultUserRecordID = defaultUserRecordID
         self.numberOfRecievedDropLikes = numberOfRecievedDropLikes
         self.numberOfGivenDropLikes = numberOfGivenDropLikes
         self.numberOfDrops = numberOfDrops
@@ -46,7 +43,6 @@ class User: CloudKitSyncable {
     private struct Keys {
         static let username = "username"
         static let userRecordId = "userRecordId"
-//        static let defaultUserRecordID = "defaultUserRecordID"
         static let numberOfRecievedDropLikes = "numberOfRecievedDropLikes"
         static let numberOfGivenDropLikes = "numberOfGivenDropLikes"
         static let numberOfDrops = "numberOfDrops"
@@ -54,30 +50,27 @@ class User: CloudKitSyncable {
     
     var recordDictionary: [String: CKRecordValue] {
         return [
-            User.Keys.username: username as CKRecordValue,
-            User.Keys.userRecordId: CKReference(recordID: userRecordId, action: CKReferenceAction.deleteSelf),
-//            User.Keys.defaultUserRecordID: CKReference(recordID: userRecordId, action: .deleteSelf),
-            User.Keys.numberOfRecievedDropLikes: numberOfRecievedDropLikes as CKRecordValue,
-            User.Keys.numberOfGivenDropLikes: numberOfGivenDropLikes as CKRecordValue,
-            User.Keys.numberOfDrops: numberOfDrops as CKRecordValue,
+            PhotoDropUser.Keys.username: username as CKRecordValue,
+            PhotoDropUser.Keys.userRecordId: CKReference(recordID: userRecordId, action: CKReferenceAction.deleteSelf),
+            PhotoDropUser.Keys.numberOfRecievedDropLikes: numberOfRecievedDropLikes as CKRecordValue,
+            PhotoDropUser.Keys.numberOfGivenDropLikes: numberOfGivenDropLikes as CKRecordValue,
+            PhotoDropUser.Keys.numberOfDrops: numberOfDrops as CKRecordValue,
         ]
     }
     
     convenience required init?(record: CKRecord) {
         guard
-            let username = record[User.Keys.username] as? String,
-            let userRecord = record[User.Keys.userRecordId] as? CKReference,
-//            let defaultUserRecordID = record[User.Keys.defaultUserRecordID] as? CKReference,
-            let numberOfRecievedDropLikes = record[User.Keys.numberOfRecievedDropLikes] as? Int,
-            let numberOfGivenDropLikes = record[User.Keys.numberOfGivenDropLikes] as? Int,
-            let numberOfDrops = record[User.Keys.numberOfDrops] as? Int
+            let username = record[PhotoDropUser.Keys.username] as? String,
+            let userRecord = record[PhotoDropUser.Keys.userRecordId] as? CKReference,
+            let numberOfRecievedDropLikes = record[PhotoDropUser.Keys.numberOfRecievedDropLikes] as? Int,
+            let numberOfGivenDropLikes = record[PhotoDropUser.Keys.numberOfGivenDropLikes] as? Int,
+            let numberOfDrops = record[PhotoDropUser.Keys.numberOfDrops] as? Int
             else {
                 return nil
         }
         self.init(
             username: username,
             userRecordId: userRecord.recordID,
-//            defaultUserRecordID: defaultUserRecordID, 
             numberOfRecievedDropLikes: numberOfRecievedDropLikes,
             numberOfGivenDropLikes: numberOfGivenDropLikes,
             numberOfDrops: numberOfDrops
