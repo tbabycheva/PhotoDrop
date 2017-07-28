@@ -38,6 +38,18 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         cameraLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        AppUtility.lockOrientation(.portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        AppUtility.lockOrientation(.all)
+    }
+    
     func cameraLoad() {
 
         imageView.isHidden = true
@@ -68,7 +80,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             print("An error occurred.")
         }
     }
-    
     
     // MARK: - Action Functions
     

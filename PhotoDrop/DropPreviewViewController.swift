@@ -41,7 +41,9 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         
         if titleTextField.text != "" {
             
-            DropController.shared.createDropWith(title: text, timestamp: Date(), location: CLLocationCoordinate2D(latitude: location.longitude, longitude: location.latitude), image: UIImage(), completion: nil)
+            guard let droppedImage = image else { return }
+            
+            DropController.shared.createDropWith(title: text, timestamp: Date(), location: CLLocationCoordinate2D(latitude: location.longitude, longitude: location.latitude), image: droppedImage, completion: nil)
             
         } else {
             
