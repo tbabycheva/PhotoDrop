@@ -58,15 +58,33 @@ class Drop: CloudKitSyncable {
     }
     
     var recordDictionary: [String: CKRecordValue] {
-        return [
+        
+        var dictionary = [
             Drop.Keys.title: title as CKRecordValue,
             Drop.Keys.dropperUserId: CKReference(recordID: dropperUserId, action: CKReferenceAction.none),
             Drop.Keys.timestamp: timestamp as CKRecordValue,
             Drop.Keys.numberOfLikes: numberOfLikes as CKRecordValue,
             Drop.Keys.latitude: location.latitude as CKRecordValue,
             Drop.Keys.longitude: location.longitude as CKRecordValue,
-//            Drop.Keys.image: image as! CKAsset,
         ]
+        
+        getImageAsset: do {
+            guard let image = image else { break getImageAsset }
+            let data = UIImagePNGRepresentation(image)
+            
+            let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".png")
+            
+            guard let tempURL = url else { break getImageAsset }
+            
+            try data?.write(to: tempURL, options: [])
+            
+            dictionary[Drop.Keys.image] = CKAsset(fileURL: tempURL)
+            
+        } catch {
+            print("error writing data", error)
+        }
+
+        return dictionary
     }
     
     convenience required init?(record: CKRecord) {
@@ -76,8 +94,12 @@ class Drop: CloudKitSyncable {
             let timestamp = record[Drop.Keys.timestamp] as? Date,
             let numberOfLikes = record[Drop.Keys.numberOfLikes] as? Int,
             let latitude = record[Drop.Keys.latitude] as? CLLocationDegrees,
-            let longitude = record[Drop.Keys.longitude] as? CLLocationDegrees
-//            let image = record[Drop.Keys.image] as? Int
+            let longitude = record[Drop.Keys.longitude] as? CLLocationDegrees,
+            
+            let asset = record[Drop.Keys.image] as? CKAsset,
+            let data = NSData(contentsOf: asset.fileURL),
+            let image = UIImage(data: data as Data)
+        
         else {
                 return nil
         }
@@ -87,7 +109,7 @@ class Drop: CloudKitSyncable {
             timestamp: timestamp,
             numberOfLikes: numberOfLikes,
             location: CLLocationCoordinate2D(latitude:latitude, longitude:longitude),
-            image: nil
+            image: image 
         )
     }
 }

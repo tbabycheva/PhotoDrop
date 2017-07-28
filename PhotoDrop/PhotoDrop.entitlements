@@ -6,7 +6,11 @@
 	<string>development</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
+<<<<<<< HEAD
 		<string>iCloud.com.KennyPeterson.PhotoDrop</string>
+=======
+		<string>iCloud.$(CFBundleIdentifier)</string>
+>>>>>>> develop
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>
