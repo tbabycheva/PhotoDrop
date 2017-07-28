@@ -11,8 +11,9 @@ import CloudKit
 
 class User: CloudKitSyncable {
     var username: String
+    //cloudKit userID
     var userRecordId: CKRecordID
-    var defaultUserRecordID: CKReference
+//    var defaultUserRecordID: CKReference
     
     /* points */
     var numberOfRecievedDropLikes: Int
@@ -22,14 +23,14 @@ class User: CloudKitSyncable {
     init(
         username: String,
         userRecordId: CKRecordID,
-        defaultUserRecordID: CKReference,
+//        defaultUserRecordID: CKReference,
         numberOfRecievedDropLikes: Int = 0,
         numberOfGivenDropLikes: Int = 0,
         numberOfDrops: Int = 0
         ) {
         self.username = username
         self.userRecordId = userRecordId
-        self.defaultUserRecordID = defaultUserRecordID
+//        self.defaultUserRecordID = defaultUserRecordID
         self.numberOfRecievedDropLikes = numberOfRecievedDropLikes
         self.numberOfGivenDropLikes = numberOfGivenDropLikes
         self.numberOfDrops = numberOfDrops
@@ -45,7 +46,7 @@ class User: CloudKitSyncable {
     private struct Keys {
         static let username = "username"
         static let userRecordId = "userRecordId"
-        static let defaultUserRecordID = "defaultUserRecordID"
+//        static let defaultUserRecordID = "defaultUserRecordID"
         static let numberOfRecievedDropLikes = "numberOfRecievedDropLikes"
         static let numberOfGivenDropLikes = "numberOfGivenDropLikes"
         static let numberOfDrops = "numberOfDrops"
@@ -55,7 +56,7 @@ class User: CloudKitSyncable {
         return [
             User.Keys.username: username as CKRecordValue,
             User.Keys.userRecordId: CKReference(recordID: userRecordId, action: CKReferenceAction.deleteSelf),
-            User.Keys.defaultUserRecordID: CKReference(recordID: userRecordId, action: .deleteSelf),
+//            User.Keys.defaultUserRecordID: CKReference(recordID: userRecordId, action: .deleteSelf),
             User.Keys.numberOfRecievedDropLikes: numberOfRecievedDropLikes as CKRecordValue,
             User.Keys.numberOfGivenDropLikes: numberOfGivenDropLikes as CKRecordValue,
             User.Keys.numberOfDrops: numberOfDrops as CKRecordValue,
@@ -66,7 +67,7 @@ class User: CloudKitSyncable {
         guard
             let username = record[User.Keys.username] as? String,
             let userRecord = record[User.Keys.userRecordId] as? CKReference,
-            let defaultUserRecordID = record[User.Keys.defaultUserRecordID] as? CKReference,
+//            let defaultUserRecordID = record[User.Keys.defaultUserRecordID] as? CKReference,
             let numberOfRecievedDropLikes = record[User.Keys.numberOfRecievedDropLikes] as? Int,
             let numberOfGivenDropLikes = record[User.Keys.numberOfGivenDropLikes] as? Int,
             let numberOfDrops = record[User.Keys.numberOfDrops] as? Int
@@ -76,7 +77,7 @@ class User: CloudKitSyncable {
         self.init(
             username: username,
             userRecordId: userRecord.recordID,
-            defaultUserRecordID: defaultUserRecordID, 
+//            defaultUserRecordID: defaultUserRecordID, 
             numberOfRecievedDropLikes: numberOfRecievedDropLikes,
             numberOfGivenDropLikes: numberOfGivenDropLikes,
             numberOfDrops: numberOfDrops

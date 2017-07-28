@@ -19,7 +19,7 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func userNameSubmitButtonTapped(_ sender: Any) {
         if let username = userNameTextField.text, !username.isEmpty {
-            UserController.shared.createUserNameWith(username: username, userRecordID: <#T##CKRecordID#>)
+            UserController.shared.createCurrentUserWith(username: username) 
         }
     }
 }

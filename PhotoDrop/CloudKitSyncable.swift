@@ -55,7 +55,7 @@ extension CloudKitSyncable {
   static func pull(
     predicate: NSPredicate = NSPredicate(value: true),
     objectsPerPage: Int = CKQueryOperationMaximumResults,
-    pulledObject: ((_ record: Self) -> Void)?,
+    pulledObject: ((_ record: Self) -> Void)? = nil,
     pageFinished: @escaping (_ pullNextPage: () -> Void) -> Void = { $0() },
     completion: ((_ records: [Self]?, _ error: Error?) -> Void)?
   ) {

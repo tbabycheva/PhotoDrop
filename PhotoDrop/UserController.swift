@@ -12,58 +12,50 @@ import CloudKit
 class UserController {
     
     static let shared = UserController()
-    let usersPullNotification = Notification.Name(rawValue: "userPullNotifiaction")
-    var currentUser: User?
-    let records = [CKRecord]() 
+    var cloudKitUserID: CKRecordID?
+    var currentPhotoDropUser: User?
     
     init() {
         
     }
     
-    func createUserNameWith(username: String, userRecordID: CKRecordID, defaultUserRecordID: CKReference) {
-        let user = User(username: username, userRecordId: userRecordID, defaultUserRecordID: defaultUserRecordID) 
+    func createCurrentUserWith(username: String) {
+        guard let cloudKitUserID = cloudKitUserID else { return }
+        let user = User(username: username, userRecordId: cloudKitUserID)
         user.push()
     }
     
-    func changeUserName(user: User, username: String) {
-        user.username = username
-        user.push()
+    func changeUserName(username: String) {
+        currentPhotoDropUser?.username = username
+        currentPhotoDropUser?.push()
     }
     
-    func pullUserWith(predicate: NSPredicate, userRecordID: CKRecordID, completion: @escaping (User?) -> Void) {
-        
-        CKContainer.default().fetchUserRecordID { (defaultUsersRecordID, error) in
-            
-            if let error = error { print(error.localizedDescription) }
-            
-            guard let defaultUsersRecordID = defaultUsersRecordID else { return }
-            
-            let defaultUserReference = CKReference(recordID: defaultUsersRecordID, action: .deleteSelf)
-            
-            let predicate = NSPredicate(format: "defaultUserRecordID == %@", defaultUserReference)
-            
-            self.pullUserWith(predicate: predicate, userRecordID: userRecordID, completion: { (user) in
-                guard let currentUserRecord = self.records.first else { completion(nil); return }
-                
-                let currentUser = User(record: currentUserRecord)
-                completion(currentUser)
-            })
+    func pullUserWith(userRecordID: CKRecordID, completion: @escaping (User?) -> Void) {
+        User.database.fetch(withRecordID: userRecordID) { (record, error) in
+            guard let record = record else { return }
+            completion(User(record: record))
         }
     }
     
-    func pullCurrentUser() {
+    func pullCurrentUser(completion: @escaping (User?) -> Void) {
         
+        CKContainer.default().fetchUserRecordID { (userRecordID, error) in
+            
+            if let error = error { print(error.localizedDescription) }
+            
+            guard let userRecordID = userRecordID else { return }
+            
+            self.cloudKitUserID = userRecordID
+            
+            let userReference = CKReference(recordID: userRecordID, action: .deleteSelf)
+            
+            let predicate = NSPredicate(format: "userRecordId == %@", userReference)
+            
+            
+            User.pull(predicate: predicate, objectsPerPage: 1, completion: { (user, error) in
+                self.currentPhotoDropUser = user?.first
+                completion(user?.first)
+            })
+        }
     }
-    
-    func pushUser() {
-        
-        let store = CKRecord(recordType: "Users")
-        
-        store.setObject(currentUser?.defaultUserRecordID, forKey: "defaultUserRecordID")
-        
-        currentUser?.push()
-        
-    }
-    
-    
 }

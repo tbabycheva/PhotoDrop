@@ -13,10 +13,10 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserController.shared.pullCurrentUser() { (user) in 
-            if let currentUser = user {
+        UserController.shared.pullCurrentUser() { (currentUser) in
+            if let currentPhotoDropUser = currentUser {
                 
-                UserController.shared.currentUser = currentUser
+                UserController.shared.currentPhotoDropUser = currentPhotoDropUser
                 
                 self.performSegue(withIdentifier: "toMapView", sender: self)
             
