@@ -9,9 +9,9 @@
 import Foundation
 import CloudKit
 
-class UserController {
+class PhotoDropUserController {
     
-    static let shared = UserController()
+    static let shared = PhotoDropUserController()
     var cloudKitUserID: CKRecordID?
     var currentPhotoDropUser: User?
     
