@@ -16,8 +16,7 @@ class DropController {
     static let shared = DropController()
     var drops = [Drop]()
     let dropsPullNotification = Notification.Name(rawValue: "dropPullNotifiaction")
-//    let record: CKRecord
-    var photoDrop: UIImage?
+//    var photoDrop: UIImage?
     
     init() {
         
@@ -53,22 +52,5 @@ class DropController {
         drop.dropperUserName = dropperUserName
         
     }
-    
-//    func pullCKAsset() {
-//        if let asset = record["image"] as? CKAsset,
-//            let data = NSData(contentsOf: asset.fileURL),
-//            let image = UIImage(data: data as Data) {
-//            // do something with the image
-//        }
-//    }
-//    
-//    func pushCKAsset() {
-//        let data = UIImagePNGRepresentation(photoDrop!)
-//        let tempURL = 
-//        try data.writeToURL(tempURL, options: NSDataWritingOptions.AtomicWrite)
-//        let asset = CKAsset(fileURL: tempURL)
-//        record["image"] = asset
-//        
-//    }
 }
 
