@@ -16,6 +16,8 @@ class DropController {
     static let shared = DropController()
     var drops = [Drop]()
     let dropsPullNotification = Notification.Name(rawValue: "dropPullNotifiaction")
+    let record: CKRecord
+    var photoDrop: UIImage?
     
     init() {
         
@@ -42,7 +44,7 @@ class DropController {
         
         Drop.pull(predicate: predicate, objectsPerPage: 10, pulledObject: { (drop) in
             self.drops.append(drop)
-        }, pageFinished: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)}, completion: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)}) 
+        }, pageFinished: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)}, completion: { _ in NotificationCenter.default.post(name: self.dropsPullNotification, object: self); print(self.drops.count)})
     }
     
     func pullDetailDropWith(drop: Drop, hasLiked: Bool, image: UIImage, dropperUserName: String) {
@@ -53,10 +55,23 @@ class DropController {
     }
     
     func pullCKAsset() {
-        
+        if let asset = record["image"] as? CKAsset,
+            let data = NSData(contentsOf: asset.fileURL),
+            let image = UIImage(data: data as Data) {
+            // do something with the image
+        }
     }
     
     func pushCKAsset() {
-        
+        do {
+            let data = UIImagePNGRepresentation(photoDrop!)
+            try data.writeToURL(tempURL, options: NSDataWritingOptions.AtomicWrite)
+            let asset = CKAsset(fileURL: tempURL)
+            record["image"] = asset
+        }
+        catch {
+            print("Error writing data", error)
+        }
     }
 }
+

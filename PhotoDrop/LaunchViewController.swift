@@ -13,7 +13,7 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserController.shared.pullCurrentUser { (user) in
+        UserController.shared.pullCurrentUser() { (user) in 
             if let currentUser = user {
                 
                 UserController.shared.currentUser = currentUser

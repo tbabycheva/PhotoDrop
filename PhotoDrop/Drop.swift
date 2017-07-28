@@ -65,7 +65,7 @@ class Drop: CloudKitSyncable {
             Drop.Keys.numberOfLikes: numberOfLikes as CKRecordValue,
             Drop.Keys.latitude: location.latitude as CKRecordValue,
             Drop.Keys.longitude: location.longitude as CKRecordValue,
-            //    Drop.Keys.image: image as CKRecordValue,
+//            Drop.Keys.image: image as! CKAsset,
         ]
     }
     
@@ -77,7 +77,7 @@ class Drop: CloudKitSyncable {
             let numberOfLikes = record[Drop.Keys.numberOfLikes] as? Int,
             let latitude = record[Drop.Keys.latitude] as? CLLocationDegrees,
             let longitude = record[Drop.Keys.longitude] as? CLLocationDegrees
-            //   let image = record[Drop.Keys.image] as? Int
+//            let image = record[Drop.Keys.image] as? Int
         else {
                 return nil
         }
