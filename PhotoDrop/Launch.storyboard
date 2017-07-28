@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oob-EX-I9O">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="z6l-0B-OWc">
+            <objects>
+                <viewController id="oob-EX-I9O" customClass="LaunchViewController" customModule="PhotoDrop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4jQ-Bu-ozi"/>
+                        <viewControllerLayoutGuide type="bottom" id="6mg-dV-4OC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bRq-pn-DKZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yrZ-qv-7L4">
+                                <rect key="frame" x="67" y="184" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="9Cc-2w-ael" kind="show" identifier="toMapView" id="6aj-Vz-Kin"/>
+                        <segue destination="XKg-uo-6Zb" kind="show" identifier="toWelcomeView" id="gJS-rh-0Gm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="00z-eR-d0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="149"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="2AP-f7-56e">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="9Cc-2w-ael" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1t-cD-4Rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="242"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="rgS-CT-2NH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Welcome" id="XKg-uo-6Zb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6a-Iy-VgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="46"/>
+        </scene>
+    </scenes>
+</document>
