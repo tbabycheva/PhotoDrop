@@ -96,7 +96,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     }
     
     @IBAction func cameraPositionTogglePressed(_ sender: Any) {
-        toggleCamera()
+
     }
     
     
