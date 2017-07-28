@@ -7,9 +7,75 @@
 //
 
 import Foundation
-
+import MapKit
 class GeoFenceController {
+  private let spanRadius = 1000.0 /* Meters */
+  private let distanceToUpdateTrackedDrops = 500.0 /* Meters */
+  private let dropRange = 200.0 /* Meters */
+
   static let shared = GeoFenceController()
+  private var lastLocationtrackedDropsWhereUpdated: CLLocationCoordinate2D?
+
   private init() {
+    NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated), name: CurrentLocationController.shared.locationUpdatedNotification, object: nil)
+  }
+
+  @objc func locationUpdated() {
+    guard let location = CurrentLocationController.shared.location else {
+      return
+    }
+    if let lastLocationtrackedDropsWhereUpdated = lastLocationtrackedDropsWhereUpdated {
+      let coordinate₀ = CLLocation(
+        latitude: lastLocationtrackedDropsWhereUpdated.latitude,
+        longitude: lastLocationtrackedDropsWhereUpdated.longitude
+      )
+      let coordinate₁ = CLLocation(
+        latitude: location.latitude,
+        longitude: location.longitude
+      )
+      if coordinate₀.distance(from: coordinate₁) < distanceToUpdateTrackedDrops {
+        return
+      }
+    }
+    self.lastLocationtrackedDropsWhereUpdated = location
+
+    DropController.shared.pullDrops(
+      at: MKCoordinateRegionMake(
+        location,
+        MKCoordinateSpan(
+          latitudeDelta: spanRadius / 111000.0 /* degrees to meters for latitude */,
+          longitudeDelta: spanRadius / 111000.0 * cos(Double.pi * location.latitude / 180.0)
+        )
+      ),
+      amount: 20
+    ) {
+    (drops) in
+      let monitoredRegions = CurrentLocationController.shared.locationManager.monitoredRegions
+
+      let newRegions = drops.map {
+        CLCircularRegion(center: $0.location, radius: self.dropRange, identifier: $0.getRecord().recordID.recordName)
+      }
+
+      var RegionsToKeep: [CLRegion] = []
+      for region in monitoredRegions {
+        let contains = newRegions.contains{
+          $0.identifier == region.identifier
+        }
+        if contains {
+          RegionsToKeep.append(region)
+        } else {
+          CurrentLocationController.shared.locationManager.stopMonitoring(for: region)
+        }
+      }
+
+      for region in newRegions {
+        let contains = RegionsToKeep.contains{
+          $0.identifier == region.identifier
+        }
+        if !contains {
+          CurrentLocationController.shared.locationManager.startMonitoring(for: region)
+        }
+      }
+    }
   }
 }
