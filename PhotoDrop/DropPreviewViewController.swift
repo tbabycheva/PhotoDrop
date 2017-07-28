@@ -15,8 +15,6 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
     var image: UIImage?
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var longitudeTextField: UITextField!
-    @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var previewImage: UIImageView!
 
     override func viewDidLoad() {
@@ -37,8 +35,22 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func postButtonTapped(_ sender: Any) {
+            
+            guard let text = titleTextField.text,
+            let location = CurrentLocationController.shared.location
+                else { return }
         
-        DropController.shared.createDropWith(title: titleTextField.text!, timestamp: Date(), location: CLLocationCoordinate2D(latitude: Double(latitudeTextField.text!)!, longitude: Double(longitudeTextField.text!)!) , image: UIImage(), completion: nil)
+        if titleTextField.text != "" {
+            
+            DropController.shared.createDropWith(title: text, timestamp: Date(), location: CLLocationCoordinate2D(latitude: location.longitude, longitude: location.latitude), image: UIImage(), completion: nil)
+            
+        } else {
+
+            let alert = UIAlertController(title: "Title Required", message: "You must enter a title for the picture.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         
         dismiss(animated: true, completion: nil)
         dropViewController?.dismiss(animated: true, completion: nil)
