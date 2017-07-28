@@ -9,8 +9,9 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-    
 
+    var drop: Drop?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

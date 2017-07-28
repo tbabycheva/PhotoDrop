@@ -11,7 +11,7 @@ import MapKit
 class GeoFenceController {
   private let spanRadius = 1000.0 /* Meters */
   private let distanceToUpdateTrackedDrops = 500.0 /* Meters */
-  private let dropRange = 200.0 /* Meters */
+  let dropRange = 200.0 /* Meters */
 
   static let shared = GeoFenceController()
   private var lastLocationtrackedDropsWhereUpdated: CLLocationCoordinate2D?
