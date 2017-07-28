@@ -183,7 +183,7 @@ extension MapViewController {
             
             // Pin thumbnail setup
             let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
-            showDistanceButton.setImage(UIImage(named: "distance-white"), for: .normal)
+            showDistanceButton.setImage(UIImage(named: "directions-icon"), for: .normal)
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton
         }
