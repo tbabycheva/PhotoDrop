@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sav-ME-bra">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sav-ME-bra">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,55 +33,8 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3h-lt-2Ib">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
-                                                <rect key="frame" x="30" y="30" width="34" height="30"/>
-                                                <state key="normal" title="Back"/>
-                                                <connections>
-                                                    <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
-                                                <rect key="frame" x="254" y="30" width="91" height="30"/>
-                                                <state key="normal" title="Flash: On/Off"/>
-                                                <connections>
-                                                    <action selector="flashToggleButtonPressed:" destination="sav-ME-bra" eventType="touchUpInside" id="dn5-E9-Rvw"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eb-p0-Ft5">
-                                                <rect key="frame" x="270" y="68" width="75" height="30"/>
-                                                <state key="normal" title="Front/Back"/>
-                                                <connections>
-                                                    <action selector="cameraPositionTogglePressed:" destination="sav-ME-bra" eventType="touchUpInside" id="I5J-wW-hd9"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
-                                                <rect key="frame" x="142" y="533" width="90" height="90"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Take Photo" image="Oval 2">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="45"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="takePhotoButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="nIG-SX-RmL"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="0Eb-p0-Ft5" secondAttribute="trailing" constant="30" id="66F-bt-7fd"/>
-                                            <constraint firstItem="0Eb-p0-Ft5" firstAttribute="top" secondItem="Ilc-ck-Ouy" secondAttribute="bottom" constant="8" id="7ws-qj-6PA"/>
-                                            <constraint firstItem="Ilc-ck-Ouy" firstAttribute="top" secondItem="R3h-lt-2Ib" secondAttribute="top" constant="30" id="ENN-qW-XZY"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ilc-ck-Ouy" secondAttribute="trailing" constant="30" id="Pv7-Zv-k1q"/>
-                                            <constraint firstItem="Glr-hA-0P6" firstAttribute="top" secondItem="R3h-lt-2Ib" secondAttribute="top" constant="30" id="Tzr-Uv-Bi9"/>
-                                            <constraint firstItem="Glr-hA-0P6" firstAttribute="leading" secondItem="R3h-lt-2Ib" secondAttribute="leading" constant="30" id="kUe-wq-kKC"/>
-                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,12 +45,75 @@
                                     <constraint firstItem="R3h-lt-2Ib" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leading" id="uuS-u8-RGz"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
+                                <rect key="frame" x="262" y="22" width="91" height="30"/>
+                                <state key="normal" title="Flash: On/Off">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flashToggleButtonPressed:" destination="sav-ME-bra" eventType="touchUpInside" id="dn5-E9-Rvw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
+                                <rect key="frame" x="38" y="22" width="32" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="back-button-white"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
+                                <rect key="frame" x="142" y="550" width="90" height="90"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lZv-X8-pl4" secondAttribute="height" multiplier="1:1" id="WZN-ql-IhT"/>
+                                    <constraint firstAttribute="width" secondItem="lZv-X8-pl4" secondAttribute="height" multiplier="1:1" id="aeb-Lb-WPV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="u4E-dh-Lg1"/>
+                                    <constraint firstAttribute="width" constant="90" id="zRZ-1B-jOi"/>
+                                </constraints>
+                                <state key="normal" title="Take Photo" image="camera-button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="45"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="takePhotoButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="nIG-SX-RmL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eb-p0-Ft5" userLabel="Camera Position Toggle">
+                                <rect key="frame" x="311" y="579" width="32" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Eb-p0-Ft5" secondAttribute="height" multiplier="1:1" id="9c7-iA-V3l"/>
+                                    <constraint firstAttribute="width" secondItem="0Eb-p0-Ft5" secondAttribute="height" multiplier="1:1" id="GEi-xA-EdV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Gw9-ib-hdC"/>
+                                    <constraint firstAttribute="width" constant="32" id="ryb-5T-Pyb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" image="camera-rotate-black"/>
+                                <connections>
+                                    <action selector="cameraPositionTogglePressed:" destination="sav-ME-bra" eventType="touchUpInside" id="I5J-wW-hd9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53609974538419336" green="1" blue="0.99327762160030697" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="lZv-X8-pl4" secondAttribute="bottom" multiplier="1.03" constant="8" symbolic="YES" id="05R-qw-N8c"/>
+                            <constraint firstItem="lZv-X8-pl4" firstAttribute="centerX" secondItem="s2D-MQ-qck" secondAttribute="centerX" id="60h-SP-tEM"/>
+                            <constraint firstItem="Ilc-ck-Ouy" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="topMargin" constant="22" id="CLg-hm-dBm"/>
+                            <constraint firstItem="0Eb-p0-Ft5" firstAttribute="centerY" secondItem="lZv-X8-pl4" secondAttribute="centerY" id="MDr-2O-zbw"/>
+                            <constraint firstAttribute="bottom" secondItem="SAP-oG-9F0" secondAttribute="bottom" id="SOm-99-kC1"/>
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="top" id="SRz-25-F7T"/>
+                            <constraint firstAttribute="trailing" secondItem="Ilc-ck-Ouy" secondAttribute="trailing" constant="22" id="Wha-J3-vfU"/>
+                            <constraint firstItem="Glr-hA-0P6" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="topMargin" constant="22" id="YrG-g4-nJ6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Eb-p0-Ft5" secondAttribute="trailing" constant="16" id="ZFE-MJ-n85"/>
+                            <constraint firstItem="Glr-hA-0P6" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leadingMargin" constant="22" id="bBK-7A-mhE"/>
                             <constraint firstAttribute="trailing" secondItem="SAP-oG-9F0" secondAttribute="trailing" id="dqc-Wv-vzM"/>
-                            <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="SAP-oG-9F0" secondAttribute="bottom" id="iQA-uI-9pe"/>
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="sme-7e-Uyn"/>
                         </constraints>
                     </view>
@@ -111,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJZ-US-Dwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5.5999999999999996" y="121.88905547226388"/>
+            <point key="canvasLocation" x="4" y="120.98950524737631"/>
         </scene>
         <!--DropPreview-->
         <scene sceneID="mdd-mN-AqC">
@@ -119,10 +138,12 @@
                 <viewControllerPlaceholder storyboardName="DropPreview" id="8FB-P5-UuS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6b-rb-CbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="314"/>
+            <point key="canvasLocation" x="658" y="121"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Oval 2" width="89" height="90"/>
+        <image name="back-button-white" width="32" height="32"/>
+        <image name="camera-button" width="89" height="89"/>
+        <image name="camera-rotate-black" width="32" height="32"/>
     </resources>
 </document>

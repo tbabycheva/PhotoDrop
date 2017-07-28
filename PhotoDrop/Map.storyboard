@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="width" constant="100" id="SC9-bv-IbO"/>
                                     <constraint firstAttribute="width" secondItem="OOL-cW-ida" secondAttribute="height" multiplier="1:1" id="XMI-sc-ETO"/>
                                 </constraints>
-                                <state key="normal" image="photo-camera-outline" backgroundImage="Oval 2"/>
+                                <state key="normal" image="photo-camera-outline" backgroundImage="camera-button-no-outline"/>
                                 <connections>
                                     <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
                                 </connections>
@@ -122,7 +122,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Oval 2" width="89" height="90"/>
+        <image name="camera-button-no-outline" width="89" height="90"/>
         <image name="location-cursor" width="128" height="128"/>
         <image name="photo-camera-outline" width="61" height="48"/>
         <image name="photo-list-icon" width="50" height="50"/>
