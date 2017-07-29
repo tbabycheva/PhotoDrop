@@ -35,7 +35,9 @@ class PhotoListViewController: UIViewController {
             (drops) in
             
             self.drops = drops
-            self.photoListTableView.reloadData()
+            DispatchQueue.main.async{
+                self.photoListTableView.reloadData()
+            }
         }
     }
     
