@@ -16,7 +16,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         userNameTextField.delegate = self
-
     }
     
     @IBAction func userNameSubmitButtonTapped(_ sender: Any) {
@@ -25,6 +24,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             if username.characters.count >= 4 {
                 
                 PhotoDropUserController.shared.createCurrentUserWith(username: username)
+                self.performSegue(withIdentifier: "toMapView", sender: nil)
                 
             } else {
                 

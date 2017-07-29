@@ -20,9 +20,13 @@ class PhotoDropUserController {
     }
     
     func createCurrentUserWith(username: String) {
-        guard let cloudKitUserID = cloudKitUserID else { return }
-        let user = PhotoDropUser(username: username, userRecordId: cloudKitUserID)
-        user.push()
+
+        CKContainer.default().fetchUserRecordID { (cloudKitUserID, error) in
+          guard let cloudKitUserID = cloudKitUserID else { return }
+          self.cloudKitUserID = cloudKitUserID
+          let user = PhotoDropUser(username: username, userRecordId: cloudKitUserID)
+          user.push()
+        }
     }
     
     func changeUserName(username: String) {
