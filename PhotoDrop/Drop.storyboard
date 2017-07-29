@@ -45,9 +45,13 @@
                                     <constraint firstItem="R3h-lt-2Ib" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leading" id="uuS-u8-RGz"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
-                                <rect key="frame" x="262" y="22" width="91" height="30"/>
-                                <state key="normal" title="Flash: On/Off">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
+                                <rect key="frame" x="327.5" y="22" width="25.5" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="3uI-jK-dCc"/>
+                                    <constraint firstAttribute="width" secondItem="Ilc-ck-Ouy" secondAttribute="height" multiplier="107:133" id="yc7-v3-Zqd"/>
+                                </constraints>
+                                <state key="normal" image="flash-button">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -58,7 +62,7 @@
                                 <rect key="frame" x="38" y="22" width="32" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" image="back-button-white"/>
+                                <state key="normal" image="back-button-black"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
                                 </connections>
@@ -142,8 +146,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back-button-white" width="32" height="32"/>
+        <image name="back-button-black" width="32" height="32"/>
         <image name="camera-button" width="89" height="89"/>
         <image name="camera-rotate-black" width="32" height="32"/>
+        <image name="flash-button" width="214" height="266"/>
     </resources>
 </document>
