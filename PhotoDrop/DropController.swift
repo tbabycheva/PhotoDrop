@@ -61,15 +61,19 @@ class DropController {
         )
     }
     
-    func pullDetailDropWith(for drop: Drop, completion: (Drop) -> Void) {
+    func pullDetailDropWith(for drop: Drop, completion: @escaping (Drop) -> Void) {
         if drop.hasDetailDrop {
             completion (drop)
         }
+        
         //image
-        Drop.get
+        
+        
         //hasLiked
+        DropLikeController.shared.pullDropLike(for: drop, completion: <#T##(DropLike?) -> Void#>)
         
         //dropperUsername
+        PhotoDropUserController.shared.pullUserWith(userRecordID: <#T##CKRecordID#>, completion: <#T##(PhotoDropUser?) -> Void#>)
         
     }
 }

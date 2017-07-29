@@ -13,6 +13,7 @@ import MapKit
 
 class DropLikeController {
     
+    static let shared = DropLikeController()  
     func pullDropLike(for drop: Drop, completion: @escaping (DropLike?) -> Void) {
         
         let dropRecord = drop.getRecord()
