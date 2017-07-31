@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What makes this place a hidden gem ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ame-RJ-Myd">
-                                <rect key="frame" x="20" y="528.5" width="335" height="30"/>
+                                <rect key="frame" x="20" y="75" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -65,10 +65,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="C53-sZ-5Ka" secondAttribute="trailing" id="3Eh-Gr-Nnz"/>
-                            <constraint firstItem="Ibp-tj-iS9" firstAttribute="top" secondItem="ame-RJ-Myd" secondAttribute="bottom" constant="32" id="4it-ZG-MKc"/>
                             <constraint firstItem="Jtw-c9-Cqg" firstAttribute="bottom" secondItem="Ibp-tj-iS9" secondAttribute="centerY" id="6Rd-Tk-pmi"/>
                             <constraint firstItem="HJ6-f6-vGB" firstAttribute="top" secondItem="Ibp-tj-iS9" secondAttribute="bottom" constant="8" id="Ccp-M6-wKa"/>
                             <constraint firstAttribute="trailing" secondItem="ame-RJ-Myd" secondAttribute="trailing" constant="20" id="NBf-Aq-JsF"/>
+                            <constraint firstItem="ame-RJ-Myd" firstAttribute="top" secondItem="FoO-eI-87W" secondAttribute="bottom" constant="16" id="S50-AW-j10"/>
                             <constraint firstItem="C53-sZ-5Ka" firstAttribute="top" secondItem="Lb1-jx-JC0" secondAttribute="bottom" constant="-20" id="XcX-dJ-dQO"/>
                             <constraint firstAttribute="trailing" secondItem="FoO-eI-87W" secondAttribute="trailing" constant="16" id="auL-So-Spr"/>
                             <constraint firstItem="Ibp-tj-iS9" firstAttribute="centerX" secondItem="gZW-fA-gHm" secondAttribute="centerX" id="gLq-Uj-YNA"/>
