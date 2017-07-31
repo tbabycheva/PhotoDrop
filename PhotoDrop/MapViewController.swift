@@ -10,38 +10,48 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class MapViewController: UIViewController {
+
+    @IBOutlet weak var mapView: MKMapView!
 
     var drops: [Drop] = [] {
         didSet {
-            showGems()
+
+            // Annotation = pin
+            let annotations: [MKPointAnnotation] = drops.map {
+                let annotation = MKPointAnnotation()
+                annotation.title = $0.title
+                annotation.coordinate =  $0.location
+                return annotation
+            }
+
+            DispatchQueue.main.async {
+                // show pins on the map
+                self.mapView.removeAnnotations(self.mapView.annotations) /* TODO: Don't remove Annotations that are still in ragne */
+                self.mapView.addAnnotations(annotations)
+            }
         }
+
     }
 
-    @IBOutlet weak var mapView: MKMapView!
-    
-    // MARK: Properties
-    
     var locationManager: CLLocationManager!
     
+    var annotationSelected: MKAnnotation?
+
     var sourceLocation: CLLocationCoordinate2D?{
         didSet {
             showRoute()
         }
     }
-    
+
     var destinationLocation: MKAnnotation?{
         didSet {
             showRoute()
         }
     }
-    
+
     var route: MKRoute?
-    
-    var annotationSelected: MKAnnotation?
-        
-    // MARK: Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,18 +74,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         singleTapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(singleTapRecognizer)
     }
-    
-    // MARK: Gesture Recognition - Displaying / Dismissing Routes and Bubbles
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard let view = touch.view else { return false}
-        if view.isKind(of: MKAnnotationView.self) {
-            return false
-        } else {
-            return true
-        }
-    }
-    
+
     func mapTapped() {
         if annotationSelected == nil {
             destinationLocation = nil
@@ -84,107 +83,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-        guard let annotation = view.annotation else { return }
-        annotationSelected = annotation
-        guard let destinationLocation = destinationLocation else { return }
-        if destinationLocation === annotation {
-            return
-        }
-        
-        // remove the route to the previous annotation
-        self.destinationLocation = nil
-    }
-    
-    // MARK: Action Functions
-    
-    func showDistanceButtonTapped() {
-        destinationLocation = annotationSelected
-    }
-
     @IBAction func currentLocationButtonTapped(_ sender: Any) {
         locationManager.startUpdatingLocation()
     }
-}
 
-
-// MARK: Current User Location
-
-extension MapViewController {
     
-    // Get current user location coordinates
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let sourceLocation = manager.location?.coordinate else { return }
-        self.sourceLocation = sourceLocation
-        
-        let span = MKCoordinateSpanMake(1.2, 1.2)
-        let region = MKCoordinateRegionMake(sourceLocation, span)
-        mapView.setRegion(region, animated: true)
-        
-        manager.stopUpdatingLocation()
-    }
-}
-
-
-// MARK: Creating and Displaying Gems
-
-extension MapViewController {
-    
-    func showGems() {
-
-        // Annotation = pin
-        let annotations: [MKPointAnnotation] = drops.map {
-
-            let annotation = MKPointAnnotation()
-            annotation.title = $0.title
-
-            annotation.coordinate =  $0.location
-            return annotation
-        }
-
-        DispatchQueue.main.async {
-            // show pins on the map
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            self.mapView.addAnnotations(annotations)
-        }
-    }
-}
-
-// MARK: - Customizing Gems
-
-extension MapViewController {
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = "MyGem"
-        
-        // exclude the annotation for current user location
-        if annotation.isKind(of: MKUserLocation.self) {
-            return nil
-        }
-        
-        var annotationView:MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(named: "gold")
-            
-            // Pin thumbnail setup
-            let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
-            showDistanceButton.setImage(UIImage(named: "directions-icon"), for: .normal)
-            showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
-            annotationView?.leftCalloutAccessoryView = showDistanceButton
-        }
-        
-        return annotationView
-    }
-}
-
-// MARK: Creating and Displaying Routes
-
-extension MapViewController {
-    
+    // MARK: Creating and Displaying Routes
     func showRoute() {
         
         guard let sourceLocation = sourceLocation else { return }
@@ -225,8 +129,66 @@ extension MapViewController {
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
     }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
     
-    // Return the renderer object which will be used to draw the route on the map
+    // Get current user location coordinates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let sourceLocation = manager.location?.coordinate else { return }
+        self.sourceLocation = sourceLocation
+        
+        let span = MKCoordinateSpanMake(1.2, 1.2)
+        let region = MKCoordinateRegionMake(sourceLocation, span)
+        mapView.setRegion(region, animated: true)
+        
+        manager.stopUpdatingLocation()
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyGem"
+        
+        // exclude the annotation for current user location
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        
+        var annotationView:MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.image = UIImage(named: "gold")
+            
+            // Pin thumbnail setup
+            let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
+            showDistanceButton.setImage(UIImage(named: "directions-icon"), for: .normal)
+            showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
+            annotationView?.leftCalloutAccessoryView = showDistanceButton
+        }
+        
+        return annotationView
+    }
+
+    func showDistanceButtonTapped() {
+        destinationLocation = annotationSelected
+    }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let annotation = view.annotation else { return }
+        annotationSelected = annotation
+        guard let destinationLocation = destinationLocation else { return }
+        if destinationLocation === annotation {
+            return
+        }
+        
+        // remove the route to the previous annotation
+        self.destinationLocation = nil
+    }
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.red
@@ -243,3 +205,15 @@ extension MapViewController {
     }
 }
 
+extension MapViewController: UIGestureRecognizerDelegate {
+    // MARK: Gesture Recognition - Displaying / Dismissing Routes and Bubbles
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard let view = touch.view else { return false}
+        if view.isKind(of: MKAnnotationView.self) {
+            return false
+        } else {
+            return true
+        }
+    }
+}
