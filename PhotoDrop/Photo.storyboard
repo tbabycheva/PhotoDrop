@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ay9-6C-557">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo View Controller-->
+        <scene sceneID="sgB-Ly-gQl">
+            <objects>
+                <viewController id="ay9-6C-557" customClass="PhotoViewController" customModule="PhotoDrop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Az5-Ja-N7q"/>
+                        <viewControllerLayoutGuide type="bottom" id="A7h-Cl-FQQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hEo-0Z-VWN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwS-Ga-GWu">
+                                <rect key="frame" x="327" y="28" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="Gp8-Tw-Taf"/>
+                                    <constraint firstAttribute="width" secondItem="HwS-Ga-GWu" secondAttribute="height" multiplier="1:1" id="mNA-Xn-fGu"/>
+                                </constraints>
+                                <state key="normal" image="close-button"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="uLe-bD-F9p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3o-ZK-RFi">
+                                <rect key="frame" x="307" y="567" width="52" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="diamond-inactive"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.53609974540000005" green="1" blue="0.99327762159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HwS-Ga-GWu" secondAttribute="trailing" constant="16" id="8Jr-ro-0a9"/>
+                            <constraint firstItem="HwS-Ga-GWu" firstAttribute="top" secondItem="Az5-Ja-N7q" secondAttribute="bottom" constant="8" id="h2g-tn-sui"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cB9-UX-F5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close-button" width="39" height="39"/>
+        <image name="diamond-inactive" width="52" height="53"/>
+    </resources>
+</document>
