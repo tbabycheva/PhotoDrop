@@ -12,6 +12,8 @@ import CoreLocation
 
 class MapViewController: UIViewController {
 
+    let centerOnLocationSpan = MKCoordinateSpanMake(0.1, 0.1)
+
     @IBOutlet weak var mapView: MKMapView!
 
     var drops: [Drop] = [] {
@@ -34,8 +36,8 @@ class MapViewController: UIViewController {
 
     }
 
-    var locationManager: CLLocationManager!
-    
+    var isWaitingToCenterOnLocation = true
+
     var annotationSelected: MKAnnotation?
 
     var sourceLocation: CLLocationCoordinate2D?{
@@ -60,14 +62,16 @@ class MapViewController: UIViewController {
         mapView.showsUserLocation = true
         
         // Show current user location
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        }
-        
+
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(updateLocaiton),
+            name: CurrentLocationController.shared.locationUpdatedNotification,
+            object: nil
+        )
+
+        centerOnLocation()
+
+
         // Tap map to clear route
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
         singleTapRecognizer.delegate = self
@@ -82,12 +86,31 @@ class MapViewController: UIViewController {
             annotationSelected = nil
         }
     }
-    
-    @IBAction func currentLocationButtonTapped(_ sender: Any) {
-        locationManager.startUpdatingLocation()
+
+    func centerOnLocation() {
+        isWaitingToCenterOnLocation = true
+        updateLocaiton()
     }
 
-    
+    func updateLocaiton() {
+        guard let location = CurrentLocationController.shared.location else {
+          return
+        }
+
+        sourceLocation = location
+
+        if isWaitingToCenterOnLocation {
+            isWaitingToCenterOnLocation = false
+
+            let region = MKCoordinateRegionMake(location, centerOnLocationSpan)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+
+    @IBAction func currentLocationButtonTapped(_ sender: Any) {
+        centerOnLocation()
+    }
+
     // MARK: Creating and Displaying Routes
     func showRoute() {
         
@@ -128,21 +151,6 @@ class MapViewController: UIViewController {
             self.mapView.add(response.routes[0].polyline, level: MKOverlayLevel.aboveRoads)
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
-    }
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-    
-    // Get current user location coordinates
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let sourceLocation = manager.location?.coordinate else { return }
-        self.sourceLocation = sourceLocation
-        
-        let span = MKCoordinateSpanMake(1.2, 1.2)
-        let region = MKCoordinateRegionMake(sourceLocation, span)
-        mapView.setRegion(region, animated: true)
-        
-        manager.stopUpdatingLocation()
     }
 }
 
