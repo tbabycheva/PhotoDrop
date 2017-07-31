@@ -66,17 +66,26 @@ class DropController {
             completion (drop)
         }
         
-        //image
-//        let image = drop.recordDictionary.get
+        var dispatchGroup = DispatchGroup()
         
-//        //hasLiked
-        DropLikeController.shared.pullDropLike(for: drop) { (dropLike) in
-
+        dispatchGroup.enter()
+        dispatchGroup.notify(queue: DispatchQueue.main) { 
+            completion(drop)
         }
-//
-//        //dropperUsername
-        PhotoDropUserController.shared.pullUserWith(userRecordID: drop.dropperUserId) { (dropperUserName) in
-            <#code#>
+        
+        //hasLiked
+        DropLikeController.shared.pullDropLike(for: drop) { (dropLike) in
+            drop.hasLiked = dropLike != nil
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+
+        //dropperUsername
+        PhotoDropUserController.shared.pullUserWith(userRecordID: drop.dropperUserId) { (photoDropUser) in
+            guard let photoDropUser = photoDropUser else { dispatchGroup.leave(); return }
+            drop.dropperUserName = photoDropUser.username
+            dispatchGroup.leave()
         }
         
     }

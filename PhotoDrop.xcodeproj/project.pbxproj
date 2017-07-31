@@ -222,7 +222,6 @@
 				B98DD85A1F269A32000231E9 /* DropViewController.swift */,
 				B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */,
 				B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */,
-				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
 				21035F6D1F2BD08B00D704B0 /* PhotoTableViewCell.swift */,
 				B98DD8601F269A53000231E9 /* PhotoViewController.swift */,
 				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
@@ -262,7 +261,7 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = F83BNBJ3DN;
+						DevelopmentTeam = WC4MWVKQFQ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -459,10 +458,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = F83BNBJ3DN;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Amnykon.PhotoDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -472,10 +471,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X7J6W2VA9A;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
