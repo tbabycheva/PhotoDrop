@@ -81,6 +81,69 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         }
     }
     
+    func toggleCamera() {
+        
+        guard let input  = cameraSession.inputs[0] as? AVCaptureDeviceInput else { return }
+        
+        cameraSession.beginConfiguration()
+        defer { cameraSession.commitConfiguration() }
+        
+        var newCamera: AVCaptureDevice?
+        if input.device.position == .back {
+            newCamera = captureDevice(with: .front)
+        } else {
+            newCamera = captureDevice(with: .back)
+        }
+        
+        var deviceInput: AVCaptureDeviceInput!
+        do {
+            deviceInput = try AVCaptureDeviceInput(device: newCamera)
+        } catch let error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        cameraSession.removeInput(input)
+        cameraSession.addInput(deviceInput)
+        
+    }
+    
+    func captureDevice(with position: AVCaptureDevicePosition) -> AVCaptureDevice? {
+        
+        let devices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .unspecified).devices
+        
+        if let devices = devices {
+            for device in devices {
+                if device.position == position {
+                    return device
+                }
+            }
+        }
+        return nil
+    }
+    
+    func cameraFlashToggle() {
+        
+        guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+        
+        if (camera.hasTorch) {
+            
+            do {
+                _ = try camera.lockForConfiguration()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        if camera.isTorchActive {
+            camera.torchMode = AVCaptureTorchMode.off
+        } else {
+            camera.torchMode = AVCaptureTorchMode.on
+        }
+        
+        camera.unlockForConfiguration()
+        
+    }
     // MARK: - Action Functions
     
     @IBAction func takePhotoButtonTapped(_ sender: Any) {
@@ -98,16 +161,17 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        
+
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func flashToggleButtonPressed(_ sender: Any) {
         
+//        cameraFlashToggle()
     }
     
     @IBAction func cameraPositionTogglePressed(_ sender: Any) {
-
+        toggleCamera()
     }
     
     
