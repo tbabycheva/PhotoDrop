@@ -52,8 +52,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         
-        dismiss(animated: true, completion: nil)
-        dropViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         
     }
 
