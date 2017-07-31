@@ -73,7 +73,7 @@ extension CloudKitSyncable {
       pulledObject?(record)
     }
 
-    var queryCompletionBlock: (CKQueryCursor?, Error?) -> Void = { (_, _) in }
+    var queryCompletionBlock: ((CKQueryCursor?, Error?) -> Void)?
     queryCompletionBlock = { (queryCursor: CKQueryCursor?, error: Error?) -> Void in
 
       if let queryCursor = queryCursor {
@@ -86,6 +86,7 @@ extension CloudKitSyncable {
           Self.database.add(continuedQueryOperation)
         }
       } else {
+        queryCompletionBlock = nil
         completion?(pulledObjects, error)
       }
     }
