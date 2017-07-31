@@ -37,6 +37,9 @@ class PhotoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Remove separator lines (make them clear)
+        // photoListTableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
         // Populate the table with 20 drops
         guard let location = CurrentLocationController.shared.location else { return }
         
@@ -90,7 +93,6 @@ extension PhotoListViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 
 extension PhotoListViewController: UITableViewDelegate {
-    
 }
 
 // MARK: - Navigation
