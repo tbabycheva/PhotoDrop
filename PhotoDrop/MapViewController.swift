@@ -11,7 +11,13 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
-    
+
+    var drops: [Drop] = [] {
+        didSet {
+            showGems()
+        }
+    }
+
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: Properties
@@ -20,26 +26,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     var sourceLocation: CLLocationCoordinate2D?{
         didSet {
-        showRoute()
+            showRoute()
         }
     }
     
     var destinationLocation: MKAnnotation?{
         didSet {
-        showRoute()
+            showRoute()
         }
     }
     
     var route: MKRoute?
     
-    var annotationSelected: MKAnnotation? {
-        didSet {
-        }
+    var annotationSelected: MKAnnotation?
         
-        willSet {
-        }
-    }
-    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -63,8 +63,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         singleTapRecognizer.delegate = self
         singleTapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(singleTapRecognizer)
-        
-        showGems()
     }
     
     // MARK: Gesture Recognition - Displaying / Dismissing Routes and Bubbles
@@ -134,31 +132,22 @@ extension MapViewController {
 extension MapViewController {
     
     func showGems() {
-        
-        // Mock data
-        struct Location {
-            let title: String
-            let location: CLLocationCoordinate2D
-        }
-        
-        let locations = [
-            Location(title: "Pfeifferhorn, UT", location: CLLocationCoordinate2D(latitude: 40.5336, longitude: -111.7060)),
-            Location(title: "Donut Falls, UT", location: CLLocationCoordinate2D(latitude: 40.6495, longitude: -111.6590)),
-            Location(title: "Antelope Island State Park, UT", location: CLLocationCoordinate2D(latitude: 40.9581, longitude: -112.2146))
-        ]
-        
+
         // Annotation = pin
-        let annotations: [MKPointAnnotation] = locations.map {
-            
+        let annotations: [MKPointAnnotation] = drops.map {
+
             let annotation = MKPointAnnotation()
             annotation.title = $0.title
-            
+
             annotation.coordinate =  $0.location
             return annotation
         }
-        
-        // show pins on the map
-        self.mapView.showAnnotations(annotations, animated: true)
+
+        DispatchQueue.main.async {
+            // show pins on the map
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.mapView.addAnnotations(annotations)
+        }
     }
 }
 
@@ -244,6 +233,13 @@ extension MapViewController {
         renderer.lineWidth = 4.0
         
         return renderer
+    }
+
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        DropController.shared.pullDrops(at: mapView.region, amount: 10) {
+          [weak self] drops in
+          self?.drops = drops
+        }
     }
 }
 
