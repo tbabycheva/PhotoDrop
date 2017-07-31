@@ -97,14 +97,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21035F711F2BD89F00D704B0 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
-			);
-			name = Utilities;
-			sourceTree = "<group>";
-		};
 		218BDFCB1F26923700A6BBF5 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +124,6 @@
 				2A01FA8A1F280C0D008FD95F /* ModelControllers */,
 				B98DD8631F269A91000231E9 /* View Controllers */,
 				B98DD8621F269A85000231E9 /* Storyboards */,
-				21035F711F2BD89F00D704B0 /* Utilities */,
 				218BDFE91F26925100A6BBF5 /* Resources */,
 			);
 			path = PhotoDrop;
@@ -192,6 +183,7 @@
 			children = (
 				3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */,
 				3FF5CCE71F29259600D8531C /* GeoFenceController.swift */,
+				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -261,7 +253,7 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WC4MWVKQFQ;
+						DevelopmentTeam = X7J6W2VA9A;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -458,10 +450,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = X7J6W2VA9A;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -471,10 +463,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = X7J6W2VA9A;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

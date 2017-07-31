@@ -11,6 +11,12 @@ import UIKit
 class PhotoTableViewCell: UITableViewCell {
     
     // MARK: - Properties and Outlets
+    
+    var drop: Drop? {
+        didSet{
+            updateViews()
+        }
+    }
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -18,5 +24,16 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var gemImageView: UIImageView!
 
+    // MARK: - Internal Functions
+    
+    func updateViews() {
+        
+        guard let drop = drop else { return }
+        titleLabel.text = drop.title
+        usernameLabel.text = drop.dropperUserName
+        dateLabel.text = drop.timestamp.stringValue()
+        pointsLabel.text = "\(drop.numberOfLikes) pts"
+        // gemImageView.image = // set different gem colors
+    }
 }
 

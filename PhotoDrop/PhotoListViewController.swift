@@ -13,27 +13,40 @@ class PhotoListViewController: UIViewController {
     
     @IBOutlet weak var photoListTableView: UITableView!
     
-    var drops: [Drop] = []
+    var drops: [Drop] = [] {
+        didSet {
+           
+            // Pull drop detail data from iCloud
+            let group = DispatchGroup()
+            
+            group.notify(queue: DispatchQueue.main) {
+                self.photoListTableView.reloadData()
+            }
+            
+            for drop in drops {
+                group.enter()
+                DropController.shared.pullDetailDropWith(for: drop, completion:{ (drop) in
+                    group.leave()
+                })
+            }
+        }
+    }
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Populate the table with 20 drops
         guard let location = CurrentLocationController.shared.location else { return }
         
         DropController.shared.pullDrops(
-            at: MKCoordinateRegionMake(
-                location,
-                MKCoordinateSpan(
-                    latitudeDelta: GeoFenceController.shared.dropRange / 111000.0 /* degrees to meters for latitude */,
-                    longitudeDelta: GeoFenceController.shared.dropRange / 111000.0 * cos(Double.pi * location.latitude / 180.0)
-                )
-            ),
+            at: MKCoordinateRegionMake(location,
+                MKCoordinateSpan( latitudeDelta: GeoFenceController.shared.dropRange / 111000.0 /* degrees to meters for latitude */,
+                    longitudeDelta: GeoFenceController.shared.dropRange / 111000.0 * cos(Double.pi * location.latitude / 180.0))),
             amount: 20
         ) {
             (drops) in
-            
             self.drops = drops
             DispatchQueue.main.async{
                 self.photoListTableView.reloadData()
@@ -67,12 +80,7 @@ extension PhotoListViewController: UITableViewDataSource {
         
         let drop = drops[indexPath.row]
         
-        cell.titleLabel.text = drop.title
-        cell.usernameLabel.text = drop.dropperUserName
-        cell.dateLabel.text = "\(drop.timestamp)"
-        cell.pointsLabel.text = "\(drop.numberOfLikes) pts"
-        //       cell.gemImageView.image = UIImage(named: "diamond-gold")
-        cell.gemImageView.image = drop.image
+        cell.drop = drop
         
         return cell
     }
@@ -100,14 +108,3 @@ extension PhotoListViewController {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-

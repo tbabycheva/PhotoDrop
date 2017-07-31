@@ -22,7 +22,8 @@ class DropController {
     }
     
     func createDropWith(title: String, timestamp: Date, location: CLLocationCoordinate2D, image: UIImage, completion: ((Drop) -> Void)?) {
-        let drop = Drop(title: title, dropperUserId: CKRecordID(recordName: "currentUser"), timestamp: timestamp, numberOfLikes: 0, location: location, image: image)
+        guard let currentPhotoDropUser = PhotoDropUserController.shared.currentPhotoDropUser else { return }
+        let drop = Drop(title: title, dropperUserId: currentPhotoDropUser.getRecord().recordID, timestamp: timestamp, numberOfLikes: 0, location: location, image: image)
         drop.push()
     }
     
