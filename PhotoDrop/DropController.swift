@@ -28,38 +28,51 @@ class DropController {
     }
     
     func pullDrops(at region: MKCoordinateRegion, amount: Int , completion: @escaping ([Drop]) -> Void) {
-        let maxLong = region.center.longitude + region.span.longitudeDelta / 2
-        let minLong = region.center.longitude - region.span.longitudeDelta / 2
-        let maxLat = region.center.latitude + region.span.latitudeDelta / 2
-        let minLat = region.center.latitude - region.span.latitudeDelta / 2
         
-        var drops: [Drop] = []
-        let predicateMinLong = NSPredicate(format: "longitude >= %@", NSNumber(value: minLong))
-        let predicateMaxLong = NSPredicate(format: "longitude <= %@", NSNumber(value: maxLong))
-        let predicateMinLat = NSPredicate(format: "latitude >= %@", NSNumber(value: minLat))
-        let predicateMaxLat = NSPredicate(format: "latitude <= %@", NSNumber(value: maxLat))
-        
-        let predicate = NSCompoundPredicate.init(
-            andPredicateWithSubpredicates: [
-                predicateMinLong,
-                predicateMaxLong,
-                predicateMinLat,
-                predicateMaxLat,
-            ]
-        )
-        
-        Drop.pull(
-            predicate: predicate,
-            objectsPerPage: amount,
-            pulledObject: { (drop) in
-              drops.append(drop)
+        BlockedUserController.shared.pullBlockedUsers { (blockedUsers) in
+            let blockedUsersToExclude = blockedUsers?.map({ $0.blockedRecordID })
+            guard let blockedUserPredicates = blockedUsersToExclude?.map({
+                NSPredicate(
+                    format: "dropperUserId != %@", CKReference(recordID: $0, action: .deleteSelf)
+                )
+            }) else { return }
+            let blockedUsersPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: blockedUserPredicates)
+            
+            let maxLong = region.center.longitude + region.span.longitudeDelta / 2
+            let minLong = region.center.longitude - region.span.longitudeDelta / 2
+            let maxLat = region.center.latitude + region.span.latitudeDelta / 2
+            let minLat = region.center.latitude - region.span.latitudeDelta / 2
+            
+            var drops: [Drop] = []
+            let predicateMinLong = NSPredicate(format: "longitude >= %@", NSNumber(value: minLong))
+            let predicateMaxLong = NSPredicate(format: "longitude <= %@", NSNumber(value: maxLong))
+            let predicateMinLat = NSPredicate(format: "latitude >= %@", NSNumber(value: minLat))
+            let predicateMaxLat = NSPredicate(format: "latitude <= %@", NSNumber(value: maxLat))
+            
+            
+            let predicate = NSCompoundPredicate.init(
+                andPredicateWithSubpredicates: [
+                    predicateMinLong,
+                    predicateMaxLong,
+                    predicateMinLat,
+                    predicateMaxLat,
+                    blockedUsersPredicate
+                ]
+            )
+            
+            Drop.pull(
+                predicate: predicate,
+                objectsPerPage: amount,
+                pulledObject: { (drop) in
+                    drops.append(drop)
             },
-            pageFinished: { _ in
-              completion(drops)
+                pageFinished: { _ in
+                    completion(drops)
             }, completion: { _ in
-              completion(drops)
+                completion(drops)
             }
-        )
+            )
+        }
     }
     
     func pullDetailDropWith(for drop: Drop, completion: @escaping (Drop) -> Void) {
@@ -70,7 +83,7 @@ class DropController {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
-        dispatchGroup.notify(queue: DispatchQueue.main) { 
+        dispatchGroup.notify(queue: DispatchQueue.main) {
             completion(drop)
         }
         
@@ -81,7 +94,7 @@ class DropController {
         }
         
         dispatchGroup.enter()
-
+        
         //dropperUsername
         PhotoDropUserController.shared.pullUserWith(userRecordID: drop.dropperUserId) { (photoDropUser) in
             guard let photoDropUser = photoDropUser else { dispatchGroup.leave(); return }

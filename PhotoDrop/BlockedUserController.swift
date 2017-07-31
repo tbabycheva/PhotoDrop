@@ -13,7 +13,6 @@ class BlockedUserController {
     
     static let shared = BlockedUserController()
     var blockedCloudKitRecordID: CKRecordID?
-    var blockedUser: BlockedUser?
     var blockedUsers: [BlockedUser]?
     
    
@@ -27,10 +26,17 @@ class BlockedUserController {
             let blockedUser = BlockedUser(blockedRecordID: blockedRecordID, blockerRecordID: blockerRecordID)
             
             blockedUser.push()
+            
+            self.blockedUsers?.append(blockedUser) 
         }
     }
     
     func pullBlockedUsers(completion: @escaping ([BlockedUser]?) -> Void) {
+        
+        if let blockedUsers = blockedUsers {
+            completion(blockedUsers)
+            return
+        }
         
         CKContainer.default().fetchUserRecordID { (blockerCloudKitRecordID, error) in
             
@@ -38,7 +44,7 @@ class BlockedUserController {
             
             let blockerUserReference = CKReference(recordID: blockerCloudKitRecordID, action: .deleteSelf)
             
-            let predicate = NSPredicate(format: "blockerRecordID", blockerUserReference)
+            let predicate = NSPredicate(format: "blockerRecordID = %@", blockerUserReference)
             
             BlockedUser.pull(predicate: predicate, completion: { (blockedUsers, error) in
                 self.blockedUsers = blockedUsers

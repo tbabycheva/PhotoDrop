@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21035F6E1F2BD08B00D704B0 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21035F6D1F2BD08B00D704B0 /* PhotoTableViewCell.swift */; };
+		21035F701F2BD88400D704B0 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21035F6F1F2BD88400D704B0 /* DateHelpers.swift */; };
+		2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167927C1F2BA5B700DEF0BD /* Assets.xcassets */; };
+		218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BDFD71F26923700A6BBF5 /* AppDelegate.swift */; };
+		218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */; };
+		219EE2991F2957A200CED555 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219EE2981F2957A200CED555 /* Map.storyboard */; };
+		2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */; };
+		2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */; };
+		2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */; };
+		2A480D351F2B9A8600EBA965 /* DropLikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D341F2B9A8600EBA965 /* DropLikeController.swift */; };
+		2A480D371F2B9A9700EBA965 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D361F2B9A9700EBA965 /* Launch.storyboard */; };
+		2A480D391F2B9A9D00EBA965 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */; };
+		2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */; };
+		2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */; };
+		3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */; };
+		3FF2CC161F279F8C00C68903 /* PhotoDropUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC151F279F8C00C68903 /* PhotoDropUser.swift */; };
+		3FF2CC181F279F9F00C68903 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC171F279F9F00C68903 /* Drop.swift */; };
+		3FF2CC1A1F279FFD00C68903 /* DropLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC191F279FFD00C68903 /* DropLike.swift */; };
+		3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */; };
+		3FF5CCE81F29259600D8531C /* GeoFenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE71F29259600D8531C /* GeoFenceController.swift */; };
+		3FF5CCEA1F2925A400D8531C /* CurrentLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */; };
+		B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */; };
+		B9894EC21F27E3B9008F4829 /* DropPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */; };
+		B98DD84D1F269975000231E9 /* Points.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD84C1F269975000231E9 /* Points.storyboard */; };
+		B98DD84F1F26997F000231E9 /* Drop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD84E1F26997F000231E9 /* Drop.storyboard */; };
+		B98DD8511F269984000231E9 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD8501F269984000231E9 /* Settings.storyboard */; };
+		B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD8521F26998E000231E9 /* PhotoList.storyboard */; };
+		B98DD8551F2699A1000231E9 /* Photo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98DD8541F2699A1000231E9 /* Photo.storyboard */; };
+		B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD8561F269A12000231E9 /* MapViewController.swift */; };
+		B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD8581F269A21000231E9 /* PointsViewController.swift */; };
+		B98DD85B1F269A32000231E9 /* DropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD85A1F269A32000231E9 /* DropViewController.swift */; };
+		B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */; };
+		B98DD85F1F269A49000231E9 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */; };
+		B98DD8611F269A53000231E9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD8601F269A53000231E9 /* PhotoViewController.swift */; };
+		B9DD7A191F28044D00CAE0D9 /* DropController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD7A181F28044D00CAE0D9 /* DropController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		21035F6D1F2BD08B00D704B0 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		21035F6F1F2BD88400D704B0 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		2167927C1F2BA5B700DEF0BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		218BDFD41F26923700A6BBF5 /* PhotoDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PhotoDrop/AppDelegate.swift; sourceTree = "<group>"; };
+		218BDFE11F26923800A6BBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		218BDFE31F26923800A6BBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		219EE2981F2957A200CED555 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDropUserController.swift; sourceTree = "<group>"; };
+		2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
+		2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUserController.swift; sourceTree = "<group>"; };
+		2A480D341F2B9A8600EBA965 /* DropLikeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropLikeController.swift; sourceTree = "<group>"; };
+		2A480D361F2B9A9700EBA965 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
+		3FF2CC151F279F8C00C68903 /* PhotoDropUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDropUser.swift; sourceTree = "<group>"; };
+		3FF2CC171F279F9F00C68903 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
+		3FF2CC191F279FFD00C68903 /* DropLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropLike.swift; sourceTree = "<group>"; };
+		3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoDrop.entitlements; sourceTree = "<group>"; };
+		3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		3FF5CCE71F29259600D8531C /* GeoFenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoFenceController.swift; sourceTree = "<group>"; };
+		3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationController.swift; sourceTree = "<group>"; };
+		B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DropPreview.storyboard; sourceTree = "<group>"; };
+		B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropPreviewViewController.swift; sourceTree = "<group>"; };
+		B98DD84C1F269975000231E9 /* Points.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Points.storyboard; sourceTree = "<group>"; };
+		B98DD84E1F26997F000231E9 /* Drop.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Drop.storyboard; sourceTree = "<group>"; };
+		B98DD8501F269984000231E9 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		B98DD8521F26998E000231E9 /* PhotoList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoList.storyboard; sourceTree = "<group>"; };
+		B98DD8541F2699A1000231E9 /* Photo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Photo.storyboard; sourceTree = "<group>"; };
+		B98DD8561F269A12000231E9 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B98DD8581F269A21000231E9 /* PointsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
+		B98DD85A1F269A32000231E9 /* DropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropViewController.swift; sourceTree = "<group>"; };
+		B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
+		B98DD8601F269A53000231E9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		B9DD7A181F28044D00CAE0D9 /* DropController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		218BDFD11F26923700A6BBF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		218BDFCB1F26923700A6BBF5 = {
+			isa = PBXGroup;
+			children = (
+				218BDFD71F26923700A6BBF5 /* AppDelegate.swift */,
+				218BDFD61F26923700A6BBF5 /* PhotoDrop */,
+				218BDFD51F26923700A6BBF5 /* Products */,
+				3FF2CC1C1F27A1C300C68903 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		218BDFD51F26923700A6BBF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				218BDFD41F26923700A6BBF5 /* PhotoDrop.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		218BDFD61F26923700A6BBF5 /* PhotoDrop */ = {
+			isa = PBXGroup;
+			children = (
+				3FF2CC111F279F1800C68903 /* Models */,
+				3FF2CC141F279F6B00C68903 /* Protocols */,
+				3FF5CCEB1F2925A700D8531C /* Controllers */,
+				2A01FA8A1F280C0D008FD95F /* ModelControllers */,
+				B98DD8631F269A91000231E9 /* View Controllers */,
+				B98DD8621F269A85000231E9 /* Storyboards */,
+				218BDFE91F26925100A6BBF5 /* Resources */,
+			);
+			path = PhotoDrop;
+			sourceTree = "<group>";
+		};
+		218BDFE91F26925100A6BBF5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */,
+				2167927C1F2BA5B700DEF0BD /* Assets.xcassets */,
+				218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */,
+				218BDFE31F26923800A6BBF5 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A01FA8A1F280C0D008FD95F /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */,
+				B9DD7A181F28044D00CAE0D9 /* DropController.swift */,
+				2A480D341F2B9A8600EBA965 /* DropLikeController.swift */,
+				2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */,
+			);
+			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		3FF2CC111F279F1800C68903 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FF2CC151F279F8C00C68903 /* PhotoDropUser.swift */,
+				3FF2CC171F279F9F00C68903 /* Drop.swift */,
+				3FF2CC191F279FFD00C68903 /* DropLike.swift */,
+				2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3FF2CC141F279F6B00C68903 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		3FF2CC1C1F27A1C300C68903 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FF5CCEB1F2925A700D8531C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */,
+				3FF5CCE71F29259600D8531C /* GeoFenceController.swift */,
+				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B98DD8621F269A85000231E9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2A480D361F2B9A9700EBA965 /* Launch.storyboard */,
+				2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */,
+				219EE2981F2957A200CED555 /* Map.storyboard */,
+				B98DD84C1F269975000231E9 /* Points.storyboard */,
+				B98DD84E1F26997F000231E9 /* Drop.storyboard */,
+				B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */,
+				B98DD8501F269984000231E9 /* Settings.storyboard */,
+				B98DD8521F26998E000231E9 /* PhotoList.storyboard */,
+				B98DD8541F2699A1000231E9 /* Photo.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		B98DD8631F269A91000231E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */,
+				2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */,
+				B98DD8561F269A12000231E9 /* MapViewController.swift */,
+				B98DD8581F269A21000231E9 /* PointsViewController.swift */,
+				B98DD85A1F269A32000231E9 /* DropViewController.swift */,
+				B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */,
+				B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */,
+				21035F6D1F2BD08B00D704B0 /* PhotoTableViewCell.swift */,
+				B98DD8601F269A53000231E9 /* PhotoViewController.swift */,
+				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		218BDFD31F26923700A6BBF5 /* PhotoDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 218BDFE61F26923800A6BBF5 /* Build configuration list for PBXNativeTarget "PhotoDrop" */;
+			buildPhases = (
+				218BDFD01F26923700A6BBF5 /* Sources */,
+				218BDFD11F26923700A6BBF5 /* Frameworks */,
+				218BDFD21F26923700A6BBF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoDrop;
+			productName = PhotoDrop;
+			productReference = 218BDFD41F26923700A6BBF5 /* PhotoDrop.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		218BDFCC1F26923700A6BBF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = babycheva;
+				TargetAttributes = {
+					218BDFD31F26923700A6BBF5 = {
+						CreatedOnToolsVersion = 8.3.3;
+<<<<<<< HEAD
+						DevelopmentTeam = X7J6W2VA9A;
+=======
+						DevelopmentTeam = WCS73R8992;
+>>>>>>> develop
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 218BDFCF1F26923700A6BBF5 /* Build configuration list for PBXProject "PhotoDrop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 218BDFCB1F26923700A6BBF5;
+			productRefGroup = 218BDFD51F26923700A6BBF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				218BDFD31F26923700A6BBF5 /* PhotoDrop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		218BDFD21F26923700A6BBF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */,
+				2A480D371F2B9A9700EBA965 /* Launch.storyboard in Resources */,
+				2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */,
+				B98DD8551F2699A1000231E9 /* Photo.storyboard in Resources */,
+				219EE2991F2957A200CED555 /* Map.storyboard in Resources */,
+				B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */,
+				B98DD84D1F269975000231E9 /* Points.storyboard in Resources */,
+				B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */,
+				B98DD8511F269984000231E9 /* Settings.storyboard in Resources */,
+				2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */,
+				B98DD84F1F26997F000231E9 /* Drop.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		218BDFD01F26923700A6BBF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9DD7A191F28044D00CAE0D9 /* DropController.swift in Sources */,
+				2A480D351F2B9A8600EBA965 /* DropLikeController.swift in Sources */,
+				B9894EC21F27E3B9008F4829 /* DropPreviewViewController.swift in Sources */,
+				218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */,
+				21035F701F2BD88400D704B0 /* DateHelpers.swift in Sources */,
+				3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */,
+				2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */,
+				2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */,
+				B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */,
+				B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */,
+				2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */,
+				21035F6E1F2BD08B00D704B0 /* PhotoTableViewCell.swift in Sources */,
+				2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */,
+				B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */,
+				2A480D391F2B9A9D00EBA965 /* LaunchViewController.swift in Sources */,
+				3FF2CC161F279F8C00C68903 /* PhotoDropUser.swift in Sources */,
+				3FF5CCE81F29259600D8531C /* GeoFenceController.swift in Sources */,
+				3FF5CCEA1F2925A400D8531C /* CurrentLocationController.swift in Sources */,
+				B98DD8611F269A53000231E9 /* PhotoViewController.swift in Sources */,
+				B98DD85B1F269A32000231E9 /* DropViewController.swift in Sources */,
+				3FF2CC1A1F279FFD00C68903 /* DropLike.swift in Sources */,
+				3FF2CC181F279F9F00C68903 /* Drop.swift in Sources */,
+				B98DD85F1F269A49000231E9 /* PhotoListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				218BDFE11F26923800A6BBF5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		218BDFE41F26923800A6BBF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		218BDFE51F26923800A6BBF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		218BDFE71F26923800A6BBF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
+<<<<<<< HEAD
+				DEVELOPMENT_TEAM = X7J6W2VA9A;
+				INFOPLIST_FILE = PhotoDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
+=======
+				DEVELOPMENT_TEAM = WCS73R8992;
+				INFOPLIST_FILE = PhotoDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
+>>>>>>> develop
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		218BDFE81F26923800A6BBF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< HEAD
+				DEVELOPMENT_TEAM = X7J6W2VA9A;
+				INFOPLIST_FILE = PhotoDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
+=======
+				DEVELOPMENT_TEAM = WCS73R8992;
+				INFOPLIST_FILE = PhotoDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
+>>>>>>> develop
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		218BDFCF1F26923700A6BBF5 /* Build configuration list for PBXProject "PhotoDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218BDFE41F26923800A6BBF5 /* Debug */,
+				218BDFE51F26923800A6BBF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		218BDFE61F26923800A6BBF5 /* Build configuration list for PBXNativeTarget "PhotoDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				218BDFE71F26923800A6BBF5 /* Debug */,
+				218BDFE81F26923800A6BBF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 218BDFCC1F26923700A6BBF5 /* Project object */;
+}
