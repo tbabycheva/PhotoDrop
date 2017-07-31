@@ -66,7 +66,7 @@ class DropController {
             completion (drop)
         }
         
-        var dispatchGroup = DispatchGroup()
+        let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
         dispatchGroup.notify(queue: DispatchQueue.main) { 
