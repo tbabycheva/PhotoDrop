@@ -11,11 +11,16 @@ import UIKit
 class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var changeUsernameTextField: UITextField!
+    @IBOutlet weak var currentUsernameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         changeUsernameTextField.delegate = self
+        
+        guard let text = PhotoDropUserController.shared.currentPhotoDropUser?.username else { return }
+        
+        currentUsernameLabel.text = "Current Username is: \(text)"
     }
    
     @IBAction func backButtonTapped(_ sender: Any) {
