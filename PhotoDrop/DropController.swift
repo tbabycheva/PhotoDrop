@@ -67,13 +67,17 @@ class DropController {
         }
         
         //image
+//        let image = drop.recordDictionary.get
         
-        
-        //hasLiked
-        DropLikeController.shared.pullDropLike(for: drop, completion: <#T##(DropLike?) -> Void#>)
-        
-        //dropperUsername
-        PhotoDropUserController.shared.pullUserWith(userRecordID: <#T##CKRecordID#>, completion: <#T##(PhotoDropUser?) -> Void#>)
+//        //hasLiked
+        DropLikeController.shared.pullDropLike(for: drop) { (dropLike) in
+
+        }
+//
+//        //dropperUsername
+        PhotoDropUserController.shared.pullUserWith(userRecordID: drop.dropperUserId) { (dropperUserName) in
+            <#code#>
+        }
         
     }
 }
