@@ -10,6 +10,7 @@ import Foundation
 import CloudKit
 
 class PhotoDropUser: CloudKitSyncable {
+    
     var username: String
     //cloudKit userID
     var userRecordId: CKRecordID

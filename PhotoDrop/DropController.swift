@@ -15,7 +15,7 @@ class DropController {
     
     static let shared = DropController()
     let dropsPullNotification = Notification.Name(rawValue: "dropPullNotifiaction")
-//    var photoDrop: UIImage?
+    var drops = [Drop]()
     
     init() {
         
@@ -61,10 +61,32 @@ class DropController {
         )
     }
     
-    func pullDetailDropWith(drop: Drop, hasLiked: Bool, image: UIImage, dropperUserName: String) {
-        drop.hasLiked = hasLiked
-        drop.image = image as UIImage?
-        drop.dropperUserName = dropperUserName
+    func pullDetailDropWith(for drop: Drop, completion: @escaping (Drop) -> Void) {
+        if drop.hasDetailDrop {
+            completion (drop)
+        }
+        
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        dispatchGroup.notify(queue: DispatchQueue.main) { 
+            completion(drop)
+        }
+        
+        //hasLiked
+        DropLikeController.shared.pullDropLike(for: drop) { (dropLike) in
+            drop.hasLiked = dropLike != nil
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
+
+        //dropperUsername
+        PhotoDropUserController.shared.pullUserWith(userRecordID: drop.dropperUserId) { (photoDropUser) in
+            guard let photoDropUser = photoDropUser else { dispatchGroup.leave(); return }
+            drop.dropperUserName = photoDropUser.username
+            dispatchGroup.leave()
+        }
         
     }
 }
