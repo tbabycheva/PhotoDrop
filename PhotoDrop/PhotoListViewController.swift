@@ -67,12 +67,7 @@ extension PhotoListViewController: UITableViewDataSource {
         
         let drop = drops[indexPath.row]
         
-        cell.titleLabel.text = drop.title
-        cell.usernameLabel.text = drop.dropperUserName
-        cell.dateLabel.text = "\(drop.timestamp)"
-        cell.pointsLabel.text = "\(drop.numberOfLikes) pts"
-        //       cell.gemImageView.image = UIImage(named: "diamond-gold")
-        cell.gemImageView.image = drop.image
+        cell.drop = drop
         
         return cell
     }
