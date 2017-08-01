@@ -50,32 +50,15 @@ class GeoFenceController {
       amount: 20
     ) {
     (drops) in
-      let monitoredRegions = CurrentLocationController.shared.locationManager.monitoredRegions
-
-      let newRegions = drops.map {
-        CLCircularRegion(center: $0.location, radius: self.dropRange, identifier: $0.getRecord().recordID.recordName)
-      }
-
-      var RegionsToKeep: [CLRegion] = []
-      for region in monitoredRegions {
-        let contains = newRegions.contains{
-          $0.identifier == region.identifier
-        }
-        if contains {
-          RegionsToKeep.append(region)
-        } else {
-          CurrentLocationController.shared.locationManager.stopMonitoring(for: region)
-        }
-      }
-
-      for region in newRegions {
-        let contains = RegionsToKeep.contains{
-          $0.identifier == region.identifier
-        }
-        if !contains {
-          CurrentLocationController.shared.locationManager.startMonitoring(for: region)
-        }
-      }
+      update(
+        Array(CurrentLocationController.shared.locationManager.monitoredRegions),
+        to: drops.map {
+          CLCircularRegion(center: $0.location, radius: self.dropRange, identifier: $0.getRecord().recordID.recordName)
+        },
+        equals: {$0.identifier == $1.identifier},
+        remove: {CurrentLocationController.shared.locationManager.stopMonitoring(for: $0)},
+        add: {CurrentLocationController.shared.locationManager.startMonitoring(for: $0)}
+      )
     }
   }
 }
