@@ -8,6 +8,7 @@
 
 import UIKit
 import  MapKit
+import Photos
 
 class DropPreviewViewController: UIViewController, UITextFieldDelegate {
     
@@ -26,6 +27,21 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         previewImage.image = image
     }
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        guard let savedPic = previewImage.image else { return }
+        
+        UIImageWriteToSavedPhotosAlbum(savedPic, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        
+    }
+    
+    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        
+        let savedAlert = UIAlertController(title: "Saved to Photo Library!", message: "", preferredStyle: .alert)
+        savedAlert.addAction(UIAlertAction(title: "Dope!", style: .cancel, handler: nil))
+        self.present(savedAlert, animated: true, completion: nil)
+        
+    }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         
@@ -45,6 +61,8 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
             
             DropController.shared.createDropWith(title: text, timestamp: Date(), location: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), image: droppedImage, completion: nil)
             
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            
         } else {
             
             let alert = UIAlertController(title: "Title Required", message: "You must enter a title for the picture.", preferredStyle: .alert)
@@ -52,7 +70,6 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         
     }
 

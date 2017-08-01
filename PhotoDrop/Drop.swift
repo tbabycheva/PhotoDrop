@@ -10,13 +10,15 @@ import Foundation
 import CloudKit
 import MapKit
 
-class Drop: CloudKitSyncable {
+class Drop: CloudKitSyncable, HashableUsingAddress {
     var title: String
     var dropperUserId: CKRecordID
     var timestamp: Date
     var numberOfLikes: Int
     var location: CLLocationCoordinate2D
     var image: UIImage?
+    var imageAsset: CKAsset?
+
     var hasLiked: Bool?
     var dropperUserName: String?
     
@@ -30,6 +32,7 @@ class Drop: CloudKitSyncable {
         timestamp: Date,
         numberOfLikes: Int,
         location: CLLocationCoordinate2D,
+        imageAsset: CKAsset? = nil,
         image: UIImage?
     ) {
         self.title = title
@@ -37,6 +40,7 @@ class Drop: CloudKitSyncable {
         self.timestamp = timestamp
         self.numberOfLikes = numberOfLikes
         self.location = location
+        self.imageAsset = imageAsset
         self.image = image
     }
     
@@ -58,7 +62,19 @@ class Drop: CloudKitSyncable {
     }
     
     var recordDictionary: [String: CKRecordValue] {
-        
+        if imageAsset == nil {
+            getImageAsset: do {
+                guard let image = image else { break getImageAsset }
+                let data = UIImagePNGRepresentation(image)
+                let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".png")
+                guard let tempURL = url else { break getImageAsset }
+                try data?.write(to: tempURL, options: [])
+                imageAsset = CKAsset(fileURL: tempURL)
+            } catch {
+                print("error writing data", error)
+            }
+        }
+
         var dictionary = [
             Drop.Keys.title: title as CKRecordValue,
             Drop.Keys.dropperUserId: CKReference(recordID: dropperUserId, action: CKReferenceAction.none),
@@ -67,21 +83,9 @@ class Drop: CloudKitSyncable {
             Drop.Keys.latitude: location.latitude as CKRecordValue,
             Drop.Keys.longitude: location.longitude as CKRecordValue,
         ]
-        
-        getImageAsset: do {
-            guard let image = image else { break getImageAsset }
-            let data = UIImagePNGRepresentation(image)
-            
-            let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(NSUUID().uuidString+".png")
-            
-            guard let tempURL = url else { break getImageAsset }
-            
-            try data?.write(to: tempURL, options: [])
-            
-            dictionary[Drop.Keys.image] = CKAsset(fileURL: tempURL)
-            
-        } catch {
-            print("error writing data", error)
+
+        if let imageAsset = imageAsset {
+            dictionary[Drop.Keys.image] = imageAsset
         }
 
         return dictionary
@@ -96,8 +100,8 @@ class Drop: CloudKitSyncable {
             let latitude = record[Drop.Keys.latitude] as? CLLocationDegrees,
             let longitude = record[Drop.Keys.longitude] as? CLLocationDegrees,
             
-            let asset = record[Drop.Keys.image] as? CKAsset,
-            let data = NSData(contentsOf: asset.fileURL),
+            let imageAsset = record[Drop.Keys.image] as? CKAsset,
+            let data = NSData(contentsOf: imageAsset.fileURL),
             let image = UIImage(data: data as Data)
         
         else {
@@ -109,6 +113,7 @@ class Drop: CloudKitSyncable {
             timestamp: timestamp,
             numberOfLikes: numberOfLikes,
             location: CLLocationCoordinate2D(latitude:latitude, longitude:longitude),
+            imageAsset: imageAsset,
             image: image 
         )
     }

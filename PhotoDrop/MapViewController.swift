@@ -16,21 +16,30 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
+    var annotations:[Drop:MKPointAnnotation] = [:]
     var drops: [Drop] = [] {
         didSet {
-
-            // Annotation = pin
-            let annotations: [MKPointAnnotation] = drops.map {
-                let annotation = MKPointAnnotation()
-                annotation.title = $0.title
-                annotation.coordinate =  $0.location
-                return annotation
-            }
-
             DispatchQueue.main.async {
-                // show pins on the map
-                self.mapView.removeAnnotations(self.mapView.annotations) /* TODO: Don't remove Annotations that are still in ragne */
-                self.mapView.addAnnotations(annotations)
+                update(
+                    oldValue,
+                    to: self.drops,
+                    equals: {$0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName},
+                    remove: {
+                        print("removed \($0.title)")
+                        if let annotation = self.annotations[$0] {
+                            self.mapView.removeAnnotation(annotation)
+                        }
+                        self.annotations[$0] = nil
+                    },
+                    add: {
+                        print("added \($0.title)")
+                        let annotation = MKPointAnnotation()
+                        annotation.title = $0.title
+                        annotation.coordinate = $0.location
+                        self.annotations[$0] = annotation
+                        self.mapView.addAnnotation(annotation)
+                    }
+                )
             }
         }
 
