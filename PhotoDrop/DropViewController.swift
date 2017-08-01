@@ -106,6 +106,12 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         cameraSession.removeInput(input)
         cameraSession.addInput(deviceInput)
         
+        if newCamera == captureDevice(with: .front) {
+            flashToggle.isHidden = true
+        } else {
+            flashToggle.isHidden = false
+        }
+        
     }
     
     func captureDevice(with position: AVCaptureDevicePosition) -> AVCaptureDevice? {
@@ -167,7 +173,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     
     @IBAction func flashToggleButtonPressed(_ sender: Any) {
         
-//        cameraFlashToggle()
+        cameraFlashToggle()
     }
     
     @IBAction func cameraPositionTogglePressed(_ sender: Any) {
