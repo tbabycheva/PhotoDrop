@@ -24,7 +24,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         titleTextField.delegate = self
 
         titleTextField.text = dropViewController?.photoTitle
-        previewImage.image = image
+        previewImage.image = image?.fixOrientation()
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
@@ -57,7 +57,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         
         if titleTextField.text != "" {
             
-            guard let droppedImage = image else { return }
+            guard let droppedImage = image?.fixOrientation() else { return }
             
             DropController.shared.createDropWith(title: text, timestamp: Date(), location: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), image: droppedImage, completion: nil)
             
@@ -77,6 +77,23 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         
         titleTextField.resignFirstResponder()
         return true
+    }
+    
+}
+
+extension UIImage {
+    
+    func fixOrientation() -> UIImage {
+        if self.imageOrientation == UIImageOrientation.up {
+            return self
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        let normalImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return normalImage
     }
     
 }
