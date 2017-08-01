@@ -19,15 +19,15 @@ class PhotoListViewController: UIViewController {
             // Pull drop detail data from iCloud
             let group = DispatchGroup()
             
-            group.notify(queue: DispatchQueue.main) {
-                self.photoListTableView.reloadData()
-            }
-            
             for drop in drops {
                 group.enter()
                 DropController.shared.pullDetailDropWith(for: drop, completion:{ (drop) in
                     group.leave()
                 })
+            }
+            
+            group.notify(queue: DispatchQueue.main) {
+                self.photoListTableView.reloadData()
             }
         }
     }
