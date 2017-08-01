@@ -43,7 +43,9 @@ class DropLikeController {
         return dropLike
     }
     
-    func delete(dropLike: DropLike) {
-        dropLike.delete()
+    func deleteDropLike(for drop: Drop) {
+        pullDropLike(for: drop) { (dropLike) in
+            dropLike?.delete()
+        }
     }
 }

@@ -37,23 +37,17 @@ class PhotoViewController: UIViewController {
     
     @IBAction func dropLikeButtonTapped(_ sender: Any) {
         
-//        guard let drop = drop else { return }
-//        
-//        var likerUserID: CKRecordID?
-//        var dropID: CKRecordID?
-//        
-//        let dispatchGroup = DispatchGroup()
-//        
-//        dispatchGroup.enter()
-//        DropLikeController.shared.pullDropLike(for: drop) { (dropLike) in
-//            dropID = dropLike?.dropId
-//            dispatchGroup.leave()
-//        }
-//        
-//        dispatchGroup.notify(queue: DispatchQueue.main) {
-//            guard let likerUserID = likerUserID, let dropID = dropID else { return }
-//            DropLikeController.shared.createDropLike(for: dropID)
-//        }
+        guard let drop = drop else { return }
+        guard let hasLiked = drop.hasLiked else { return }
+        
+        if hasLiked {
+            //deleteDropLike
+            DropLikeController.shared.deleteDropLike(for: drop) 
+        } else {
+            //createDropLike
+            _ = DropLikeController.shared.createDropLike(for: drop)
+            drop.hasLiked = false
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
