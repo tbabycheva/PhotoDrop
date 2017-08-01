@@ -51,7 +51,7 @@ class MapViewController: UIViewController {
 
     var isWaitingToCenterOnLocation = true
 
-    var annotationSelected: MKAnnotation?
+    var annotationSelected: MKPointAnnotation?
 
     var sourceLocation: CLLocationCoordinate2D?{
         didSet {
@@ -59,7 +59,10 @@ class MapViewController: UIViewController {
         }
     }
 
-    var destinationLocation: MKAnnotation?{
+    var destinationLocation: MKPointAnnotation? {
+        willSet {
+            destinationLocation?.subtitle = ""
+        }
         didSet {
             showRoute()
         }
@@ -158,11 +161,17 @@ class MapViewController: UIViewController {
                 }
                 return
             }
-            
+
             // The region is set so both locations will be visible
             self.route = response.routes[0]
             self.mapView.add(response.routes[0].polyline, level: MKOverlayLevel.aboveRoads)
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+
+            let distance = Measurement(value: response.routes[0].distance, unit: UnitLength.meters)
+            let measurementFormatter = MeasurementFormatter()
+            measurementFormatter.unitStyle = .medium
+            let distanceString = measurementFormatter.string(from: distance)
+            self.destinationLocation?.subtitle = distanceString
         }
     }
 }
@@ -188,6 +197,10 @@ extension MapViewController: MKMapViewDelegate {
             showDistanceButton.setImage(UIImage(named: "directions-icon"), for: .normal)
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton
+
+            // prevent taps on annotationView from triggering tap on map
+            let TapRecognizer = UITapGestureRecognizer()
+            annotationView?.addGestureRecognizer(TapRecognizer)
         }
         
         return annotationView
@@ -199,7 +212,7 @@ extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        guard let annotation = view.annotation else { return }
+        guard let annotation = view.annotation as? MKPointAnnotation else { return }
         annotationSelected = annotation
         guard let destinationLocation = destinationLocation else { return }
         if destinationLocation === annotation {
