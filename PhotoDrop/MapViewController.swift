@@ -25,14 +25,18 @@ class MapViewController: UIViewController {
                     to: self.drops,
                     equals: {$0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName},
                     remove: {
-                        print("removed \($0.title)")
                         if let annotation = self.annotations[$0] {
                             self.mapView.removeAnnotation(annotation)
                         }
                         self.annotations[$0] = nil
                     },
+                    unchanged: {
+                        if $0 != $1 {
+                            self.annotations[$1] = self.annotations[$0]
+                            self.annotations[$0] = nil
+                        }
+                    },
                     add: {
-                        print("added \($0.title)")
                         let annotation = MKPointAnnotation()
                         annotation.title = $0.title
                         annotation.coordinate = $0.location
