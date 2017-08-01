@@ -18,6 +18,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var camPreviewLayer: AVCaptureVideoPreviewLayer!
     var photoTitle: String?
     var cameraState: Bool?
+    var flashSwitch = 1
 
     var cameraPosition = AVCaptureDevicePosition.back
     
@@ -136,27 +137,17 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     
     // Toggles the torchMode on the camera
     
-    func cameraFlashToggle() {
+    func cameraFlashToggle() -> Int {
         
-        guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
-        
-        if (camera.hasTorch) {
+        if flashSwitch == 1 {
             
-            do {
-                _ = try camera.lockForConfiguration()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        
-        if camera.isTorchActive {
-            camera.torchMode = AVCaptureTorchMode.off
+            flashSwitch = 2
         } else {
-            camera.torchMode = AVCaptureTorchMode.on
+            
+            flashSwitch = 1
         }
         
-        camera.unlockForConfiguration()
-        
+        return flashSwitch
     }
     
     // Forces the torchMode to .off
@@ -165,13 +156,19 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         
         guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
         
-        do {
-        try camera.lockForConfiguration()
-        } catch {
-            print(error.localizedDescription)
+        if flashSwitch == 2 || flashSwitch == 1{
+            
+            do {
+            try camera.lockForConfiguration()
+            } catch {
+                print(error.localizedDescription)
+            }
+            camera.torchMode = .off
+            camera.unlockForConfiguration()
+            
+            flashSwitch = 1
+            
         }
-        camera.torchMode = .off
-        camera.unlockForConfiguration()
         
     }
     
@@ -188,9 +185,25 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         ]
         settings.previewPhotoFormat = previewFormat
         
-        cameraOutput.capturePhoto(with: settings, delegate: self)
+        if flashSwitch == 2 {
         
-        turnTorchOff()
+            guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+            
+            do {
+                try camera.lockForConfiguration()
+            } catch {
+                print(error.localizedDescription)
+            }
+            camera.torchMode = .on
+            camera.unlockForConfiguration()
+            
+        cameraOutput.capturePhoto(with: settings, delegate: self)
+            
+        
+        } else {
+            
+            cameraOutput.capturePhoto(with: settings, delegate: self)
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -226,6 +239,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
             
             self.imageView.image = image
+            
+            turnTorchOff()
             
             performSegue(withIdentifier: "toDropPreview", sender: nil)
         }
