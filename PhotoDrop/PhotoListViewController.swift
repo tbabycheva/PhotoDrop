@@ -15,14 +15,11 @@ class PhotoListViewController: UIViewController {
     
     var drops: [Drop] = [] {
         didSet {
-           
             // Pull drop detail data from iCloud
             let group = DispatchGroup()
-            
             group.notify(queue: DispatchQueue.main) {
                 self.photoListTableView.reloadData()
             }
-            
             for drop in drops {
                 group.enter()
                 DropController.shared.pullDetailDropWith(for: drop, completion:{ (drop) in
@@ -62,6 +59,14 @@ class PhotoListViewController: UIViewController {
         photoListTableView.reloadData()
     }
     
+    // Lock tableview in portrait mode
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
+
+    
     // MARK: - Action Functions
     
     @IBAction func mapButtonTapped(_ sender: Any) {
@@ -93,7 +98,8 @@ extension PhotoListViewController: UITableViewDataSource {
 // MARK: - TableView Delegate
 
 extension PhotoListViewController: UITableViewDelegate {
-}
+    
+    }
 
 // MARK: - Navigation
 
