@@ -24,31 +24,12 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         titleTextField.delegate = self
 
         titleTextField.text = dropViewController?.photoTitle
-        previewImage.image = image
+        previewImage.image = image?.fixOrientation()
     }
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        
-        guard let savedPic = previewImage.image else { return }
-        
-        UIImageWriteToSavedPhotosAlbum(savedPic, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
-        
-    }
+    // MARK: - Action Functions
     
-    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
-        
-        let savedAlert = UIAlertController(title: "Saved to Photo Library!", message: "", preferredStyle: .alert)
-        savedAlert.addAction(UIAlertAction(title: "Dope!", style: .cancel, handler: nil))
-        self.present(savedAlert, animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        
-        dropViewController?.photoTitle = titleTextField.text
-        dismiss(animated: true, completion: nil)
-    }
-    
+    // Post your photo
     @IBAction func postButtonTapped(_ sender: Any) {
         
         guard let text = titleTextField.text,
@@ -56,27 +37,80 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
             else { return }
         
         if titleTextField.text != "" {
+            guard let droppedImage = image?.fixOrientation() else { return }
             
-            guard let droppedImage = image else { return }
-            
-            DropController.shared.createDropWith(title: text, timestamp: Date(), location: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude), image: droppedImage, completion: nil)
+            DropController.shared.createDropWith(title: text, timestamp: Date(),
+                                                 location: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude),
+                                                 image: droppedImage, completion: nil)
+
+            UIImageWriteToSavedPhotosAlbum(droppedImage, self, #selector(savedImageAlert(_:didFinishSavingWithError:contextInfo:)), nil)
             
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             
         } else {
-            
-            let alert = UIAlertController(title: "Title Required", message: "You must enter a title for the picture.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Title Required", message: "Please enter the title first 🙃", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
-        
+    }
+    
+    func savedImageAlert(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        let savedAlert = UIAlertController(title: "Saved to Photo Library!", message: "", preferredStyle: .alert)
+        savedAlert.addAction(UIAlertAction(title: "Dope!", style: .cancel, handler: nil))
+        self.present(savedAlert, animated: true, completion: nil)
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    // Back to camera
+    @IBAction func backButtonTapped(_ sender: Any) {
         
+        dropViewController?.photoTitle = titleTextField.text
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - Sliding keyboard
+
+extension DropPreviewViewController {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        animateViewMoving(up: true, moveValue: 135)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        animateViewMoving(up: false, moveValue: 135)
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        
+        UIView.beginAnimations("animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration)
+        
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
         return true
     }
+}
+
+// MARK: - Save photos with proper orientation
+extension UIImage {
     
+    func fixOrientation() -> UIImage {
+        if self.imageOrientation == UIImageOrientation.up {
+            return self
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        let normalImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return normalImage
+    }
 }
