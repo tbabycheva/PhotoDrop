@@ -97,6 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="fsX-Y9-BJi" id="AOz-Ne-Nl5"/>
+                        <outlet property="dropLikeButton" destination="z3o-ZK-RFi" id="ehN-ls-xww"/>
                         <outlet property="photoImageView" destination="6AG-Mu-gT5" id="cRd-Zl-aWJ"/>
                         <outlet property="titleLabel" destination="kty-kj-1zu" id="E9F-Dr-VLA"/>
                     </connections>

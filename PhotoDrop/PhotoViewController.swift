@@ -16,6 +16,7 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dropLikeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,17 @@ class PhotoViewController: UIViewController {
             photoImageView.image = drop.image
             titleLabel.text = drop.title
             dateLabel.text = "Posted \(drop.timestamp.stringValueSpelled())"
+            updateLikeGem()
+        }
+    }
+    
+    func updateLikeGem() {
+        guard let hasLiked = drop?.hasLiked else { return }
+        
+        if hasLiked {
+            dropLikeButton.setImage(#imageLiteral(resourceName: "diamond-gold"), for: .normal)
+        }else {
+            dropLikeButton.setImage(#imageLiteral(resourceName: "diamond-inactive"), for: .normal) 
         }
     }
     
@@ -32,7 +44,7 @@ class PhotoViewController: UIViewController {
         
         guard let drop = drop else { return }
         
-        BlockedUserController.shared.blockUser(of: drop) 
+        BlockedUserController.shared.blockUser(of: drop)
     }
     
     @IBAction func dropLikeButtonTapped(_ sender: Any) {
@@ -41,13 +53,13 @@ class PhotoViewController: UIViewController {
         guard let hasLiked = drop.hasLiked else { return }
         
         if hasLiked {
-            //deleteDropLike
-            DropLikeController.shared.deleteDropLike(for: drop) 
-        } else {
-            //createDropLike
-            _ = DropLikeController.shared.createDropLike(for: drop)
+            DropLikeController.shared.deleteDropLike(for: drop)
             drop.hasLiked = false
+        } else {
+            _ = DropLikeController.shared.createDropLike(for: drop)
+            drop.hasLiked = true
         }
+        updateLikeGem()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
