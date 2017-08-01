@@ -80,8 +80,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="diamond-inactive"/>
                                 <connections>
-                                    <action selector="dropLikeButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="qya-we-7ap"/>
-                                    <action selector="gemItButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="Fqd-m7-kOH"/>
+                                    <action selector="dropLikeButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="p7l-jN-VC1"/>
                                 </connections>
                             </button>
                         </subviews>

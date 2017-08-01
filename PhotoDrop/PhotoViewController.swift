@@ -32,32 +32,11 @@ class PhotoViewController: UIViewController {
         
         guard let drop = drop else { return }
         
-        var blockedRecordID: CKRecordID?
-        var blockerRecordID: CKRecordID?
-        
-        let dispatchGroup = DispatchGroup()
-        
-        dispatchGroup.enter()
-        PhotoDropUserController.shared.pullUserWith(userRecordID: drop.dropperUserId) { (photoDropUser) in
-            blockerRecordID = photoDropUser?.userRecordId
-            dispatchGroup.leave()
-        }
-        
-        dispatchGroup.enter()
-        CKContainer.default().fetchUserRecordID { (blockedCloudKitRecordID, error) in
-            guard let blockedCloudKitRecordID = blockedCloudKitRecordID else { return }
-            blockedRecordID = blockedCloudKitRecordID
-            dispatchGroup.leave()
-        }
-        
-        dispatchGroup.notify(queue: DispatchQueue.main) {
-            guard let blockedRecordID = blockedRecordID, let blockerRecordID = blockerRecordID else { return }
-            BlockedUserController.shared.pushBlockedUser(blockedRecordID: blockedRecordID, blockerRecordID: blockerRecordID)
-        }
+        BlockedUserController.shared.blockUser(of: drop) 
     }
     
-//    @IBAction func dropLikeButtonTapped(_ sender: Any) {
-//        
+    @IBAction func dropLikeButtonTapped(_ sender: Any) {
+        
 //        guard let drop = drop else { return }
 //        
 //        var likerUserID: CKRecordID?
@@ -71,14 +50,11 @@ class PhotoViewController: UIViewController {
 //            dispatchGroup.leave()
 //        }
 //        
-//        dispatchGroup.enter()
-//        
-//        
 //        dispatchGroup.notify(queue: DispatchQueue.main) {
 //            guard let likerUserID = likerUserID, let dropID = dropID else { return }
 //            DropLikeController.shared.createDropLike(for: dropID)
 //        }
-//    }
+    }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)

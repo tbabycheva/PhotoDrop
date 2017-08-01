@@ -37,6 +37,9 @@ class DropLikeController {
         guard let user = PhotoDropUserController.shared.currentPhotoDropUser else { return nil }
         let userRecord = user.getRecord()
         let dropLike = DropLike(likerUserId: userRecord.recordID, dropId: drop.getRecord().recordID)
+        
+        dropLike.push()
+        
         return dropLike
     }
     
