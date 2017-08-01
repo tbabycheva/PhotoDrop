@@ -50,6 +50,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         AppUtility.lockOrientation(.all)
     }
     
+    // Loads or reloads the camera each time it is called
+    
     func cameraLoad() {
 
         imageView.isHidden = true
@@ -80,6 +82,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             print("An error occurred.")
         }
     }
+    
+    // Toggles between the front and back cameras
     
     func toggleCamera() {
         
@@ -114,6 +118,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         
     }
     
+    // Handles the position of the camera currently being used
+    
     func captureDevice(with position: AVCaptureDevicePosition) -> AVCaptureDevice? {
         
         let devices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .unspecified).devices
@@ -127,6 +133,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         }
         return nil
     }
+    
+    // Toggles the torchMode on the camera
     
     func cameraFlashToggle() {
         
@@ -150,6 +158,23 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         camera.unlockForConfiguration()
         
     }
+    
+    // Forces the torchMode to .off
+    
+    func turnTorchOff() {
+        
+        guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+        
+        do {
+        try camera.lockForConfiguration()
+        } catch {
+            print(error.localizedDescription)
+        }
+        camera.torchMode = .off
+        camera.unlockForConfiguration()
+        
+    }
+    
     // MARK: - Action Functions
     
     @IBAction func takePhotoButtonTapped(_ sender: Any) {
@@ -164,6 +189,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         settings.previewPhotoFormat = previewFormat
         
         cameraOutput.capturePhoto(with: settings, delegate: self)
+        
+        turnTorchOff()
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
