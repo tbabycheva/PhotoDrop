@@ -197,6 +197,10 @@ extension MapViewController: MKMapViewDelegate {
             showDistanceButton.setImage(UIImage(named: "directions-icon"), for: .normal)
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton
+
+            // prevent taps on annotationView from triggering tap on map
+            let TapRecognizer = UITapGestureRecognizer()
+            annotationView?.addGestureRecognizer(TapRecognizer)
         }
         
         return annotationView
