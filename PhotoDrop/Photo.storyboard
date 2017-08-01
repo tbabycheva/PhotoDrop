@@ -40,7 +40,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bo7-b8-vNw" userLabel="Report Button">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bo7-b8-vNw" userLabel="Block Button">
                                                         <rect key="frame" x="297" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="4we-QC-7zq"/>
@@ -48,6 +48,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" image="report-user"/>
+                                                        <connections>
+                                                            <action selector="blockButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="IkI-ql-tDk"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

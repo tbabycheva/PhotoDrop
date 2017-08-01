@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CloudKit
 
 class PhotoViewController: UIViewController {
     
-    var drop: Drop? 
+    var drop: Drop?
     
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,8 +29,12 @@ class PhotoViewController: UIViewController {
     // MARK: Action Functions
     
     @IBAction func gemItButtonTapped(_ sender: Any) {
+        
     }
     
+    @IBAction func blockButtonTapped(_ sender: Any) {
+    }
+   
     @IBAction func backButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
