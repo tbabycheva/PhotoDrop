@@ -21,10 +21,15 @@ class PhotoListViewController: UIViewController {
                 self.photoListTableView.reloadData()
             }
             for drop in drops {
+                print("test")
+                autoreleasepool{
                 group.enter()
                 DropController.shared.pullDetailDropWith(for: drop, completion:{ (drop) in
                     group.leave()
                 })
+                }
+                Thread.sleep(forTimeInterval: 5.0)
+                print("test")
             }
             
             group.notify(queue: DispatchQueue.main) {
