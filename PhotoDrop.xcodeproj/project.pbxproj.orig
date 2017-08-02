@@ -11,16 +11,17 @@
 		21035F701F2BD88400D704B0 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21035F6F1F2BD88400D704B0 /* DateHelpers.swift */; };
 		2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167927C1F2BA5B700DEF0BD /* Assets.xcassets */; };
 		218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BDFD71F26923700A6BBF5 /* AppDelegate.swift */; };
-		218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */; };
 		219EE2991F2957A200CED555 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219EE2981F2957A200CED555 /* Map.storyboard */; };
 		2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */; };
 		2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */; };
 		2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */; };
 		2A480D351F2B9A8600EBA965 /* DropLikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D341F2B9A8600EBA965 /* DropLikeController.swift */; };
-		2A480D371F2B9A9700EBA965 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D361F2B9A9700EBA965 /* Launch.storyboard */; };
 		2A480D391F2B9A9D00EBA965 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */; };
 		2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */; };
 		2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */; };
+		2A480D631F3236F300EBA965 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D621F3236F300EBA965 /* Launch Screen.storyboard */; };
+		3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */; };
+		3F911D1B1F30DB5E002F2A45 /* HashableUsingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */; };
 		3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */; };
 		3FF2CC161F279F8C00C68903 /* PhotoDropUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC151F279F8C00C68903 /* PhotoDropUser.swift */; };
 		3FF2CC181F279F9F00C68903 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC171F279F9F00C68903 /* Drop.swift */; };
@@ -50,17 +51,18 @@
 		2167927C1F2BA5B700DEF0BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		218BDFD41F26923700A6BBF5 /* PhotoDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PhotoDrop/AppDelegate.swift; sourceTree = "<group>"; };
-		218BDFE11F26923800A6BBF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218BDFE31F26923800A6BBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219EE2981F2957A200CED555 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDropUserController.swift; sourceTree = "<group>"; };
 		2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
 		2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUserController.swift; sourceTree = "<group>"; };
 		2A480D341F2B9A8600EBA965 /* DropLikeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropLikeController.swift; sourceTree = "<group>"; };
-		2A480D361F2B9A9700EBA965 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		2A480D621F3236F300EBA965 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayHelpers.swift; sourceTree = "<group>"; };
+		3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableUsingAddress.swift; sourceTree = "<group>"; };
 		3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
 		3FF2CC151F279F8C00C68903 /* PhotoDropUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDropUser.swift; sourceTree = "<group>"; };
 		3FF2CC171F279F9F00C68903 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		218BDFD61F26923700A6BBF5 /* PhotoDrop */ = {
 			isa = PBXGroup;
 			children = (
+				3F911D1C1F30DBBD002F2A45 /* Helpers */,
 				3FF2CC111F279F1800C68903 /* Models */,
 				3FF2CC141F279F6B00C68903 /* Protocols */,
 				3FF5CCEB1F2925A700D8531C /* Controllers */,
@@ -134,7 +137,6 @@
 			children = (
 				3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */,
 				2167927C1F2BA5B700DEF0BD /* Assets.xcassets */,
-				218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */,
 				218BDFE31F26923800A6BBF5 /* Info.plist */,
 			);
 			name = Resources;
@@ -149,6 +151,15 @@
 				2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */,
 			);
 			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		3F911D1C1F30DBBD002F2A45 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
+				3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		3FF2CC111F279F1800C68903 /* Models */ = {
@@ -166,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */,
+				3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -183,7 +195,6 @@
 			children = (
 				3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */,
 				3FF5CCE71F29259600D8531C /* GeoFenceController.swift */,
-				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -191,7 +202,7 @@
 		B98DD8621F269A85000231E9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				2A480D361F2B9A9700EBA965 /* Launch.storyboard */,
+				2A480D621F3236F300EBA965 /* Launch Screen.storyboard */,
 				2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */,
 				219EE2981F2957A200CED555 /* Map.storyboard */,
 				B98DD84C1F269975000231E9 /* Points.storyboard */,
@@ -256,8 +267,8 @@
 <<<<<<< HEAD
 						DevelopmentTeam = X7J6W2VA9A;
 =======
-						DevelopmentTeam = WCS73R8992;
->>>>>>> develop
+						DevelopmentTeam = WC4MWVKQFQ;
+>>>>>>> 593479bdebddd6e19707d40f050def97147a7c44
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -293,12 +304,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				218BDFE21F26923800A6BBF5 /* LaunchScreen.storyboard in Resources */,
-				2A480D371F2B9A9700EBA965 /* Launch.storyboard in Resources */,
 				2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */,
 				B98DD8551F2699A1000231E9 /* Photo.storyboard in Resources */,
 				219EE2991F2957A200CED555 /* Map.storyboard in Resources */,
 				B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */,
+				2A480D631F3236F300EBA965 /* Launch Screen.storyboard in Resources */,
 				B98DD84D1F269975000231E9 /* Points.storyboard in Resources */,
 				B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */,
 				B98DD8511F269984000231E9 /* Settings.storyboard in Resources */,
@@ -314,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F911D1B1F30DB5E002F2A45 /* HashableUsingAddress.swift in Sources */,
 				B9DD7A191F28044D00CAE0D9 /* DropController.swift in Sources */,
 				2A480D351F2B9A8600EBA965 /* DropLikeController.swift in Sources */,
 				B9894EC21F27E3B9008F4829 /* DropPreviewViewController.swift in Sources */,
@@ -321,6 +332,7 @@
 				21035F701F2BD88400D704B0 /* DateHelpers.swift in Sources */,
 				3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */,
 				2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */,
+				3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */,
 				2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */,
 				B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */,
 				B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */,
@@ -341,17 +353,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		218BDFE01F26923800A6BBF5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				218BDFE11F26923800A6BBF5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		218BDFE41F26923800A6BBF5 /* Debug */ = {
@@ -460,11 +461,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 =======
-				DEVELOPMENT_TEAM = WCS73R8992;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
->>>>>>> develop
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
+>>>>>>> 593479bdebddd6e19707d40f050def97147a7c44
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -480,11 +481,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 =======
-				DEVELOPMENT_TEAM = WCS73R8992;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
->>>>>>> develop
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
+>>>>>>> 593479bdebddd6e19707d40f050def97147a7c44
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
