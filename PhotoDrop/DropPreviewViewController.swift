@@ -24,7 +24,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         titleTextField.delegate = self
 
         titleTextField.text = dropViewController?.photoTitle
-        previewImage.image = image?.fixOrientation()
+        previewImage.image = image
     }
     
     // MARK: - Action Functions
@@ -37,7 +37,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
             else { return }
         
         if titleTextField.text != "" {
-            guard let droppedImage = image?.fixOrientation() else { return }
+            guard let droppedImage = image else { return }
             
             DropController.shared.createDropWith(title: text, timestamp: Date(),
                                                  location: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude),
@@ -106,12 +106,53 @@ extension UIImage {
             return self
         }
         
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-        let normalImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
+        var transform: CGAffineTransform = CGAffineTransform.identity
         
-        return normalImage
+        if self.imageOrientation == UIImageOrientation.down || self.imageOrientation == UIImageOrientation.downMirrored {
+            transform = transform.translatedBy(x: self.size.width, y: self.size.height)
+            transform = transform.rotated(by: CGFloat(Double.pi))
+        }
+        if self.imageOrientation == UIImageOrientation.left || self.imageOrientation == UIImageOrientation.leftMirrored {
+            transform = transform.translatedBy(x: self.size.width, y: 0)
+            transform = transform.rotated(by: CGFloat(Double.pi / 2.0))
+        }
+        if self.imageOrientation == UIImageOrientation.right || self.imageOrientation == UIImageOrientation.rightMirrored {
+            transform = transform.translatedBy(x: 0, y: self.size.height)
+            transform = transform.rotated(by: CGFloat(-Double.pi / 2.0))
+        }
+        if self.imageOrientation == UIImageOrientation.upMirrored || self.imageOrientation == UIImageOrientation.downMirrored {
+            transform = transform.translatedBy(x: self.size.width, y: 0)
+            transform = transform.rotated(by: CGFloat(-1 / 1))
+        }
+        if self.imageOrientation == UIImageOrientation.leftMirrored || self.imageOrientation == UIImageOrientation.rightMirrored {
+            transform = transform.translatedBy(x: self.size.height, y: 0)
+            transform = transform.rotated(by: CGFloat(-1 / 1))
+        }
+        
+        let ctx: CGContext = CGContext(data: nil, width: Int(self.size.width), height: Int(self.size.height), bitsPerComponent: self.cgImage!.bitsPerComponent, bytesPerRow: 0, space: self.cgImage!.colorSpace!, bitmapInfo: self.cgImage!.bitmapInfo.rawValue)!
+        
+        ctx.concatenate(transform)
+        
+        if self.imageOrientation == UIImageOrientation.left ||
+        self.imageOrientation == UIImageOrientation.leftMirrored ||
+        self.imageOrientation == UIImageOrientation.right ||
+            self.imageOrientation == UIImageOrientation.rightMirrored {
+            ctx.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.height, height: self.size.width))
+        } else {
+            ctx.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        }
+        
+        let coreGraphicsImage: CGImage = ctx.makeImage()!
+        let imageEnd: UIImage = UIImage(cgImage: coreGraphicsImage)
+        
+        return imageEnd
+        
+//        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+//        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+//        let normalImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
+//        
+//        return normalImage
     }
 }
 

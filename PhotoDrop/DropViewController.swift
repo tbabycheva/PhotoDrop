@@ -268,9 +268,17 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             guard let dataProvider = CGDataProvider(data: dataImage as CFData),
                 let cgImageRef = CGImage(jpegDataProviderSource: dataProvider, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
                 else { return }
-            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
             
-            self.imageView.image = image
+            let currentDevice: UIDevice = UIDevice.current
+            let orientation: UIDeviceOrientation = currentDevice.orientation
+            
+            if orientation == .portrait {
+            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+                self.imageView.image = image
+            } else if orientation == .landscapeLeft {
+                let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.up)
+                self.imageView.image = image
+            }
             
             turnTorchOff()
             
