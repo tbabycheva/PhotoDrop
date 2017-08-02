@@ -17,9 +17,6 @@ class PhotoListViewController: UIViewController {
         didSet {
             // Pull drop detail data from iCloud
             let group = DispatchGroup()
-            group.notify(queue: DispatchQueue.main) {
-                self.photoListTableView.reloadData()
-            }
             for drop in drops {
                 print("test")
                 autoreleasepool{

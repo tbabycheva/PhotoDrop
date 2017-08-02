@@ -36,7 +36,10 @@ class PhotoDropUserController {
     
     func pullUserWith(userRecordID: CKRecordID, completion: @escaping (PhotoDropUser?) -> Void) {
         PhotoDropUser.database.fetch(withRecordID: userRecordID) { (record, error) in
-            guard let record = record else { return }
+            guard let record = record else {
+              completion(nil)
+              return
+            }
             completion(PhotoDropUser(record: record))
         }
     }
