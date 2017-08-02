@@ -14,6 +14,7 @@ import MapKit
 class DropLikeController {
     
     static let shared = DropLikeController()  
+    
     func pullDropLike(for drop: Drop, completion: @escaping (DropLike?) -> Void) {
         
         let dropRecord = drop.getRecord()
@@ -36,10 +37,15 @@ class DropLikeController {
         guard let user = PhotoDropUserController.shared.currentPhotoDropUser else { return nil }
         let userRecord = user.getRecord()
         let dropLike = DropLike(likerUserId: userRecord.recordID, dropId: drop.getRecord().recordID)
+        
+        dropLike.push()
+        
         return dropLike
     }
     
-    func delete(dropLike: DropLike) {
-        dropLike.delete()
+    func deleteDropLike(for drop: Drop) {
+        pullDropLike(for: drop) { (dropLike) in
+            dropLike?.delete()
+        }
     }
 }

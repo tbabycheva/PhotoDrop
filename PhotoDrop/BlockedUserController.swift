@@ -12,22 +12,19 @@ import CloudKit
 class BlockedUserController {
     
     static let shared = BlockedUserController()
-    var blockedCloudKitRecordID: CKRecordID?
     var blockedUsers: [BlockedUser]?
     
-   
-    func pushBlockedUser(blockedRecordID: CKRecordID, blockerRecordID: CKRecordID) {
+    
+    func blockUser(of drop: Drop) { 
         
-        CKContainer.default().fetchUserRecordID { (blockedCloudKitRecordID, error) in
+        CKContainer.default().fetchUserRecordID { (blockerCloudKitRecordID, error) in
+            guard let blockerCloudKitRecordID = blockerCloudKitRecordID else { return }
             
-            guard let blockedCloudKitRecordID = blockedCloudKitRecordID else { return }
-            self.blockedCloudKitRecordID = blockedCloudKitRecordID
-            
-            let blockedUser = BlockedUser(blockedRecordID: blockedRecordID, blockerRecordID: blockerRecordID)
+            let blockedUser = BlockedUser(blockedRecordID: drop.dropperUserId, blockerRecordID: blockerCloudKitRecordID)
             
             blockedUser.push()
             
-            self.blockedUsers?.append(blockedUser) 
+            self.blockedUsers?.append(blockedUser)
         }
     }
     
@@ -48,7 +45,7 @@ class BlockedUserController {
             
             BlockedUser.pull(predicate: predicate, completion: { (blockedUsers, error) in
                 self.blockedUsers = blockedUsers
-                completion(blockedUsers) 
+                completion(blockedUsers)
             })
         }
     }
