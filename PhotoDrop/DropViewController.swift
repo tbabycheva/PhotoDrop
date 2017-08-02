@@ -273,10 +273,13 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             let orientation: UIDeviceOrientation = currentDevice.orientation
             
             if orientation == .portrait {
-            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+            let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.right)
                 self.imageView.image = image
             } else if orientation == .landscapeLeft {
                 let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.up)
+                self.imageView.image = image
+            } else if orientation == .landscapeRight {
+                let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.down)
                 self.imageView.image = image
             }
             
