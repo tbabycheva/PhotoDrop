@@ -63,6 +63,7 @@ extension CloudKitSyncable {
 
     let query = CKQuery(recordType: Self.recordType, predicate: predicate)
     let queryOperation = CKQueryOperation(query: query)
+    queryOperation.qualityOfService = .userInteractive 
 
     let perObjectBlock = { (fetchedRecord: CKRecord) -> Void in
       guard let record = Self(record: fetchedRecord) else {
