@@ -128,6 +128,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         var newCamera: AVCaptureDevice?
         if input.device.position == .back {
             newCamera = captureDevice(with: .front)
+            turnTorchOff()
         } else {
             newCamera = captureDevice(with: .back)
         }
@@ -169,7 +170,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     
     // Toggles the torchMode on the camera
     
-    func cameraFlashToggle() -> Bool {
+    func cameraFlashToggle() {
         
         if flashSwitch == false {
             
@@ -178,8 +179,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             
             flashSwitch = false
         }
-        
-        return flashSwitch
     }
     
     // Forces the torchMode to .off
@@ -273,13 +272,13 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             let orientation: UIDeviceOrientation = currentDevice.orientation
             
             if orientation == .portrait {
-            let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.right)
+            let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.right)
                 self.imageView.image = image
             } else if orientation == .landscapeLeft {
-                let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.up)
+                let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.up)
                 self.imageView.image = image
             } else if orientation == .landscapeRight {
-                let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.down)
+                let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.down)
                 self.imageView.image = image
             }
             
@@ -288,7 +287,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             performSegue(withIdentifier: "toDropPreview", sender: nil)
         }
     }
-
     
     // MARK: - Navigation
     

@@ -43,7 +43,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
                                                  location: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude),
                                                  image: droppedImage, completion: nil)
 
-            UIImageWriteToSavedPhotosAlbum(droppedImage, self, #selector(savedImageAlert(_:didFinishSavingWithError:contextInfo:)), nil)
+            UIImageWriteToSavedPhotosAlbum(droppedImage, self, nil, nil)
             
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             
@@ -52,12 +52,6 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    func savedImageAlert(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
-        let savedAlert = UIAlertController(title: "Saved to Photo Library!", message: "", preferredStyle: .alert)
-        savedAlert.addAction(UIAlertAction(title: "Dope!", style: .cancel, handler: nil))
-        self.present(savedAlert, animated: true, completion: nil)
     }
 
     // Back to camera
