@@ -42,8 +42,8 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUK-lz-Unp" userLabel="settings">
-                                <rect key="frame" x="302" y="116" width="31" height="31"/>
-                                <state key="normal" image="settings-icon"/>
+                                <rect key="frame" x="303" y="116" width="30" height="30"/>
+                                <state key="normal" image="settings-button"/>
                                 <connections>
                                     <segue destination="3SE-4C-EUa" kind="show" id="L6q-h6-LxF"/>
                                 </connections>
@@ -76,6 +76,6 @@
     <resources>
         <image name="maps-button" width="89" height="87"/>
         <image name="points-chart" width="306" height="384"/>
-        <image name="settings-icon" width="31" height="31"/>
+        <image name="settings-button" width="30" height="30"/>
     </resources>
 </document>

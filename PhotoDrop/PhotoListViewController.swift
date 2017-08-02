@@ -18,7 +18,6 @@ class PhotoListViewController: UIViewController {
             // Pull drop detail data from iCloud
             let group = DispatchGroup()
             for drop in drops {
-                print("test")
                 autoreleasepool{
                 group.enter()
                 DropController.shared.pullDetailDropWith(for: drop, completion:{ (drop) in
@@ -26,7 +25,6 @@ class PhotoListViewController: UIViewController {
                 })
                 }
                 Thread.sleep(forTimeInterval: 5.0)
-                print("test")
             }
             
             group.notify(queue: DispatchQueue.main) {
@@ -39,9 +37,6 @@ class PhotoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Remove separator lines (make them clear)
-        // photoListTableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         // Populate the table with 20 drops
         guard let location = CurrentLocationController.shared.location else { return }
@@ -65,7 +60,7 @@ class PhotoListViewController: UIViewController {
         photoListTableView.reloadData()
     }
     
-    // MARK: - View 
+    // MARK: - Appearance
     // Lock tableview in portrait mode
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         get {

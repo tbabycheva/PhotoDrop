@@ -59,7 +59,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-RY-Mej" userLabel="Current Location Button">
-                                <rect key="frame" x="337" y="42" width="16" height="16"/>
+                                <rect key="frame" x="337" y="80" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="9PW-4Z-ow3"/>
                                     <constraint firstAttribute="width" secondItem="bmf-RY-Mej" secondAttribute="height" multiplier="1:1" id="cmb-M8-Xka"/>
@@ -73,7 +73,7 @@
                         <color key="backgroundColor" red="0.53609974540000005" green="1" blue="0.99327762159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EIf-wT-bnA" secondAttribute="trailing" id="1YE-PG-mUF"/>
-                            <constraint firstItem="bmf-RY-Mej" firstAttribute="top" secondItem="LvF-7J-9C7" secondAttribute="bottom" constant="22" id="7v7-Jp-7N5"/>
+                            <constraint firstItem="bmf-RY-Mej" firstAttribute="top" secondItem="LvF-7J-9C7" secondAttribute="bottom" constant="60" id="7v7-Jp-7N5"/>
                             <constraint firstItem="QHA-CJ-SIi" firstAttribute="centerY" secondItem="OOL-cW-ida" secondAttribute="centerY" id="AYz-5J-Nox"/>
                             <constraint firstAttribute="bottom" secondItem="EIf-wT-bnA" secondAttribute="bottom" id="DZw-VO-f64"/>
                             <constraint firstItem="P0c-s7-Hje" firstAttribute="centerY" secondItem="OOL-cW-ida" secondAttribute="centerY" id="PvU-WZ-mVM"/>

@@ -32,9 +32,9 @@ class PhotoViewController: UIViewController {
         guard let hasLiked = drop?.hasLiked else { return }
         
         if hasLiked {
-            dropLikeButton.setImage(#imageLiteral(resourceName: "diamond-gold"), for: .normal)
+            dropLikeButton.setImage(#imageLiteral(resourceName: "diamond-gold-like"), for: .normal)
         }else {
-            dropLikeButton.setImage(#imageLiteral(resourceName: "diamond-inactive"), for: .normal) 
+            dropLikeButton.setImage(#imageLiteral(resourceName: "diamond-gold-like-inactive"), for: .normal)
         }
     }
     
