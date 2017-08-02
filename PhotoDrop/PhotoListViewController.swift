@@ -26,6 +26,10 @@ class PhotoListViewController: UIViewController {
                     group.leave()
                 })
             }
+            
+            group.notify(queue: DispatchQueue.main) {
+                self.photoListTableView.reloadData()
+            }
         }
     }
     

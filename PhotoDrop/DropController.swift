@@ -83,9 +83,6 @@ class DropController {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
-        dispatchGroup.notify(queue: DispatchQueue.main) {
-            completion(drop)
-        }
         
         //hasLiked
         DropLikeController.shared.pullDropLike(for: drop) { (dropLike) in
@@ -102,6 +99,9 @@ class DropController {
             dispatchGroup.leave()
         }
         
+        dispatchGroup.notify(queue: DispatchQueue.main) {
+            completion(drop)
+        }
     }
 }
 
