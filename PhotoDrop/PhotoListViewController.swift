@@ -17,14 +17,16 @@ class PhotoListViewController: UIViewController {
         didSet {
             // Pull drop detail data from iCloud
             let group = DispatchGroup()
-            group.notify(queue: DispatchQueue.main) {
-                self.photoListTableView.reloadData()
-            }
             for drop in drops {
+                print("test")
+                autoreleasepool{
                 group.enter()
                 DropController.shared.pullDetailDropWith(for: drop, completion:{ (drop) in
                     group.leave()
                 })
+                }
+                Thread.sleep(forTimeInterval: 5.0)
+                print("test")
             }
             
             group.notify(queue: DispatchQueue.main) {
@@ -63,6 +65,7 @@ class PhotoListViewController: UIViewController {
         photoListTableView.reloadData()
     }
     
+    // MARK: - View 
     // Lock tableview in portrait mode
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         get {

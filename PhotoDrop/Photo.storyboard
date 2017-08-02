@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6AG-Mu-gT5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6AG-Mu-gT5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qDa-Yu-J2w">
@@ -75,10 +75,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3o-ZK-RFi" userLabel="Gem It Button ">
-                                <rect key="frame" x="307" y="567" width="52" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="diamond-inactive"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3o-ZK-RFi" userLabel="Gem It Button ">
+                                <rect key="frame" x="309" y="601" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="kac-Po-XkZ"/>
+                                    <constraint firstAttribute="width" secondItem="z3o-ZK-RFi" secondAttribute="height" multiplier="1:1" id="pTS-3I-b12"/>
+                                </constraints>
+                                <state key="normal" image="diamond-gold-like-inactive"/>
                                 <connections>
                                     <action selector="dropLikeButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="p7l-jN-VC1"/>
                                 </connections>
@@ -91,8 +94,10 @@
                             <constraint firstItem="qDa-Yu-J2w" firstAttribute="top" secondItem="hEo-0Z-VWN" secondAttribute="top" constant="22" id="Uxc-da-3B4"/>
                             <constraint firstItem="qDa-Yu-J2w" firstAttribute="leading" secondItem="hEo-0Z-VWN" secondAttribute="leading" constant="8" id="e6l-8i-Pi9"/>
                             <constraint firstAttribute="trailing" secondItem="qDa-Yu-J2w" secondAttribute="trailing" constant="8" id="fmR-cs-iOY"/>
+                            <constraint firstAttribute="bottom" secondItem="z3o-ZK-RFi" secondAttribute="bottom" constant="16" id="jjr-sj-JWH"/>
                             <constraint firstAttribute="bottom" secondItem="6AG-Mu-gT5" secondAttribute="bottom" id="lGh-XD-WuP"/>
                             <constraint firstItem="6AG-Mu-gT5" firstAttribute="leading" secondItem="hEo-0Z-VWN" secondAttribute="leading" id="xtv-sr-flJ"/>
+                            <constraint firstAttribute="trailing" secondItem="z3o-ZK-RFi" secondAttribute="trailing" constant="16" id="yT1-3B-p4t"/>
                         </constraints>
                     </view>
                     <connections>
@@ -109,7 +114,7 @@
     </scenes>
     <resources>
         <image name="close-button" width="39" height="39"/>
-        <image name="diamond-inactive" width="52" height="53"/>
+        <image name="diamond-gold-like-inactive" width="50" height="42"/>
         <image name="report-user" width="21" height="21"/>
     </resources>
 </document>

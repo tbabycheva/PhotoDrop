@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,15 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUK-lz-Unp">
-                                <rect key="frame" x="253" y="135" width="31" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="settings-icon"/>
-                                <connections>
-                                    <segue destination="3SE-4C-EUa" kind="show" id="L6q-h6-LxF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNj-j0-1gD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNj-j0-1gD" userLabel="map button">
                                 <rect key="frame" x="138" y="517" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="NaB-eI-ACn"/>
@@ -41,17 +34,35 @@
                                     <action selector="mapButtonTapped:" destination="QxX-mi-a3b" eventType="touchUpInside" id="AlQ-I1-A6K"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="points-chart" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-37-Oz9">
+                                <rect key="frame" x="35" y="108" width="306" height="384"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="306" id="7t6-ci-qUD"/>
+                                    <constraint firstAttribute="height" constant="384" id="HGq-jB-a1s"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUK-lz-Unp" userLabel="settings">
+                                <rect key="frame" x="303" y="116" width="30" height="30"/>
+                                <state key="normal" image="settings-button"/>
+                                <connections>
+                                    <segue destination="3SE-4C-EUa" kind="show" id="L6q-h6-LxF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53609974540000005" green="1" blue="0.99327762159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3A4-CQ-DSh" firstAttribute="top" secondItem="rNj-j0-1gD" secondAttribute="bottom" constant="50" id="KMX-gV-qBy"/>
+                            <constraint firstItem="0Vx-37-Oz9" firstAttribute="centerX" secondItem="XnS-ol-90h" secondAttribute="centerX" id="4ep-A6-dKD"/>
+                            <constraint firstItem="qUK-lz-Unp" firstAttribute="trailing" secondItem="0Vx-37-Oz9" secondAttribute="trailing" constant="-8" id="GrD-Uu-MbR"/>
+                            <constraint firstItem="rNj-j0-1gD" firstAttribute="top" secondItem="0Vx-37-Oz9" secondAttribute="bottom" constant="25" id="JwS-BA-Nuf"/>
+                            <constraint firstItem="0Vx-37-Oz9" firstAttribute="centerY" secondItem="XnS-ol-90h" secondAttribute="centerY" multiplier="0.9" id="QDv-a9-xNu"/>
                             <constraint firstItem="rNj-j0-1gD" firstAttribute="centerX" secondItem="XnS-ol-90h" secondAttribute="centerX" id="sKF-Ch-q9b"/>
+                            <constraint firstItem="qUK-lz-Unp" firstAttribute="top" secondItem="0Vx-37-Oz9" secondAttribute="top" constant="8" id="uPg-2O-iGo"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pql-ih-gB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="98"/>
+            <point key="canvasLocation" x="37.600000000000001" y="97.601199400299862"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Lh0-lX-uLD">
@@ -64,6 +75,7 @@
     </scenes>
     <resources>
         <image name="maps-button" width="89" height="87"/>
-        <image name="settings-icon" width="31" height="31"/>
+        <image name="points-chart" width="306" height="384"/>
+        <image name="settings-button" width="30" height="30"/>
     </resources>
 </document>

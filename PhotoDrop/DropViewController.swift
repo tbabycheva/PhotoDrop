@@ -18,7 +18,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var camPreviewLayer: AVCaptureVideoPreviewLayer!
     var photoTitle: String?
     var cameraState: Bool?
-    var flashSwitch = 1
+    var flashSwitch = false
 
     var cameraPosition = AVCaptureDevicePosition.back
     
@@ -39,16 +39,48 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         cameraLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        
+//        AppUtility.lockOrientation(.portrait)
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        
+//        AppUtility.lockOrientation(.all)
+//    }
+    
+    func updateCamPreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
         
-        AppUtility.lockOrientation(.portrait)
+        layer.videoOrientation = orientation
+        camPreviewLayer.frame = self.view.bounds
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        AppUtility.lockOrientation(.all)
+        if let connection = self.camPreviewLayer.connection {
+            let currentDevice: UIDevice = UIDevice.current
+            let orientation: UIDeviceOrientation = currentDevice.orientation
+            let camPreviewLayerConnection: AVCaptureConnection = connection
+            
+            if camPreviewLayerConnection.isVideoOrientationSupported {
+                
+                switch (orientation) {
+                case .portrait:
+                    updateCamPreviewLayer(layer: camPreviewLayerConnection, orientation: .portrait)
+                case .landscapeRight:
+                    updateCamPreviewLayer(layer: camPreviewLayerConnection, orientation: .landscapeLeft)
+                case .landscapeLeft:
+                    updateCamPreviewLayer(layer: camPreviewLayerConnection, orientation: .landscapeRight)
+                case .portraitUpsideDown:
+                    updateCamPreviewLayer(layer: camPreviewLayerConnection, orientation: .portraitUpsideDown)
+                default:
+                    updateCamPreviewLayer(layer: camPreviewLayerConnection, orientation: .portrait)
+                }
+            }
+        }
     }
     
     // Loads or reloads the camera each time it is called
@@ -137,14 +169,14 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     
     // Toggles the torchMode on the camera
     
-    func cameraFlashToggle() -> Int {
+    func cameraFlashToggle() -> Bool {
         
-        if flashSwitch == 1 {
+        if flashSwitch == false {
             
-            flashSwitch = 2
+            flashSwitch = true
         } else {
             
-            flashSwitch = 1
+            flashSwitch = false
         }
         
         return flashSwitch
@@ -156,7 +188,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         
         guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
         
-        if flashSwitch == 2 || flashSwitch == 1{
+        if flashSwitch == true || flashSwitch == false {
             
             do {
             try camera.lockForConfiguration()
@@ -166,7 +198,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             camera.torchMode = .off
             camera.unlockForConfiguration()
             
-            flashSwitch = 1
+            flashSwitch = false
             
         }
         
@@ -185,7 +217,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         ]
         settings.previewPhotoFormat = previewFormat
         
-        if flashSwitch == 2 {
+        if flashSwitch == true {
         
             guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
             
@@ -236,9 +268,20 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             guard let dataProvider = CGDataProvider(data: dataImage as CFData),
                 let cgImageRef = CGImage(jpegDataProviderSource: dataProvider, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
                 else { return }
-            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
             
-            self.imageView.image = image
+            let currentDevice: UIDevice = UIDevice.current
+            let orientation: UIDeviceOrientation = currentDevice.orientation
+            
+            if orientation == .portrait {
+            let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.right)
+                self.imageView.image = image
+            } else if orientation == .landscapeLeft {
+                let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.up)
+                self.imageView.image = image
+            } else if orientation == .landscapeRight {
+                let image = UIImage(cgImage: cgImageRef, scale: 0.5, orientation: UIImageOrientation.down)
+                self.imageView.image = image
+            }
             
             turnTorchOff()
             
