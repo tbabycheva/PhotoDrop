@@ -25,9 +25,10 @@
                             <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diamond+overlay background" translatesAutoresizingMaskIntoConstraints="NO" id="nFs-cp-s9l">
                                 <rect key="frame" x="34" y="121.5" width="306" height="384"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eua-st-Jch">
-                                <rect key="frame" x="8" y="36" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eua-st-Jch">
+                                <rect key="frame" x="16" y="36" width="32" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" image="back-button-white"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="vm1-1C-dbp" eventType="touchUpInside" id="2EB-IO-TzL"/>
                                 </connections>
@@ -63,7 +64,7 @@
                             <constraint firstItem="bST-HJ-lUX" firstAttribute="centerX" secondItem="nym-HV-tYz" secondAttribute="centerX" id="1BC-dc-8nV"/>
                             <constraint firstItem="eua-st-Jch" firstAttribute="top" secondItem="U0M-yT-6qV" secondAttribute="bottom" constant="16" id="ANF-5Y-39l"/>
                             <constraint firstItem="bST-HJ-lUX" firstAttribute="centerX" secondItem="nym-HV-tYz" secondAttribute="centerX" id="EnJ-Dy-X6O"/>
-                            <constraint firstItem="eua-st-Jch" firstAttribute="leading" secondItem="nym-HV-tYz" secondAttribute="leading" constant="8" id="OLh-i9-Mop"/>
+                            <constraint firstItem="eua-st-Jch" firstAttribute="leading" secondItem="nym-HV-tYz" secondAttribute="leading" constant="16" id="OLh-i9-Mop"/>
                             <constraint firstItem="eOg-QA-FWk" firstAttribute="centerY" secondItem="nym-HV-tYz" secondAttribute="centerY" constant="-44" id="SC6-BM-VAM"/>
                             <constraint firstItem="nFs-cp-s9l" firstAttribute="centerY" secondItem="nym-HV-tYz" secondAttribute="centerY" constant="-20" id="Z21-uC-PpX"/>
                             <constraint firstItem="BhG-Xv-OvX" firstAttribute="centerX" secondItem="nym-HV-tYz" secondAttribute="centerX" id="aAk-4X-ggv"/>
@@ -84,6 +85,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back-button-white" width="32" height="32"/>
         <image name="diamond+overlay background" width="306" height="384"/>
         <image name="save-button" width="88" height="88"/>
     </resources>
