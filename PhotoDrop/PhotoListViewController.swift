@@ -63,6 +63,7 @@ class PhotoListViewController: UIViewController {
         photoListTableView.reloadData()
     }
     
+    // MARK: - View 
     // Lock tableview in portrait mode
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         get {
