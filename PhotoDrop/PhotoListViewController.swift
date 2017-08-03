@@ -13,51 +13,23 @@ class PhotoListViewController: UIViewController {
     
     @IBOutlet weak var photoListTableView: UITableView!
     
-    var drops: [Drop] = [] {
-        didSet {
-            // Pull drop detail data from iCloud
-            let group = DispatchGroup()
-            for drop in drops {
-                autoreleasepool{
-                group.enter()
-                DropController.shared.pullDetailDropWith(for: drop, completion:{ (drop) in
-                    group.leave()
-                })
-                }
-                Thread.sleep(forTimeInterval: 5.0)
-            }
-            
-            group.notify(queue: DispatchQueue.main) {
-                self.photoListTableView.reloadData()
-            }
-        }
-    }
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Populate the table with 20 drops
-        guard let location = CurrentLocationController.shared.location else { return }
-        
-        DropController.shared.pullDrops(
-            at: MKCoordinateRegionMake(location,
-                MKCoordinateSpan( latitudeDelta: GeoFenceController.shared.dropRange / 111000.0 /* degrees to meters for latitude */,
-                    longitudeDelta: GeoFenceController.shared.dropRange / 111000.0 * cos(Double.pi * location.latitude / 180.0))),
-            amount: 20
-        ) {
-            (drops) in
-            self.drops = drops
-            DispatchQueue.main.async{
-                self.photoListTableView.reloadData()
-            }
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: DropController.shared.dropsInRangeWereUpdatedNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        photoListTableView.reloadData()
+        reload()
+    }
+    
+    func reload() {
+        DispatchQueue.main.async{
+            self.photoListTableView.reloadData()
+        }
     }
     
     // MARK: - Appearance
@@ -67,7 +39,6 @@ class PhotoListViewController: UIViewController {
             return .portrait
         }
     }
-
     
     // MARK: - Action Functions
     
@@ -82,13 +53,13 @@ extension PhotoListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return drops.count
+        return DropController.shared.dropsInRange.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotoTableViewCell else { return UITableViewCell() }
         
-        let drop = drops[indexPath.row]
+        let drop = DropController.shared.dropsInRange[indexPath.row]
         
         cell.drop = drop
         
@@ -96,12 +67,10 @@ extension PhotoListViewController: UITableViewDataSource {
     }
 }
 
-
 // MARK: - TableView Delegate
 
 extension PhotoListViewController: UITableViewDelegate {
-    
-    }
+}
 
 // MARK: - Navigation
 
@@ -111,7 +80,7 @@ extension PhotoListViewController {
         if segue.identifier == "toPhotoDetail" {
             guard let indexPath = photoListTableView.indexPathForSelectedRow else { return }
             
-            let drop = drops[indexPath.row]
+            let drop = DropController.shared.dropsInRange[indexPath.row]
             let detailVC = segue.destination as? PhotoViewController
             
             detailVC?.drop = drop

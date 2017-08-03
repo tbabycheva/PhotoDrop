@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 class GeoFenceController {
-  private let spanRadius = 1000.0 /* Meters */
+  let spanRadius = 1000.0 /* Meters */
   private let distanceToUpdateTrackedDrops = 500.0 /* Meters */
   let dropRange = 200.0 /* Meters */
 
