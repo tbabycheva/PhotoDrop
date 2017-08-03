@@ -12,11 +12,13 @@
 		2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167927C1F2BA5B700DEF0BD /* Assets.xcassets */; };
 		218BDFD81F26923700A6BBF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BDFD71F26923700A6BBF5 /* AppDelegate.swift */; };
 		219EE2991F2957A200CED555 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219EE2981F2957A200CED555 /* Map.storyboard */; };
+		21D40D071F33B576008258F4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D40D061F33B576008258F4 /* LoadingViewController.swift */; };
+		21D40D091F33B5B2008258F4 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D40D081F33B5B2008258F4 /* Loading.storyboard */; };
+		21D40D0D1F33C012008258F4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D40D0C1F33C012008258F4 /* CloudKit.framework */; };
 		2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */; };
 		2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */; };
 		2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */; };
 		2A480D351F2B9A8600EBA965 /* DropLikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D341F2B9A8600EBA965 /* DropLikeController.swift */; };
-		2A480D391F2B9A9D00EBA965 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */; };
 		2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */; };
 		2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */; };
 		2A480D631F3236F300EBA965 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D621F3236F300EBA965 /* Launch Screen.storyboard */; };
@@ -27,7 +29,6 @@
 		3FF2CC161F279F8C00C68903 /* PhotoDropUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC151F279F8C00C68903 /* PhotoDropUser.swift */; };
 		3FF2CC181F279F9F00C68903 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC171F279F9F00C68903 /* Drop.swift */; };
 		3FF2CC1A1F279FFD00C68903 /* DropLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC191F279FFD00C68903 /* DropLike.swift */; };
-		3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */; };
 		3FF5CCE81F29259600D8531C /* GeoFenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE71F29259600D8531C /* GeoFenceController.swift */; };
 		3FF5CCEA1F2925A400D8531C /* CurrentLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */; };
 		B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */; };
@@ -54,11 +55,13 @@
 		218BDFD71F26923700A6BBF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = PhotoDrop/AppDelegate.swift; sourceTree = "<group>"; };
 		218BDFE31F26923800A6BBF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		219EE2981F2957A200CED555 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		21D40D061F33B576008258F4 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		21D40D081F33B5B2008258F4 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
+		21D40D0C1F33C012008258F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDropUserController.swift; sourceTree = "<group>"; };
 		2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
 		2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUserController.swift; sourceTree = "<group>"; };
 		2A480D341F2B9A8600EBA965 /* DropLikeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropLikeController.swift; sourceTree = "<group>"; };
-		2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2A480D621F3236F300EBA965 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		3FF2CC171F279F9F00C68903 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
 		3FF2CC191F279FFD00C68903 /* DropLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropLike.swift; sourceTree = "<group>"; };
 		3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoDrop.entitlements; sourceTree = "<group>"; };
-		3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3FF5CCE71F29259600D8531C /* GeoFenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoFenceController.swift; sourceTree = "<group>"; };
 		3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationController.swift; sourceTree = "<group>"; };
 		B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DropPreview.storyboard; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */,
+				21D40D0D1F33C012008258F4 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +190,7 @@
 		3FF2CC1C1F27A1C300C68903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */,
+				21D40D0C1F33C012008258F4 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				2A480D621F3236F300EBA965 /* Launch Screen.storyboard */,
+				21D40D081F33B5B2008258F4 /* Loading.storyboard */,
 				2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */,
 				219EE2981F2957A200CED555 /* Map.storyboard */,
 				B98DD84C1F269975000231E9 /* Points.storyboard */,
@@ -221,7 +224,7 @@
 		B98DD8631F269A91000231E9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A480D381F2B9A9D00EBA965 /* LaunchViewController.swift */,
+				21D40D061F33B576008258F4 /* LoadingViewController.swift */,
 				2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */,
 				B98DD8561F269A12000231E9 /* MapViewController.swift */,
 				B98DD8581F269A21000231E9 /* PointsViewController.swift */,
@@ -267,7 +270,7 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WC4MWVKQFQ;
+						DevelopmentTeam = WCS73R8992;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -306,6 +309,7 @@
 				2167927D1F2BA5B700DEF0BD /* Assets.xcassets in Resources */,
 				B98DD8551F2699A1000231E9 /* Photo.storyboard in Resources */,
 				219EE2991F2957A200CED555 /* Map.storyboard in Resources */,
+				21D40D091F33B5B2008258F4 /* Loading.storyboard in Resources */,
 				B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */,
 				2A480D631F3236F300EBA965 /* Launch Screen.storyboard in Resources */,
 				B98DD84D1F269975000231E9 /* Points.storyboard in Resources */,
@@ -335,12 +339,12 @@
 				3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */,
 				2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */,
 				B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */,
+				21D40D071F33B576008258F4 /* LoadingViewController.swift in Sources */,
 				B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */,
 				2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */,
 				21035F6E1F2BD08B00D704B0 /* PhotoTableViewCell.swift in Sources */,
 				2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */,
 				B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */,
-				2A480D391F2B9A9D00EBA965 /* LaunchViewController.swift in Sources */,
 				3FF2CC161F279F8C00C68903 /* PhotoDropUser.swift in Sources */,
 				3FF5CCE81F29259600D8531C /* GeoFenceController.swift in Sources */,
 				3FF5CCEA1F2925A400D8531C /* CurrentLocationController.swift in Sources */,
@@ -455,10 +459,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -468,10 +472,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

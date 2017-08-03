@@ -223,6 +223,7 @@ extension MapViewController: MKMapViewDelegate {
         self.destinationLocation = nil
     }
 
+    // Display route on the map
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.red
@@ -239,8 +240,9 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
+
+// MARK: Gesture Recognition - Displaying / Dismissing Routes and Bubbles
 extension MapViewController: UIGestureRecognizerDelegate {
-    // MARK: Gesture Recognition - Displaying / Dismissing Routes and Bubbles
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         guard let view = touch.view else { return false}
