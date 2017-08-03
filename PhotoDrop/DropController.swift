@@ -26,6 +26,8 @@ class DropController {
         guard let currentPhotoDropUser = PhotoDropUserController.shared.currentPhotoDropUser else { return }
         let drop = Drop(title: title, dropperUserId: currentPhotoDropUser.getRecord().recordID, timestamp: timestamp, numberOfLikes: 0, location: location, image: image)
         drop.push()
+        currentPhotoDropUser.numberOfDrops += 1
+        currentPhotoDropUser.push() 
     }
     
     func pullDrops(at region: MKCoordinateRegion, amount: Int , completion: @escaping ([Drop]) -> Void) {
