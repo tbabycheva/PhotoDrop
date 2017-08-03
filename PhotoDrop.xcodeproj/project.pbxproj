@@ -20,6 +20,7 @@
 		2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */; };
 		2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */; };
 		2A480D631F3236F300EBA965 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D621F3236F300EBA965 /* Launch Screen.storyboard */; };
+		2A480D671F33D4F500EBA965 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D661F33D4F500EBA965 /* Onboarding.swift */; };
 		3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */; };
 		3F911D1B1F30DB5E002F2A45 /* HashableUsingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */; };
 		3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */; };
@@ -61,6 +62,7 @@
 		2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2A480D621F3236F300EBA965 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2A480D661F33D4F500EBA965 /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayHelpers.swift; sourceTree = "<group>"; };
 		3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableUsingAddress.swift; sourceTree = "<group>"; };
 		3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 				3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */,
+				2A480D661F33D4F500EBA965 /* Onboarding.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				21035F701F2BD88400D704B0 /* DateHelpers.swift in Sources */,
 				3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */,
 				2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */,
+				2A480D671F33D4F500EBA965 /* Onboarding.swift in Sources */,
 				3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */,
 				2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */,
 				B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */,
