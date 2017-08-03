@@ -40,12 +40,22 @@ class DropLikeController {
         
         dropLike.push()
         
+        user.numberOfGivenDropLikes += 1
+        user.push()
+        drop.numberOfLikes += 1
+        drop.push()
+        
         return dropLike
     }
     
     func deleteDropLike(for drop: Drop) {
+        guard let user = PhotoDropUserController.shared.currentPhotoDropUser else { return }
         pullDropLike(for: drop) { (dropLike) in
             dropLike?.delete()
+            user.numberOfGivenDropLikes -= 1
+            user.push()
+            drop.numberOfLikes -= 1
+            drop.push() 
         }
     }
 }
