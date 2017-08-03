@@ -186,6 +186,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             camera.unlockForConfiguration()
             
             flashSwitch = false
+            flashToggle.setImage(#imageLiteral(resourceName: "FlashOff"), for: .normal)
             
         }
         
