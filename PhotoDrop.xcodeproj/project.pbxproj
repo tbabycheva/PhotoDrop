@@ -27,7 +27,6 @@
 		3FF2CC161F279F8C00C68903 /* PhotoDropUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC151F279F8C00C68903 /* PhotoDropUser.swift */; };
 		3FF2CC181F279F9F00C68903 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC171F279F9F00C68903 /* Drop.swift */; };
 		3FF2CC1A1F279FFD00C68903 /* DropLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC191F279FFD00C68903 /* DropLike.swift */; };
-		3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */; };
 		3FF5CCE81F29259600D8531C /* GeoFenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE71F29259600D8531C /* GeoFenceController.swift */; };
 		3FF5CCEA1F2925A400D8531C /* CurrentLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */; };
 		B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */; };
@@ -44,6 +43,7 @@
 		B98DD85F1F269A49000231E9 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */; };
 		B98DD8611F269A53000231E9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98DD8601F269A53000231E9 /* PhotoViewController.swift */; };
 		B9DD7A191F28044D00CAE0D9 /* DropController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD7A181F28044D00CAE0D9 /* DropController.swift */; };
+		B9E612E11F33BE690062FEE9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E612E01F33BE690062FEE9 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +70,6 @@
 		3FF2CC171F279F9F00C68903 /* Drop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
 		3FF2CC191F279FFD00C68903 /* DropLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropLike.swift; sourceTree = "<group>"; };
 		3FF2CC1B1F27A1BF00C68903 /* PhotoDrop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoDrop.entitlements; sourceTree = "<group>"; };
-		3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3FF5CCE71F29259600D8531C /* GeoFenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoFenceController.swift; sourceTree = "<group>"; };
 		3FF5CCE91F2925A400D8531C /* CurrentLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationController.swift; sourceTree = "<group>"; };
 		B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DropPreview.storyboard; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
 		B98DD8601F269A53000231E9 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		B9DD7A181F28044D00CAE0D9 /* DropController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropController.swift; sourceTree = "<group>"; };
+		B9E612E01F33BE690062FEE9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF2CC1E1F27A1C300C68903 /* CloudKit.framework in Frameworks */,
+				B9E612E11F33BE690062FEE9 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +187,7 @@
 		3FF2CC1C1F27A1C300C68903 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3FF2CC1D1F27A1C300C68903 /* CloudKit.framework */,
+				B9E612E01F33BE690062FEE9 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WC4MWVKQFQ;
+						DevelopmentTeam = X7J6W2VA9A;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -454,11 +454,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = X7J6W2VA9A;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -468,10 +467,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = X7J6W2VA9A;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
