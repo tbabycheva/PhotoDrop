@@ -15,10 +15,11 @@ class DropController {
     
     static let shared = DropController()
     let dropsPullNotification = Notification.Name(rawValue: "dropPullNotifiaction")
-    var drops = [Drop]()
+    let dropsInRangeWereUpdatedNotification = Notification.Name(rawValue: "dropsInRangeWereUpdatedNotification")
+    var dropsInRange = [Drop]()
     
     init() {
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateInRangeDrops), name: CurrentLocationController.shared.locationUpdatedNotification, object: nil)
     }
     
     func createDropWith(title: String, timestamp: Date, location: CLLocationCoordinate2D, image: UIImage, completion: ((Drop) -> Void)?) {
@@ -78,6 +79,7 @@ class DropController {
     func pullDetailDropWith(for drop: Drop, completion: @escaping (Drop) -> Void) {
         if drop.hasDetailDrop {
             completion (drop)
+            return
         }
         
         let dispatchGroup = DispatchGroup()
@@ -101,6 +103,30 @@ class DropController {
         
         dispatchGroup.notify(queue: DispatchQueue.main) {
             completion(drop)
+        }
+    }
+    
+    @objc func updateInRangeDrops() {
+        guard let currentLocation = CurrentLocationController.shared.location else { return }
+        let region = MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(
+            latitudeDelta: GeoFenceController.shared.spanRadius / 111000.0 /* degrees to meters for latitude */,
+            longitudeDelta: GeoFenceController.shared.spanRadius / 111000.0 * cos(Double.pi * currentLocation.latitude / 180.0)
+        ))
+        var dropsInRange = [Drop]()
+        pullDrops(at: region, amount: 20) { (drops) in
+            dropsInRange = drops
+            let group = DispatchGroup()
+            for drop in drops {
+                group.enter()
+                DropController.shared.pullDetailDropWith(for: drop, completion:{ (_) in
+                    group.leave()
+                })
+            }
+            
+            group.notify(queue: DispatchQueue.main) {
+                self.dropsInRange = dropsInRange
+                NotificationCenter.default.post(name: self.dropsInRangeWereUpdatedNotification, object: nil)
+            }
         }
     }
 }

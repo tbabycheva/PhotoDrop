@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        /* ensure dropController is init before currentlocation */ 
+        _ = DropController.shared
+        
         /* ensure locationManager is initalized */
         _ = CurrentLocationController.shared
 
