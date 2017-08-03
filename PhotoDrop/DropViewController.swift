@@ -16,6 +16,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var cameraOutput: AVCapturePhotoOutput!
     var cameraSession: AVCaptureSession!
     var camPreviewLayer: AVCaptureVideoPreviewLayer!
+    var image: UIImage?
     var photoTitle: String?
     var cameraState: Bool?
     var flashSwitch = false
@@ -23,7 +24,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var cameraPosition = AVCaptureDevicePosition.back
     
     @IBOutlet weak var cameraView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -38,18 +38,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
 
         cameraLoad()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        AppUtility.lockOrientation(.portrait)
-//    }
-//    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        
-//        AppUtility.lockOrientation(.all)
-//    }
     
     func updateCamPreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
         
@@ -86,8 +74,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     // Loads or reloads the camera each time it is called
     
     func cameraLoad() {
-
-        imageView.isHidden = true
         
         cameraSession = AVCaptureSession()
         cameraSession.sessionPreset = AVCaptureSessionPresetPhoto
@@ -175,9 +161,11 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         if flashSwitch == false {
             
             flashSwitch = true
+            flashToggle.setImage(#imageLiteral(resourceName: "FlashOn"), for: .normal)
         } else {
             
             flashSwitch = false
+            flashToggle.setImage(#imageLiteral(resourceName: "FlashOff"), for: .normal)
         }
     }
     
@@ -273,13 +261,13 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             
             if orientation == .portrait {
             let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.right)
-                self.imageView.image = image
+                self.image = image
             } else if orientation == .landscapeLeft {
                 let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.up)
-                self.imageView.image = image
+                self.image = image
             } else if orientation == .landscapeRight {
                 let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.down)
-                self.imageView.image = image
+                self.image = image
             }
             
             turnTorchOff()
@@ -293,7 +281,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toDropPreview" {
-            let image = self.imageView.image
+            let image = self.image
             let dropPreviewVC = segue.destination as? DropPreviewViewController
             dropPreviewVC?.image = image
         }

@@ -17,6 +17,7 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dropLikeButton: UIButton!
+    @IBOutlet weak var blockUserButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class PhotoViewController: UIViewController {
             titleLabel.text = drop.title
             dateLabel.text = "Posted \(drop.timestamp.stringValueSpelled())"
             updateLikeGem()
+            
+            if PhotoDropUserController.shared.currentPhotoDropUser?.username == drop.dropperUserName {
+                blockUserButton.isHidden = true
+            }
         }
     }
     
@@ -38,13 +43,23 @@ class PhotoViewController: UIViewController {
         }
     }
     
+    func successfulBlockAlert(dropUser: String) {
+        
+        let blockAlert = UIAlertController(title: "User \(dropUser) has been blocked!", message: "", preferredStyle: .alert)
+        blockAlert.addAction(UIAlertAction(title: "Good", style: .cancel, handler: nil))
+        self.present(blockAlert, animated: true, completion: nil)
+    }
+    
     // MARK: Action Functions
     
     @IBAction func blockUserButtonTapped(_ sender: Any) {
         
-        guard let drop = drop else { return }
+        guard let drop = drop,
+        let dropUser = drop.dropperUserName
+            else { return }
         
         BlockedUserController.shared.blockUser(of: drop)
+        successfulBlockAlert(dropUser: dropUser)
     }
     
     @IBAction func dropLikeButtonTapped(_ sender: Any) {
