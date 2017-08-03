@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow? = UIWindow()
+    var window: UIWindow?
     var orientationLock = UIInterfaceOrientationMask.all
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
@@ -25,25 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /* ensure locationManager is initalized */
         _ = CurrentLocationController.shared
-
-        /* go to Welcome if there is no PhotoDropUser, else go to map */
-        PhotoDropUserController.shared.pullCurrentUser {
-            (photoDropUser) in
-            if photoDropUser == nil {
-                guard let destination = UIStoryboard.init(name: "Welcome", bundle: nil).instantiateInitialViewController() else {
-                    return
-                }
-                self.window?.rootViewController = destination
-            } else {
-                guard let destination = UIStoryboard.init(name: "Map", bundle: nil).instantiateInitialViewController() else {
-                  return
-                }
-                self.window?.rootViewController = destination
-            }
-            DispatchQueue.main.async {
-                self.window?.makeKeyAndVisible()
-            }
-        }
 
         // Override point for customization after application launch.
         return true

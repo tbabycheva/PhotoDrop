@@ -54,22 +54,6 @@
             </objects>
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
-        <!--Welcome-->
-        <scene sceneID="zkw-bd-e7V">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Welcome" id="A7f-eY-lFd" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7XM-g6-nOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="628" y="306"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="PsU-Mf-J4o">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="vfU-g8-vhY" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t45-jQ-Wud" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="605" y="461"/>
-        </scene>
     </scenes>
     <resources>
         <image name="diamond app icon" width="768" height="768"/>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="08f-8p-JKA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="HXq-1J-XO2">
+            <objects>
+                <viewController id="08f-8p-JKA" customClass="LoadingViewController" customModule="PhotoDrop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KgF-Lw-OTv"/>
+                        <viewControllerLayoutGuide type="bottom" id="NHR-q7-klw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PJ9-SX-UCI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duu-71-2SA">
+                                <rect key="frame" x="113.5" y="314" width="148" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Duu-71-2SA" firstAttribute="centerY" secondItem="PJ9-SX-UCI" secondAttribute="centerY" id="2ei-xR-arU"/>
+                            <constraint firstItem="Duu-71-2SA" firstAttribute="centerX" secondItem="PJ9-SX-UCI" secondAttribute="centerX" id="fUH-Jo-l8a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="8sW-KB-VgZ" kind="show" identifier="toWelcomeView" id="JgT-B1-GAd"/>
+                        <segue destination="fsY-Ho-3j5" kind="show" identifier="toMapView" id="n7u-Es-0o1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7p6-Wg-ffJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149.59999999999999" y="-40.029985007496258"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="3ED-FE-hec">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Welcome" id="8sW-KB-VgZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0x-Ac-hCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="778" y="-111"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="gsR-gn-sT3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="fsY-Ho-3j5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tO1-LE-uit" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755" y="31"/>
+        </scene>
+    </scenes>
+</document>
