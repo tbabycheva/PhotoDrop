@@ -24,10 +24,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-pw-A2s">
-                                <rect key="frame" x="67" y="269" width="240" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAP-oG-9F0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -126,7 +122,6 @@
                         <outlet property="cameraPositionToggle" destination="0Eb-p0-Ft5" id="0pq-KC-47O"/>
                         <outlet property="cameraView" destination="SAP-oG-9F0" id="YZt-Qz-NSd"/>
                         <outlet property="flashToggle" destination="Ilc-ck-Ouy" id="8Qy-Ca-BeH"/>
-                        <outlet property="imageView" destination="YJX-pw-A2s" id="o9S-bn-thF"/>
                         <outlet property="overlayView" destination="R3h-lt-2Ib" id="AjY-n2-aAb"/>
                         <outlet property="takePhotoButton" destination="lZv-X8-pl4" id="Ult-rt-5J8"/>
                         <segue destination="8FB-P5-UuS" kind="show" identifier="toDropPreview" animates="NO" id="ab3-6t-R55"/>

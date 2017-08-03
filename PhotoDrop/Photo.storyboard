@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ay9-6C-557">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ay9-6C-557">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -93,6 +93,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blockUserButton" destination="bo7-b8-vNw" id="obe-7b-zXO"/>
                         <outlet property="dateLabel" destination="fsX-Y9-BJi" id="AOz-Ne-Nl5"/>
                         <outlet property="dropLikeButton" destination="z3o-ZK-RFi" id="ehN-ls-xww"/>
                         <outlet property="photoImageView" destination="6AG-Mu-gT5" id="cRd-Zl-aWJ"/>
