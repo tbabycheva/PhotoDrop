@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="120.8" y="134.48275862068968"/>
         </scene>
-        <!--Map-->
+        <!--OnboardingScreen-->
         <scene sceneID="reT-cH-MDo">
             <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="G0t-YZ-tGG" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="OnboardingScreen" id="G0t-YZ-tGG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbX-K6-sVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="-12"/>
