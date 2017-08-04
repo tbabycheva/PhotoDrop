@@ -157,11 +157,11 @@ extension MapViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(named: "gold")
+            annotationView?.image = UIImage(named: "gold-gem")
             
             // Pin thumbnail setup
             let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
-            showDistanceButton.setImage(UIImage(named: "directions-icon"), for: .normal)
+            showDistanceButton.setImage(UIImage(named: "directions-button"), for: .normal)
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton
 
