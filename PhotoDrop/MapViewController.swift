@@ -16,25 +16,6 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
-    var drops: [Drop] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                update(
-                    oldValue,
-                    to: self.drops,
-                    equals: {$0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName},
-                    remove: {
-                      self.mapView.removeAnnotation($0)
-                    },
-                    add: {
-                      self.mapView.addAnnotation($0)
-                    }
-                )
-            }
-        }
-
-    }
-
     var isWaitingToCenterOnLocation = true
 
     var annotationSelected: Drop?
@@ -220,8 +201,30 @@ extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         DropController.shared.pullDrops(at: mapView.region, amount: 10) {
-          [weak self] drops in
-          self?.drops = drops
+            [weak self] drops in
+            guard let annotations = mapView.annotations.filter({$0 is Drop}) as? [Drop] else {
+               return
+            }
+
+            update(
+                annotations,
+                to: drops,
+                equals: {
+                  $0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName
+                },
+                remove: {
+                    drop in
+                    DispatchQueue.main.async {
+                        self?.mapView.removeAnnotation(drop)
+                    }
+                },
+                add: {
+                    drop in
+                    DispatchQueue.main.async {
+                        self?.mapView.addAnnotation(drop)
+                    }
+                }
+            )
         }
     }
 }

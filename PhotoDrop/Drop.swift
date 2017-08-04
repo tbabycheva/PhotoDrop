@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 import MapKit
 
-class Drop: NSObject, CloudKitSyncable, HashableUsingAddress {
+class Drop: NSObject, CloudKitSyncable {
     var title: String?
     var subtitle: String?
     var dropperUserId: CKRecordID
