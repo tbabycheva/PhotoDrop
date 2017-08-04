@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate {
+class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIViewControllerTransitioningDelegate {
     
     // MARK: - Properties and Outlets
     
@@ -285,7 +285,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             }
             
             turnTorchOff()
-            
             performSegue(withIdentifier: "toDropPreview", sender: nil)
         }
     }
