@@ -41,6 +41,9 @@
                                     <constraint firstItem="R3h-lt-2Ib" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leading" id="uuS-u8-RGz"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-99-MhP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
                                 <rect key="frame" x="327.5" y="22" width="25.5" height="32"/>
                                 <constraints>
@@ -101,12 +104,14 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.53609974538419336" green="1" blue="0.99327762160030697" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="lZv-X8-pl4" secondAttribute="bottom" multiplier="1.03" constant="8" symbolic="YES" id="05R-qw-N8c"/>
                             <constraint firstItem="lZv-X8-pl4" firstAttribute="centerX" secondItem="s2D-MQ-qck" secondAttribute="centerX" id="60h-SP-tEM"/>
+                            <constraint firstAttribute="trailing" secondItem="MRU-99-MhP" secondAttribute="trailing" id="AlX-JO-xDN"/>
                             <constraint firstItem="Ilc-ck-Ouy" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="topMargin" constant="22" id="CLg-hm-dBm"/>
                             <constraint firstItem="0Eb-p0-Ft5" firstAttribute="centerY" secondItem="lZv-X8-pl4" secondAttribute="centerY" id="MDr-2O-zbw"/>
+                            <constraint firstItem="MRU-99-MhP" firstAttribute="top" secondItem="oKe-XZ-mhv" secondAttribute="bottom" constant="-20" id="Pqt-Lv-AvA"/>
                             <constraint firstAttribute="bottom" secondItem="SAP-oG-9F0" secondAttribute="bottom" id="SOm-99-kC1"/>
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="top" id="SRz-25-F7T"/>
                             <constraint firstAttribute="trailing" secondItem="Ilc-ck-Ouy" secondAttribute="trailing" constant="22" id="Wha-J3-vfU"/>
@@ -114,6 +119,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0Eb-p0-Ft5" secondAttribute="trailing" constant="16" id="ZFE-MJ-n85"/>
                             <constraint firstItem="Glr-hA-0P6" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leadingMargin" constant="22" id="bBK-7A-mhE"/>
                             <constraint firstAttribute="trailing" secondItem="SAP-oG-9F0" secondAttribute="trailing" id="dqc-Wv-vzM"/>
+                            <constraint firstItem="MRU-99-MhP" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="sMQ-J9-c3a"/>
+                            <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="MRU-99-MhP" secondAttribute="bottom" id="sVk-X9-yeq"/>
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="sme-7e-Uyn"/>
                         </constraints>
                     </view>
@@ -144,6 +151,7 @@
         <image name="FlashOff" width="64" height="64"/>
         <image name="back-button-black" width="32" height="32"/>
         <image name="camera-rotate" width="32" height="32"/>
+        <image name="gradient" width="414" height="736"/>
         <image name="take-a-photo-button" width="89" height="89"/>
     </resources>
 </document>
