@@ -16,25 +16,6 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
-    var drops: [Drop] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                update(
-                    oldValue,
-                    to: self.drops,
-                    equals: {$0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName},
-                    remove: {
-                      self.mapView.removeAnnotation($0)
-                    },
-                    add: {
-                      self.mapView.addAnnotation($0)
-                    }
-                )
-            }
-        }
-
-    }
-
     var isWaitingToCenterOnLocation = true
 
     var annotationSelected: Drop?
@@ -184,6 +165,12 @@ extension MapViewController: MKMapViewDelegate {
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton
 
+            // Right Detail
+            let detailPhotoViewButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
+            detailPhotoViewButton.setImage(UIImage(named: "photo-detail-button"), for: .normal)
+            detailPhotoViewButton.addTarget(self, action: #selector(photoDetailButtonTapped), for: .touchUpInside)
+            annotationView?.rightCalloutAccessoryView = detailPhotoViewButton
+
             // prevent taps on annotationView from triggering tap on map
             let TapRecognizer = UITapGestureRecognizer()
             annotationView?.addGestureRecognizer(TapRecognizer)
@@ -194,6 +181,14 @@ extension MapViewController: MKMapViewDelegate {
 
     func showDistanceButtonTapped() {
         destinationLocation = annotationSelected
+    }
+
+    func photoDetailButtonTapped() {
+        guard let destination = UIStoryboard.init(name: "Photo", bundle: nil).instantiateInitialViewController() as? PhotoViewController else {
+            return
+        }
+        destination.drop = annotationSelected
+        present(destination, animated: true, completion: nil)
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -220,8 +215,30 @@ extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         DropController.shared.pullDrops(at: mapView.region, amount: 10) {
-          [weak self] drops in
-          self?.drops = drops
+            [weak self] drops in
+            guard let annotations = mapView.annotations.filter({$0 is Drop}) as? [Drop] else {
+               return
+            }
+
+            update(
+                annotations,
+                to: drops,
+                equals: {
+                  $0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName
+                },
+                remove: {
+                    drop in
+                    DispatchQueue.main.async {
+                        self?.mapView.removeAnnotation(drop)
+                    }
+                },
+                add: {
+                    drop in
+                    DispatchQueue.main.async {
+                        self?.mapView.addAnnotation(drop)
+                    }
+                }
+            )
         }
     }
 }
