@@ -175,7 +175,7 @@ extension MapViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(named: "gold-gem")
+            annotationView?.image = UIImage(named: "diamond-gold")
             
             // Pin thumbnail setup
             let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
@@ -231,7 +231,8 @@ extension MapViewController: MKMapViewDelegate {
             return renderer
         } else if let overlay = overlay as? MKCircle {
             let renderer = MKCircleRenderer(overlay: overlay)
-            renderer.fillColor = UIColor.blue.withAlphaComponent(0.2)
+            renderer.strokeColor = UIColor.cyan.withAlphaComponent(0.75)
+            renderer.lineWidth = 2.0
             return renderer
         }
         return MKOverlayRenderer()
