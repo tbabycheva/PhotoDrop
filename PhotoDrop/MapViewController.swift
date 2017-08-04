@@ -165,6 +165,12 @@ extension MapViewController: MKMapViewDelegate {
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton
 
+            // Right Detail
+            let detailPhotoViewButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
+            detailPhotoViewButton.setImage(UIImage(named: "photo-detail-button"), for: .normal)
+            detailPhotoViewButton.addTarget(self, action: #selector(photoDetailButtonTapped), for: .touchUpInside)
+            annotationView?.rightCalloutAccessoryView = detailPhotoViewButton
+
             // prevent taps on annotationView from triggering tap on map
             let TapRecognizer = UITapGestureRecognizer()
             annotationView?.addGestureRecognizer(TapRecognizer)
@@ -175,6 +181,14 @@ extension MapViewController: MKMapViewDelegate {
 
     func showDistanceButtonTapped() {
         destinationLocation = annotationSelected
+    }
+
+    func photoDetailButtonTapped() {
+        guard let destination = UIStoryboard.init(name: "Photo", bundle: nil).instantiateInitialViewController() as? PhotoViewController else {
+            return
+        }
+        destination.drop = annotationSelected
+        present(destination, animated: true, completion: nil)
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
