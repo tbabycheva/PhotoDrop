@@ -39,10 +39,12 @@ class DropLikeController {
         let dropLike = DropLike(likerUserId: userRecord.recordID, dropId: drop.getRecord().recordID)
         
         dropLike.push()
+        
         user.numberOfGivenDropLikes += 1
         user.push()
         drop.numberOfLikes += 1
         drop.push()
+        
         return dropLike
     }
     

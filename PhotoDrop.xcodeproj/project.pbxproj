@@ -14,6 +14,7 @@
 		219EE2991F2957A200CED555 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219EE2981F2957A200CED555 /* Map.storyboard */; };
 		21D40D071F33B576008258F4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D40D061F33B576008258F4 /* LoadingViewController.swift */; };
 		21D40D091F33B5B2008258F4 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D40D081F33B5B2008258F4 /* Loading.storyboard */; };
+		21D40D0D1F33C012008258F4 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D40D0C1F33C012008258F4 /* CloudKit.framework */; };
 		2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */; };
 		2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */; };
 		2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */; };
@@ -21,6 +22,7 @@
 		2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */; };
 		2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */; };
 		2A480D631F3236F300EBA965 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D621F3236F300EBA965 /* Launch Screen.storyboard */; };
+		2A480D671F33D4F500EBA965 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D661F33D4F500EBA965 /* Onboarding.swift */; };
 		3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */; };
 		3F911D1B1F30DB5E002F2A45 /* HashableUsingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */; };
 		3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */; };
@@ -56,6 +58,7 @@
 		219EE2981F2957A200CED555 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		21D40D061F33B576008258F4 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		21D40D081F33B5B2008258F4 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
+		21D40D0C1F33C012008258F4 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2A13640F1F28F7F0008A3038 /* PhotoDropUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDropUserController.swift; sourceTree = "<group>"; };
 		2A480D301F2B9A4B00EBA965 /* BlockedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
 		2A480D321F2B9A5A00EBA965 /* BlockedUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUserController.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2A480D621F3236F300EBA965 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2A480D661F33D4F500EBA965 /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayHelpers.swift; sourceTree = "<group>"; };
 		3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableUsingAddress.swift; sourceTree = "<group>"; };
 		3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			children = (
 				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 				3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */,
+				2A480D661F33D4F500EBA965 /* Onboarding.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				21035F701F2BD88400D704B0 /* DateHelpers.swift in Sources */,
 				3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */,
 				2A1364101F28F7F0008A3038 /* PhotoDropUserController.swift in Sources */,
+				2A480D671F33D4F500EBA965 /* Onboarding.swift in Sources */,
 				3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */,
 				2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */,
 				B98DD8591F269A21000231E9 /* PointsViewController.swift in Sources */,
