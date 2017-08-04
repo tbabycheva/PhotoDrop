@@ -39,6 +39,10 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         cameraLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        image = nil
+    }
+    
     func updateCamPreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
         
         layer.videoOrientation = orientation
@@ -261,13 +265,22 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             let orientation: UIDeviceOrientation = currentDevice.orientation
             
             if orientation == .portrait {
-            let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.right)
+            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
                 self.image = image
             } else if orientation == .landscapeLeft {
-                let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.up)
+                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.up)
                 self.image = image
             } else if orientation == .landscapeRight {
-                let image = UIImage(cgImage: cgImageRef, scale: 4.0, orientation: UIImageOrientation.down)
+                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.down)
+                self.image = image
+            } else if orientation == .faceUp {
+                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+                self.image = image
+            } else if orientation == .faceDown {
+                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+                self.image = image
+            } else if orientation == .portraitUpsideDown {
+                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.left)
                 self.image = image
             }
             
