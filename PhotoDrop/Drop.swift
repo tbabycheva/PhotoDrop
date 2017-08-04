@@ -10,8 +10,9 @@ import Foundation
 import CloudKit
 import MapKit
 
-class Drop: CloudKitSyncable, HashableUsingAddress {
-    var title: String
+class Drop: NSObject, CloudKitSyncable, HashableUsingAddress {
+    var title: String?
+    var subtitle: String?
     var dropperUserId: CKRecordID
     var timestamp: Date
     var numberOfLikes: Int
@@ -76,7 +77,7 @@ class Drop: CloudKitSyncable, HashableUsingAddress {
         }
 
         var dictionary = [
-            Drop.Keys.title: title as CKRecordValue,
+            Drop.Keys.title: (title ?? "") as CKRecordValue,
             Drop.Keys.dropperUserId: CKReference(recordID: dropperUserId, action: CKReferenceAction.none),
             Drop.Keys.timestamp: timestamp as CKRecordValue,
             Drop.Keys.numberOfLikes: numberOfLikes as CKRecordValue,
@@ -117,4 +118,10 @@ class Drop: CloudKitSyncable, HashableUsingAddress {
             image: image 
         )
     }
+}
+
+extension Drop: MKAnnotation {
+  var coordinate: CLLocationCoordinate2D {
+    return location
+  }
 }

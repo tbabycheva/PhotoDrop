@@ -16,7 +16,6 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
-    var annotations:[Drop:MKPointAnnotation] = [:]
     var drops: [Drop] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -25,23 +24,10 @@ class MapViewController: UIViewController {
                     to: self.drops,
                     equals: {$0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName},
                     remove: {
-                        if let annotation = self.annotations[$0] {
-                            self.mapView.removeAnnotation(annotation)
-                        }
-                        self.annotations[$0] = nil
-                    },
-                    unchanged: {
-                        if $0 != $1 {
-                            self.annotations[$1] = self.annotations[$0]
-                            self.annotations[$0] = nil
-                        }
+                      self.mapView.removeAnnotation($0)
                     },
                     add: {
-                        let annotation = MKPointAnnotation()
-                        annotation.title = $0.title
-                        annotation.coordinate = $0.location
-                        self.annotations[$0] = annotation
-                        self.mapView.addAnnotation(annotation)
+                      self.mapView.addAnnotation($0)
                     }
                 )
             }
@@ -51,7 +37,7 @@ class MapViewController: UIViewController {
 
     var isWaitingToCenterOnLocation = true
 
-    var annotationSelected: MKPointAnnotation?
+    var annotationSelected: Drop?
 
     var sourceLocation: CLLocationCoordinate2D?{
         didSet {
@@ -59,9 +45,9 @@ class MapViewController: UIViewController {
         }
     }
 
-    var destinationLocation: MKPointAnnotation? {
+    var destinationLocation: Drop? {
         willSet {
-            destinationLocation?.subtitle = ""
+            destinationLocation?.subtitle = nil
         }
         didSet {
             showRoute()
@@ -212,10 +198,10 @@ extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        guard let annotation = view.annotation as? MKPointAnnotation else { return }
-        annotationSelected = annotation
+        guard let drop = view.annotation as? Drop else { return }
+        annotationSelected = drop
         guard let destinationLocation = destinationLocation else { return }
-        if destinationLocation === annotation {
+        if destinationLocation === drop {
             return
         }
         
