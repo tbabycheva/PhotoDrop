@@ -37,6 +37,25 @@ class MapViewController: UIViewController {
 
     var route: MKRoute?
 
+    var sightCircle: MKCircle? {
+        willSet {
+            guard let sightCircle = sightCircle else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.mapView.remove(sightCircle)
+            }
+        }
+        didSet {
+            guard let sightCircle = sightCircle else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.mapView.add(sightCircle)
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +72,6 @@ class MapViewController: UIViewController {
         )
 
         centerOnLocation()
-
 
         // Tap map to clear route
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
@@ -79,6 +97,8 @@ class MapViewController: UIViewController {
         guard let location = CurrentLocationController.shared.location else {
           return
         }
+
+        sightCircle = MKCircle(center: location, radius: 200)
 
         sourceLocation = location
 
@@ -206,11 +226,17 @@ extension MapViewController: MKMapViewDelegate {
 
     // Display route on the map
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.red
-        renderer.lineWidth = 4.0
-        
-        return renderer
+        if let overlay = overlay as? MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.red
+            renderer.lineWidth = 4.0
+            return renderer
+        } else if let overlay = overlay as? MKCircle {
+            let renderer = MKCircleRenderer(overlay: overlay)
+            renderer.fillColor = UIColor.blue.withAlphaComponent(0.2)
+            return renderer
+        }
+        return MKOverlayRenderer()
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
