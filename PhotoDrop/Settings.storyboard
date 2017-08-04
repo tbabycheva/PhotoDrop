@@ -41,7 +41,6 @@
                                                 </constraints>
                                                 <state key="normal" image="save-button"/>
                                                 <connections>
-                                                    <action selector="mapButtonTapped:" destination="FsU-qH-V6l" eventType="touchUpInside" id="3Te-ol-t3m"/>
                                                     <action selector="saveButtonTapped:" destination="FsU-qH-V6l" eventType="touchUpInside" id="7Bz-9k-6c9"/>
                                                 </connections>
                                             </button>
@@ -97,8 +96,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="changeUsernameTextField" destination="DJg-1r-ujo" id="8Hs-oY-g3g"/>
-                        <outlet property="currentUsernameLabel" destination="BhG-Xv-OvX" id="doS-Vz-e4Q"/>
+                        <outlet property="changeUsernameTextField" destination="DJg-1r-ujo" id="Ojp-Sc-awz"/>
+                        <outlet property="currentUsernameLabel" destination="BhG-Xv-OvX" id="ibA-sL-ddG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJU-GF-e0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
