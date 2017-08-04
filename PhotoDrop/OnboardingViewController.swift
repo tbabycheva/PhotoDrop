@@ -34,8 +34,8 @@ extension UIImageView {
         pulse.duration = 4.0
         pulse.fromValue = 0.95
         pulse.toValue = 1.0
-        pulse.autoreverses = true
-        pulse.repeatCount = 30
+        pulse.autoreverses = true 
+        pulse.repeatCount = .infinity
         pulse.initialVelocity = 0.5
         pulse.damping = 1.0
         
