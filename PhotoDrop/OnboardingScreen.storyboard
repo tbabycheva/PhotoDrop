@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PXJ-Jr-tYq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="i1e-J9-PGF">
+            <objects>
+                <viewController id="PXJ-Jr-tYq" customClass="OnboardingViewController" customModule="PhotoDrop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p5L-wG-TYz"/>
+                        <viewControllerLayoutGuide type="bottom" id="sUj-C6-bKh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DMa-sE-Yme">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding map" translatesAutoresizingMaskIntoConstraints="NO" id="k8R-Uw-j1l">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gemOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="vLv-OT-Iy0">
+                                <rect key="frame" x="163" y="212" width="153" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="ZDJ-Vl-bN7">
+                                <rect key="frame" x="212" y="486" width="147" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfN-V7-TdF">
+                                <rect key="frame" x="104" y="44" width="166" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="gotItButton"/>
+                                <connections>
+                                    <action selector="gotItButtonTapped:" destination="PXJ-Jr-tYq" eventType="touchUpInside" id="xyP-id-iaI"/>
+                                    <segue destination="KJA-gU-Kkr" kind="show" id="8A4-hA-xm2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="k8R-Uw-j1l" secondAttribute="bottom" id="0FP-k7-diS"/>
+                            <constraint firstItem="k8R-Uw-j1l" firstAttribute="leading" secondItem="DMa-sE-Yme" secondAttribute="leading" id="Dwb-Al-Dwv"/>
+                            <constraint firstAttribute="trailing" secondItem="k8R-Uw-j1l" secondAttribute="trailing" id="QoV-Ls-Mvf"/>
+                            <constraint firstItem="k8R-Uw-j1l" firstAttribute="top" secondItem="DMa-sE-Yme" secondAttribute="top" id="oWG-gE-aBr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gemInfoBubble" destination="vLv-OT-Iy0" id="ZC9-ui-VE2"/>
+                        <outlet property="gemListBubble" destination="ZDJ-Vl-bN7" id="KoC-aH-Ytu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L3T-cY-HiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-87.200000000000003" y="175.86206896551727"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="Mer-IV-p7f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="KJA-gU-Kkr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ioh-hb-dQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="67"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gemOnboarding" width="132" height="119"/>
+        <image name="gotItButton" width="189" height="70"/>
+        <image name="listOnboarding" width="122" height="68"/>
+        <image name="onboarding map" width="375" height="667"/>
+    </resources>
+</document>

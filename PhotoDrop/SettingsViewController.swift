@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var changeUsernameTextField: UITextField!
     @IBOutlet weak var currentUsernameLabel: UILabel!
     
@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         changeUsernameTextField.delegate = self
         
         guard let text = PhotoDropUserController.shared.currentPhotoDropUser?.username else { return }
@@ -40,16 +40,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Action Functions
-   
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
-
-    @IBAction func saveChangesButtonTapped(_ sender: Any) {
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
         
         guard let text = changeUsernameTextField.text else { return }
-            
+        
         if text.characters.count < 6 {
             
             let characterAlert = UIAlertController(title: "Invalid", message: "New username must be six or more characters", preferredStyle: .alert)
@@ -57,11 +57,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             self.present(characterAlert, animated: true, completion: nil)
             
         } else {
-    
+            
             PhotoDropUserController.shared.changeUserName(username: text)
             dismiss(animated: true, completion: nil)
         }
     }
-    
-    
 }

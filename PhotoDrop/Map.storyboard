@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r71-B0-3Te">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="v7M-0x-FS3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4TE-ZP-CWR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EIf-wT-bnA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHA-CJ-SIi" userLabel="Points Button">
-                                <rect key="frame" x="56" y="542" width="50" height="50"/>
+                                <rect key="frame" x="28" y="443" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Cfh-kQ-LkY"/>
                                     <constraint firstAttribute="width" secondItem="QHA-CJ-SIi" secondAttribute="height" multiplier="1:1" id="xe1-Jb-0Nu"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje" userLabel="PhotoList Button">
-                                <rect key="frame" x="270" y="542" width="50" height="50"/>
+                                <rect key="frame" x="242" y="443" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3WO-gE-kRD"/>
                                     <constraint firstAttribute="width" secondItem="P0c-s7-Hje" secondAttribute="height" multiplier="1:1" id="gHh-i4-xhQ"/>
@@ -48,18 +48,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-cW-ida" userLabel="Camera Button">
-                                <rect key="frame" x="138" y="517" width="100" height="100"/>
+                                <rect key="frame" x="110" y="418" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="SC9-bv-IbO"/>
                                     <constraint firstAttribute="width" secondItem="OOL-cW-ida" secondAttribute="height" multiplier="1:1" id="XMI-sc-ETO"/>
                                 </constraints>
-                                <state key="normal" image="photo-camera-outline" backgroundImage="camera-button-no-outline"/>
+                                <state key="normal" image="camera-button"/>
                                 <connections>
                                     <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-RY-Mej" userLabel="Current Location Button">
-                                <rect key="frame" x="337" y="80" width="16" height="16"/>
+                                <rect key="frame" x="282" y="80" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="9PW-4Z-ow3"/>
                                     <constraint firstAttribute="width" secondItem="bmf-RY-Mej" secondAttribute="height" multiplier="1:1" id="cmb-M8-Xka"/>
@@ -90,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="EIf-wT-bnA" id="yeG-LD-FLH"/>
+                        <segue destination="Nnq-6r-yrI" kind="show" identifier="toPhotoDetail" id="J5Y-uS-gOk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55S-eE-Gdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,6 +113,14 @@
             </objects>
             <point key="canvasLocation" x="745" y="175"/>
         </scene>
+        <!--Photo-->
+        <scene sceneID="Po4-X1-4PT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Photo" id="Nnq-6r-yrI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Co-7a-aaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="280"/>
+        </scene>
         <!--Drop-->
         <scene sceneID="C0g-tx-Rvu">
             <objects>
@@ -122,10 +131,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera-button-no-outline" width="89" height="90"/>
+        <image name="camera-button" width="88" height="89"/>
         <image name="location-cursor" width="128" height="128"/>
-        <image name="photo-camera-outline" width="61" height="48"/>
         <image name="photo-list-icon" width="50" height="50"/>
-        <image name="points-button" width="90" height="88"/>
+        <image name="points-button" width="54" height="54"/>
     </resources>
 </document>

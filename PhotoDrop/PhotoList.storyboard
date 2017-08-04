@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_diamond_blue" translatesAutoresizingMaskIntoConstraints="NO" id="3l4-Dr-RDH">
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diamond-blue-background" translatesAutoresizingMaskIntoConstraints="NO" id="3l4-Dr-RDH">
                                 <rect key="frame" x="27.5" y="200" width="320" height="266"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GiH-tc-UjO">
@@ -153,8 +153,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background_diamond_blue" width="320" height="266"/>
+        <image name="diamond-blue-background" width="320" height="266"/>
         <image name="diamond-gold" width="38" height="32"/>
-        <image name="maps-button" width="89" height="87"/>
+        <image name="maps-button" width="88" height="88"/>
     </resources>
 </document>

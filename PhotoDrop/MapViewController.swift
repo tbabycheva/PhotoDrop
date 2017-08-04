@@ -34,7 +34,7 @@ class MapViewController: UIViewController {
             showRoute()
         }
     }
-
+    
     var route: MKRoute?
 
     var sightCircle: MKCircle? {
@@ -64,13 +64,13 @@ class MapViewController: UIViewController {
         mapView.showsUserLocation = true
         
         // Show current user location
-
+        
         NotificationCenter.default.addObserver(
             self, selector: #selector(updateLocaiton),
             name: CurrentLocationController.shared.locationUpdatedNotification,
             object: nil
         )
-
+        
         centerOnLocation()
 
         // Tap map to clear route
@@ -79,7 +79,7 @@ class MapViewController: UIViewController {
         singleTapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(singleTapRecognizer)
     }
-
+    
     func mapTapped() {
         if annotationSelected == nil {
             destinationLocation = nil
@@ -87,33 +87,31 @@ class MapViewController: UIViewController {
             annotationSelected = nil
         }
     }
-
+    
     func centerOnLocation() {
         isWaitingToCenterOnLocation = true
         updateLocaiton()
     }
-
+    
     func updateLocaiton() {
         guard let location = CurrentLocationController.shared.location else {
-          return
+            return
         }
-
         sightCircle = MKCircle(center: location, radius: 200)
-
         sourceLocation = location
-
+        
         if isWaitingToCenterOnLocation {
             isWaitingToCenterOnLocation = false
-
+            
             let region = MKCoordinateRegionMake(location, centerOnLocationSpan)
             mapView.setRegion(region, animated: true)
         }
     }
-
+    
     @IBAction func currentLocationButtonTapped(_ sender: Any) {
         centerOnLocation()
     }
-
+    
     // MARK: Creating and Displaying Routes
     func showRoute() {
         
@@ -130,7 +128,7 @@ class MapViewController: UIViewController {
         
         let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
         let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-       
+        
         // Compute the route
         let directionRequest = MKDirectionsRequest()
         directionRequest.source = sourceMapItem
@@ -148,12 +146,12 @@ class MapViewController: UIViewController {
                 }
                 return
             }
-
+            
             // The region is set so both locations will be visible
             self.route = response.routes[0]
             self.mapView.add(response.routes[0].polyline, level: MKOverlayLevel.aboveRoads)
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
-
+            
             let distance = Measurement(value: response.routes[0].distance, unit: UnitLength.meters)
             let measurementFormatter = MeasurementFormatter()
             measurementFormatter.unitStyle = .medium
@@ -198,7 +196,7 @@ extension MapViewController: MKMapViewDelegate {
         
         return annotationView
     }
-
+    
     func showDistanceButtonTapped() {
         destinationLocation = annotationSelected
     }
@@ -223,7 +221,7 @@ extension MapViewController: MKMapViewDelegate {
         // remove the route to the previous annotation
         self.destinationLocation = nil
     }
-
+    
     // Display route on the map
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let overlay = overlay as? MKPolyline {
@@ -238,7 +236,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         return MKOverlayRenderer()
     }
-
+    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         DropController.shared.pullDrops(at: mapView.region, amount: 10) {
             [weak self] drops in
