@@ -41,16 +41,16 @@
                                     <constraint firstItem="R3h-lt-2Ib" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leading" id="uuS-u8-RGz"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-99-MhP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-99-MhP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
-                                <rect key="frame" x="327.5" y="22" width="25.5" height="32"/>
+                                <rect key="frame" x="303" y="22" width="40" height="39"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="3uI-jK-dCc"/>
-                                    <constraint firstAttribute="width" secondItem="Ilc-ck-Ouy" secondAttribute="height" multiplier="107:133" id="yc7-v3-Zqd"/>
+                                    <constraint firstAttribute="width" constant="40" id="1eA-gE-U0C"/>
+                                    <constraint firstAttribute="width" secondItem="Ilc-ck-Ouy" secondAttribute="height" multiplier="1:1" constant="1" id="qE2-HY-wYK"/>
                                 </constraints>
-                                <state key="normal" image="FlashOff">
+                                <state key="normal" image="flash-off">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -58,24 +58,26 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
-                                <rect key="frame" x="38" y="22" width="32" height="32"/>
+                                <rect key="frame" x="38" y="22" width="40" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="BCE-0M-EAs"/>
+                                    <constraint firstAttribute="width" secondItem="Glr-hA-0P6" secondAttribute="height" multiplier="1:1" id="G3J-eq-xsa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" image="back-button-black"/>
+                                <state key="normal" image="back-button-white"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
-                                <rect key="frame" x="142" y="550" width="90" height="90"/>
+                            <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
+                                <rect key="frame" x="144.5" y="555" width="85" height="85"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lZv-X8-pl4" secondAttribute="height" multiplier="1:1" id="WZN-ql-IhT"/>
-                                    <constraint firstAttribute="width" secondItem="lZv-X8-pl4" secondAttribute="height" multiplier="1:1" id="aeb-Lb-WPV"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="u4E-dh-Lg1"/>
-                                    <constraint firstAttribute="width" constant="90" id="zRZ-1B-jOi"/>
+                                    <constraint firstAttribute="width" constant="85" id="zRZ-1B-jOi"/>
                                 </constraints>
-                                <state key="normal" title="Take Photo" image="take-a-photo-button">
+                                <state key="normal" image="take-a-photo-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -89,13 +91,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eb-p0-Ft5" userLabel="Camera Position Toggle">
-                                <rect key="frame" x="311" y="579" width="32" height="32"/>
+                                <rect key="frame" x="303" y="577.5" width="40" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="0Eb-p0-Ft5" secondAttribute="height" multiplier="1:1" id="9c7-iA-V3l"/>
                                     <constraint firstAttribute="width" secondItem="0Eb-p0-Ft5" secondAttribute="height" multiplier="1:1" id="GEi-xA-EdV"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Gw9-ib-hdC"/>
-                                    <constraint firstAttribute="width" constant="32" id="ryb-5T-Pyb"/>
+                                    <constraint firstAttribute="width" constant="40" id="ryb-5T-Pyb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" image="camera-rotate"/>
@@ -108,13 +108,13 @@
                         <constraints>
                             <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="lZv-X8-pl4" secondAttribute="bottom" multiplier="1.03" constant="8" symbolic="YES" id="05R-qw-N8c"/>
                             <constraint firstItem="lZv-X8-pl4" firstAttribute="centerX" secondItem="s2D-MQ-qck" secondAttribute="centerX" id="60h-SP-tEM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ilc-ck-Ouy" secondAttribute="trailing" constant="16" id="9En-bq-ZhJ"/>
                             <constraint firstAttribute="trailing" secondItem="MRU-99-MhP" secondAttribute="trailing" id="AlX-JO-xDN"/>
                             <constraint firstItem="Ilc-ck-Ouy" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="topMargin" constant="22" id="CLg-hm-dBm"/>
                             <constraint firstItem="0Eb-p0-Ft5" firstAttribute="centerY" secondItem="lZv-X8-pl4" secondAttribute="centerY" id="MDr-2O-zbw"/>
                             <constraint firstItem="MRU-99-MhP" firstAttribute="top" secondItem="oKe-XZ-mhv" secondAttribute="bottom" constant="-20" id="Pqt-Lv-AvA"/>
                             <constraint firstAttribute="bottom" secondItem="SAP-oG-9F0" secondAttribute="bottom" id="SOm-99-kC1"/>
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="top" id="SRz-25-F7T"/>
-                            <constraint firstAttribute="trailing" secondItem="Ilc-ck-Ouy" secondAttribute="trailing" constant="22" id="Wha-J3-vfU"/>
                             <constraint firstItem="Glr-hA-0P6" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="topMargin" constant="22" id="YrG-g4-nJ6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Eb-p0-Ft5" secondAttribute="trailing" constant="16" id="ZFE-MJ-n85"/>
                             <constraint firstItem="Glr-hA-0P6" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leadingMargin" constant="22" id="bBK-7A-mhE"/>
@@ -148,10 +148,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FlashOff" width="64" height="64"/>
-        <image name="back-button-black" width="32" height="32"/>
-        <image name="camera-rotate" width="32" height="32"/>
-        <image name="gradient" width="414" height="736"/>
-        <image name="take-a-photo-button" width="89" height="89"/>
+        <image name="back-button-white" width="54" height="54"/>
+        <image name="camera-rotate" width="126" height="126"/>
+        <image name="flash-off" width="126" height="126"/>
+        <image name="take-a-photo-button" width="94" height="94"/>
     </resources>
 </document>

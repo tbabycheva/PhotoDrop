@@ -67,11 +67,11 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
 extension DropPreviewViewController {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        animateViewMoving(up: true, moveValue: 135)
+        animateViewMoving(up: true, moveValue: 120)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        animateViewMoving(up: false, moveValue: 135)
+        animateViewMoving(up: false, moveValue: 120)
     }
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){

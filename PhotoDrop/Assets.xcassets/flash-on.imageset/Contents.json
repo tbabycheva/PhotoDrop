@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "gold-gem.png",
+      "filename" : "flash on.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "gold-gem@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "gold-gem@3x.png",
       "scale" : "3x"
     }
   ],

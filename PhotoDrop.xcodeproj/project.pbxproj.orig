@@ -164,8 +164,8 @@
 		3F911D1C1F30DBBD002F2A45 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 				3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */,
+				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 				2A480D661F33D4F500EBA965 /* Onboarding.swift */,
 			);
 			name = Helpers;
@@ -216,12 +216,12 @@
 				2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */,
 				2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */,
 				219EE2981F2957A200CED555 /* Map.storyboard */,
-				B98DD84C1F269975000231E9 /* Points.storyboard */,
 				B98DD84E1F26997F000231E9 /* Drop.storyboard */,
 				B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */,
-				B98DD8501F269984000231E9 /* Settings.storyboard */,
 				B98DD8521F26998E000231E9 /* PhotoList.storyboard */,
 				B98DD8541F2699A1000231E9 /* Photo.storyboard */,
+				B98DD84C1F269975000231E9 /* Points.storyboard */,
+				B98DD8501F269984000231E9 /* Settings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -233,13 +233,13 @@
 				2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */,
 				2A480D681F34E25000EBA965 /* OnboardingViewController.swift */,
 				B98DD8561F269A12000231E9 /* MapViewController.swift */,
-				B98DD8581F269A21000231E9 /* PointsViewController.swift */,
 				B98DD85A1F269A32000231E9 /* DropViewController.swift */,
 				B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */,
-				B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */,
+				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
 				21035F6D1F2BD08B00D704B0 /* PhotoTableViewCell.swift */,
 				B98DD8601F269A53000231E9 /* PhotoViewController.swift */,
-				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
+				B98DD8581F269A21000231E9 /* PointsViewController.swift */,
+				B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -279,8 +279,8 @@
 <<<<<<< HEAD
 						DevelopmentTeam = X7J6W2VA9A;
 =======
-						DevelopmentTeam = WC4MWVKQFQ;
->>>>>>> 6c6ea97a416629a80c7e77d08f1b9fb7c442c1d9
+						DevelopmentTeam = WCS73R8992;
+>>>>>>> 0d508d793b9b1e06e34c897e8366601f8ceac35d
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -477,11 +477,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 =======
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
->>>>>>> 6c6ea97a416629a80c7e77d08f1b9fb7c442c1d9
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
+>>>>>>> 0d508d793b9b1e06e34c897e8366601f8ceac35d
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -498,11 +498,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 =======
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
->>>>>>> 6c6ea97a416629a80c7e77d08f1b9fb7c442c1d9
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
+>>>>>>> 0d508d793b9b1e06e34c897e8366601f8ceac35d
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

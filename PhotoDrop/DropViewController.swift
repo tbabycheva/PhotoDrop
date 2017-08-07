@@ -165,11 +165,11 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         if flashSwitch == false {
             
             flashSwitch = true
-            flashToggle.setImage(#imageLiteral(resourceName: "FlashOn"), for: .normal)
+            flashToggle.setImage(#imageLiteral(resourceName: "flash-on"), for: .normal)
         } else {
             
             flashSwitch = false
-            flashToggle.setImage(#imageLiteral(resourceName: "FlashOff"), for: .normal)
+            flashToggle.setImage(#imageLiteral(resourceName: "flash-off"), for: .normal)
         }
     }
     
@@ -190,7 +190,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             camera.unlockForConfiguration()
             
             flashSwitch = false
-            flashToggle.setImage(#imageLiteral(resourceName: "FlashOff"), for: .normal)
+            flashToggle.setImage(#imageLiteral(resourceName: "flash-off"), for: .normal)
             
         }
         
