@@ -218,7 +218,7 @@ extension MapViewController: MKMapViewDelegate {
         if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView as? UIButton {
             if let annotationSelected = annotation as? Drop {
                 if DropController.shared.dropsInRange.contains(where: {annotationSelected.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
-                    detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo detail button - not available"), for: .normal)
+                    detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-not-available"), for: .normal) 
                 } else {
                     detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-button"), for: .normal) 
                 }
