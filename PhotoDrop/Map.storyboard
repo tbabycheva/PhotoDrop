@@ -58,10 +58,10 @@
                                     <segue destination="ZEg-Wm-wY4" kind="show" id="Yip-MP-Nfb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-RY-Mej" userLabel="Current Location Button">
-                                <rect key="frame" x="266" y="80" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-RY-Mej" userLabel="Current Location Button">
+                                <rect key="frame" x="264" y="74" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="9PW-4Z-ow3"/>
+                                    <constraint firstAttribute="width" constant="50" id="9PW-4Z-ow3"/>
                                     <constraint firstAttribute="width" secondItem="bmf-RY-Mej" secondAttribute="height" multiplier="1:1" id="cmb-M8-Xka"/>
                                 </constraints>
                                 <state key="normal" image="location-cursor"/>
@@ -73,7 +73,7 @@
                         <color key="backgroundColor" red="0.53609974540000005" green="1" blue="0.99327762159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="EIf-wT-bnA" secondAttribute="trailing" id="1YE-PG-mUF"/>
-                            <constraint firstItem="bmf-RY-Mej" firstAttribute="top" secondItem="LvF-7J-9C7" secondAttribute="bottom" constant="60" id="7v7-Jp-7N5"/>
+                            <constraint firstItem="bmf-RY-Mej" firstAttribute="top" secondItem="LvF-7J-9C7" secondAttribute="bottom" constant="54" id="7v7-Jp-7N5"/>
                             <constraint firstItem="QHA-CJ-SIi" firstAttribute="centerY" secondItem="OOL-cW-ida" secondAttribute="centerY" id="AYz-5J-Nox"/>
                             <constraint firstAttribute="bottom" secondItem="EIf-wT-bnA" secondAttribute="bottom" id="DZw-VO-f64"/>
                             <constraint firstItem="P0c-s7-Hje" firstAttribute="centerY" secondItem="OOL-cW-ida" secondAttribute="centerY" id="PvU-WZ-mVM"/>
@@ -83,7 +83,7 @@
                             <constraint firstItem="EIf-wT-bnA" firstAttribute="top" secondItem="4TE-ZP-CWR" secondAttribute="top" id="hLc-23-auH"/>
                             <constraint firstItem="EIf-wT-bnA" firstAttribute="leading" secondItem="4TE-ZP-CWR" secondAttribute="leading" id="jTr-Xr-2HA"/>
                             <constraint firstItem="OOL-cW-ida" firstAttribute="centerX" secondItem="4TE-ZP-CWR" secondAttribute="centerX" id="pAe-Bx-V5f"/>
-                            <constraint firstAttribute="trailing" secondItem="bmf-RY-Mej" secondAttribute="trailing" constant="22" id="pQH-um-xmb"/>
+                            <constraint firstAttribute="trailing" secondItem="bmf-RY-Mej" secondAttribute="trailing" constant="6" id="pQH-um-xmb"/>
                             <constraint firstItem="EIf-wT-bnA" firstAttribute="top" secondItem="4TE-ZP-CWR" secondAttribute="top" id="qc0-Rk-ugJ"/>
                             <constraint firstAttribute="bottom" secondItem="EIf-wT-bnA" secondAttribute="bottom" id="xB5-Ga-AWB"/>
                         </constraints>
@@ -132,7 +132,7 @@
     </scenes>
     <resources>
         <image name="camera-button" width="88" height="89"/>
-        <image name="location-cursor" width="32" height="32"/>
+        <image name="location-cursor" width="36" height="36"/>
         <image name="photo-list-button" width="54" height="54"/>
         <image name="points-button" width="54" height="54"/>
     </resources>

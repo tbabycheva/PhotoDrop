@@ -60,7 +60,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
-        mapView.showsCompass = true
+        // mapView.showsCompass = true
         mapView.showsUserLocation = true
         
         // Show current user location
@@ -133,7 +133,7 @@ class MapViewController: UIViewController {
         let directionRequest = MKDirectionsRequest()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
+        directionRequest.transportType = .walking
         
         let directions = MKDirections(request: directionRequest)
         
