@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIViewControllerTransitioningDelegate {
+class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
     
     // MARK: - Properties and Outlets
     
@@ -20,6 +20,12 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var photoTitle: String?
     var cameraState: Bool?
     var flashSwitch = false
+    
+    let minimumZoomRange: CGFloat = 1.0
+    let maximumZoomRange: CGFloat = 5.0
+    var latestZoom: CGFloat = 1.0
+    
+    let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
 
     var cameraPosition = AVCaptureDevicePosition.back
     
@@ -36,6 +42,11 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchToZoom(_:)))
+        pinchGestureRecognizer.delegate = self
+        cameraView.addGestureRecognizer(pinchGestureRecognizer)
+        pinchGestureRecognizer.delaysTouchesBegan = false
+        pinchGestureRecognizer.delaysTouchesEnded = false
         cameraLoad()
     }
     
@@ -83,7 +94,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         cameraSession.sessionPreset = AVCaptureSessionPresetPhoto
         cameraOutput = AVCapturePhotoOutput()
         
-        let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+//        let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         if let input = try? AVCaptureDeviceInput(device: camera) {
             if (cameraSession.canAddInput(input)) {
@@ -196,7 +207,43 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         
     }
     
+    
+    
     // MARK: - Action Functions
+    
+    
+    func pinchToZoom(_ sender: UIPinchGestureRecognizer) {
+        
+        guard let device = camera else { return }
+        
+        func minMaxZoom(factor: CGFloat) -> CGFloat {
+            
+            return min(min(max(factor, minimumZoomRange), maximumZoomRange), device.activeFormat.videoMaxZoomFactor)
+        }
+        
+        func update(factor: CGFloat) {
+            
+            do {
+                
+                try device.lockForConfiguration()
+                defer { device.unlockForConfiguration() }
+                device.videoZoomFactor = factor
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        let scaleFactor = minMaxZoom(factor: sender.scale * latestZoom)
+        
+        switch sender.state {
+            
+        case .began: fallthrough
+        case .changed: update(factor: scaleFactor)
+        case .ended: latestZoom = minMaxZoom(factor: scaleFactor)
+            update(factor: latestZoom)
+        default: break
+        }
+    }
     
     @IBAction func takePhotoButtonTapped(_ sender: Any) {
         

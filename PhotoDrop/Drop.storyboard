@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sav-ME-bra">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sav-ME-bra">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,6 +34,7 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="R3h-lt-2Ib" secondAttribute="bottom" id="Ils-vf-7W2"/>
                                     <constraint firstAttribute="trailing" secondItem="R3h-lt-2Ib" secondAttribute="trailing" id="UMb-tc-VIF"/>
@@ -43,9 +44,11 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-99-MhP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
                                 <rect key="frame" x="303" y="22" width="40" height="39"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="1eA-gE-U0C"/>
                                     <constraint firstAttribute="width" secondItem="Ilc-ck-Ouy" secondAttribute="height" multiplier="1:1" constant="1" id="qE2-HY-wYK"/>
@@ -105,6 +108,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="lZv-X8-pl4" secondAttribute="bottom" multiplier="1.03" constant="8" symbolic="YES" id="05R-qw-N8c"/>
                             <constraint firstItem="lZv-X8-pl4" firstAttribute="centerX" secondItem="s2D-MQ-qck" secondAttribute="centerX" id="60h-SP-tEM"/>
