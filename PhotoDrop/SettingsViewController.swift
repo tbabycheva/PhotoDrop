@@ -52,13 +52,18 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         if text.characters.count < 6 {
             
-            let characterAlert = UIAlertController(title: "Invalid", message: "New username must be six or more characters", preferredStyle: .alert)
+            let characterAlert = UIAlertController(title: "Oops!", message: "New username must be 6 or more characters", preferredStyle: .alert)
             characterAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(characterAlert, animated: true, completion: nil)
             
+        } else if text.characters.count > 25 {
+            let characterAlert = UIAlertController(title: "Oops!", message: "Oops! New username must be less than 25 characters", preferredStyle: .alert)
+            characterAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(characterAlert, animated: true, completion: nil)
         } else {
             
             PhotoDropUserController.shared.changeUserName(username: text)
+            
             dismiss(animated: true, completion: nil)
         }
     }
