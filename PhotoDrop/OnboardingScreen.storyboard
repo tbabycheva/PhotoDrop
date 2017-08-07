@@ -25,15 +25,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gemOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="vLv-OT-Iy0">
-                                <rect key="frame" x="163" y="212" width="153" height="128"/>
+                                <rect key="frame" x="22" y="164" width="153" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="ZDJ-Vl-bN7">
-                                <rect key="frame" x="212" y="486" width="147" height="82"/>
+                                <rect key="frame" x="212" y="479" width="147" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="radiusOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-2c-J20">
+                                <rect key="frame" x="214" y="223" width="132" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfN-V7-TdF">
-                                <rect key="frame" x="104" y="44" width="166" height="56"/>
+                                <rect key="frame" x="104" y="28" width="166" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="gotItButton"/>
                                 <connections>
@@ -53,6 +57,7 @@
                     <connections>
                         <outlet property="gemInfoBubble" destination="vLv-OT-Iy0" id="ZC9-ui-VE2"/>
                         <outlet property="gemListBubble" destination="ZDJ-Vl-bN7" id="KoC-aH-Ytu"/>
+                        <outlet property="radiusBubble" destination="mGD-2c-J20" id="ixN-JV-Q34"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3T-cY-HiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -73,5 +78,6 @@
         <image name="gotItButton" width="189" height="70"/>
         <image name="listOnboarding" width="122" height="68"/>
         <image name="onboarding map" width="375" height="667"/>
+        <image name="radiusOnboarding" width="122" height="78"/>
     </resources>
 </document>
