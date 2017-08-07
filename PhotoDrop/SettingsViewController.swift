@@ -43,7 +43,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backButtonTapped(_ sender: Any) {
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
