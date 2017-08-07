@@ -279,8 +279,8 @@
 <<<<<<< HEAD
 						DevelopmentTeam = X7J6W2VA9A;
 =======
-						DevelopmentTeam = WCS73R8992;
->>>>>>> 0d508d793b9b1e06e34c897e8366601f8ceac35d
+						DevelopmentTeam = WC4MWVKQFQ;
+>>>>>>> 269ab5d3a1a73229d598045fa7ccaa0869bfe729
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -477,11 +477,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 =======
-				DEVELOPMENT_TEAM = WCS73R8992;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
->>>>>>> 0d508d793b9b1e06e34c897e8366601f8ceac35d
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
+>>>>>>> 269ab5d3a1a73229d598045fa7ccaa0869bfe729
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -498,11 +498,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
 =======
-				DEVELOPMENT_TEAM = WCS73R8992;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
->>>>>>> 0d508d793b9b1e06e34c897e8366601f8ceac35d
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
+>>>>>>> 269ab5d3a1a73229d598045fa7ccaa0869bfe729
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

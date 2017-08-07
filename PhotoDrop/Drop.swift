@@ -11,8 +11,8 @@ import CloudKit
 import MapKit
 
 class Drop: NSObject, CloudKitSyncable {
-    var title: String?
-    var subtitle: String?
+    dynamic var title: String?
+    dynamic var subtitle: String?
     var dropperUserId: CKRecordID
     var timestamp: Date
     var numberOfLikes: Int
@@ -52,7 +52,7 @@ class Drop: NSObject, CloudKitSyncable {
     
     static let database: CKDatabase = CKContainer.default().publicCloudDatabase
     
-    private struct Keys {
+    struct Keys {
         static let title = "title"
         static let dropperUserId = "dropperUserId"
         static let timestamp = "timestamp"
@@ -99,12 +99,7 @@ class Drop: NSObject, CloudKitSyncable {
             let timestamp = record[Drop.Keys.timestamp] as? Date,
             let numberOfLikes = record[Drop.Keys.numberOfLikes] as? Int,
             let latitude = record[Drop.Keys.latitude] as? CLLocationDegrees,
-            let longitude = record[Drop.Keys.longitude] as? CLLocationDegrees,
-            
-            let imageAsset = record[Drop.Keys.image] as? CKAsset,
-            let data = NSData(contentsOf: imageAsset.fileURL),
-            let image = UIImage(data: data as Data)
-        
+            let longitude = record[Drop.Keys.longitude] as? CLLocationDegrees
         else {
                 return nil
         }
@@ -114,8 +109,8 @@ class Drop: NSObject, CloudKitSyncable {
             timestamp: timestamp,
             numberOfLikes: numberOfLikes,
             location: CLLocationCoordinate2D(latitude:latitude, longitude:longitude),
-            imageAsset: imageAsset,
-            image: image 
+            imageAsset: nil,
+            image: nil
         )
     }
 }
