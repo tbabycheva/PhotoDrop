@@ -126,7 +126,7 @@ class DropController {
             }
             
             group.notify(queue: DispatchQueue.main) {
-                self.dropsInRange = dropsInRange
+                self.dropsInRange = dropsInRange 
                 NotificationCenter.default.post(name: self.dropsInRangeWereUpdatedNotification, object: nil)
             }
         }
