@@ -14,6 +14,7 @@ class GeoFenceController {
   let dropRange = 200.0 /* Meters */
 
   static let shared = GeoFenceController()
+  /*
   private var lastLocationtrackedDropsWhereUpdated: CLLocationCoordinate2D?
 
   private init() {
@@ -60,5 +61,5 @@ class GeoFenceController {
         add: {CurrentLocationController.shared.locationManager.startMonitoring(for: $0)}
       )
     }
-  }
+  }*/
 }
