@@ -42,7 +42,7 @@
                                     <constraint firstAttribute="width" constant="50" id="3WO-gE-kRD"/>
                                     <constraint firstAttribute="width" secondItem="P0c-s7-Hje" secondAttribute="height" multiplier="1:1" id="gHh-i4-xhQ"/>
                                 </constraints>
-                                <state key="normal" image="photo-list-icon"/>
+                                <state key="normal" image="photo-list-button"/>
                                 <connections>
                                     <segue destination="Y2b-Re-S3v" kind="show" id="IOr-ni-9zZ"/>
                                 </connections>
@@ -59,9 +59,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-RY-Mej" userLabel="Current Location Button">
-                                <rect key="frame" x="282" y="80" width="16" height="16"/>
+                                <rect key="frame" x="266" y="80" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="9PW-4Z-ow3"/>
+                                    <constraint firstAttribute="width" constant="32" id="9PW-4Z-ow3"/>
                                     <constraint firstAttribute="width" secondItem="bmf-RY-Mej" secondAttribute="height" multiplier="1:1" id="cmb-M8-Xka"/>
                                 </constraints>
                                 <state key="normal" image="location-cursor"/>
@@ -132,8 +132,8 @@
     </scenes>
     <resources>
         <image name="camera-button" width="88" height="89"/>
-        <image name="location-cursor" width="128" height="128"/>
-        <image name="photo-list-icon" width="50" height="50"/>
+        <image name="location-cursor" width="32" height="32"/>
+        <image name="photo-list-button" width="54" height="54"/>
         <image name="points-button" width="54" height="54"/>
     </resources>
 </document>

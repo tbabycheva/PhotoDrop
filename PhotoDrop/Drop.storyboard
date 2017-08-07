@@ -41,7 +41,7 @@
                                     <constraint firstItem="R3h-lt-2Ib" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leading" id="uuS-u8-RGz"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-99-MhP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-99-MhP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-ck-Ouy">
@@ -60,22 +60,24 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-hA-0P6">
                                 <rect key="frame" x="38" y="22" width="32" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="BCE-0M-EAs"/>
+                                    <constraint firstAttribute="width" secondItem="Glr-hA-0P6" secondAttribute="height" multiplier="1:1" id="G3J-eq-xsa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" image="back-button-black"/>
+                                <state key="normal" image="back-button-white"/>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="sav-ME-bra" eventType="touchUpInside" id="tHR-1x-aah"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
-                                <rect key="frame" x="142" y="550" width="90" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-X8-pl4">
+                                <rect key="frame" x="144.5" y="555" width="85" height="85"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lZv-X8-pl4" secondAttribute="height" multiplier="1:1" id="WZN-ql-IhT"/>
-                                    <constraint firstAttribute="width" secondItem="lZv-X8-pl4" secondAttribute="height" multiplier="1:1" id="aeb-Lb-WPV"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="u4E-dh-Lg1"/>
-                                    <constraint firstAttribute="width" constant="90" id="zRZ-1B-jOi"/>
+                                    <constraint firstAttribute="width" constant="85" id="zRZ-1B-jOi"/>
                                 </constraints>
-                                <state key="normal" title="Take Photo" image="take-a-photo-button">
+                                <state key="normal" image="take-a-photo-button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -89,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Eb-p0-Ft5" userLabel="Camera Position Toggle">
-                                <rect key="frame" x="311" y="579" width="32" height="32"/>
+                                <rect key="frame" x="311" y="581.5" width="32" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Eb-p0-Ft5" secondAttribute="height" multiplier="1:1" id="9c7-iA-V3l"/>
@@ -149,9 +151,8 @@
     </scenes>
     <resources>
         <image name="FlashOff" width="64" height="64"/>
-        <image name="back-button-black" width="32" height="32"/>
+        <image name="back-button-white" width="54" height="54"/>
         <image name="camera-rotate" width="32" height="32"/>
-        <image name="gradient" width="414" height="736"/>
-        <image name="take-a-photo-button" width="89" height="89"/>
+        <image name="take-a-photo-button" width="94" height="94"/>
     </resources>
 </document>

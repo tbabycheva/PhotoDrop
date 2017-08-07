@@ -216,12 +216,12 @@
 				2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */,
 				2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */,
 				219EE2981F2957A200CED555 /* Map.storyboard */,
-				B98DD84C1F269975000231E9 /* Points.storyboard */,
 				B98DD84E1F26997F000231E9 /* Drop.storyboard */,
 				B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */,
-				B98DD8501F269984000231E9 /* Settings.storyboard */,
 				B98DD8521F26998E000231E9 /* PhotoList.storyboard */,
 				B98DD8541F2699A1000231E9 /* Photo.storyboard */,
+				B98DD84C1F269975000231E9 /* Points.storyboard */,
+				B98DD8501F269984000231E9 /* Settings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 				TargetAttributes = {
 					218BDFD31F26923700A6BBF5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = WC4MWVKQFQ;
+						DevelopmentTeam = WCS73R8992;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -467,10 +467,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -481,10 +481,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PhotoDrop/PhotoDrop.entitlements;
-				DEVELOPMENT_TEAM = WC4MWVKQFQ;
+				DEVELOPMENT_TEAM = WCS73R8992;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
+				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
