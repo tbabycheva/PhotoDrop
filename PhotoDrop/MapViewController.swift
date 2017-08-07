@@ -207,6 +207,7 @@ extension MapViewController: MKMapViewDelegate {
             // Right Detail
             let detailPhotoViewButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
             detailPhotoViewButton.setImage(UIImage(named: "photo-detail-button"), for: .normal)
+            detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-not-available"), for: .disabled)
             detailPhotoViewButton.addTarget(self, action: #selector(photoDetailButtonTapped), for: .touchUpInside)
             annotationView?.rightCalloutAccessoryView = detailPhotoViewButton
             
@@ -215,12 +216,12 @@ extension MapViewController: MKMapViewDelegate {
             annotationView?.addGestureRecognizer(TapRecognizer)
         }
         
-        if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView {
+        if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView as? UIButton {
             if let annotationSelected = annotation as? Drop {
                 if DropController.shared.dropsInRange.contains(where: {annotationSelected.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
-                    detailPhotoViewButton.isHidden = false
+                    detailPhotoViewButton.isEnabled = true
                 } else {
-                    detailPhotoViewButton.isHidden = true
+                    detailPhotoViewButton.isEnabled = false
                 }
             }
         }
@@ -266,7 +267,10 @@ extension MapViewController: MKMapViewDelegate {
             renderer.strokeColor = UIColor.red
             renderer.lineWidth = 4.0
             return renderer
-        } else if let overlay = overlay as? MKCircle {
+        }
+    
+            // Display inRange circle
+            else if let overlay = overlay as? MKCircle {
             let renderer = MKCircleRenderer(overlay: overlay)
             renderer.strokeColor = UIColor.cyan.withAlphaComponent(0.75)
             renderer.lineWidth = 2.0
