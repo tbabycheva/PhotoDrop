@@ -194,12 +194,12 @@ extension MapViewController: MKMapViewDelegate {
             annotationView?.addGestureRecognizer(TapRecognizer)
         }
         
-        if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView {
+        if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView as? UIButton {
             if let annotationSelected = annotation as? Drop {
                 if DropController.shared.dropsInRange.contains(where: {annotationSelected.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
-                    detailPhotoViewButton.isHidden = false
+                    detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo detail button - not available"), for: .normal)
                 } else {
-                    detailPhotoViewButton.isHidden = true
+                    detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-button"), for: .normal) 
                 }
             }
         }
