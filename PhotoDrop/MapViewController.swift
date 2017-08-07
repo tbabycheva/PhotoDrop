@@ -11,9 +11,9 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
-    
-    let centerOnLocationSpan = MKCoordinateSpanMake(0.1, 0.1)
-    
+
+    let centerOnLocationSpan = MKCoordinateSpanMake(0.01, 0.01)
+
     @IBOutlet weak var mapView: MKMapView!
     
     var isWaitingToCenterOnLocation = true

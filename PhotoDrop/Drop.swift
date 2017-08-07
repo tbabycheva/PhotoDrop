@@ -93,6 +93,11 @@ class Drop: NSObject, CloudKitSyncable {
     }
     
     convenience required init?(record: CKRecord) {
+        defer {
+            if let imageAsset = record[Drop.Keys.image] as? CKAsset {
+                try? FileManager.default.removeItem(at: imageAsset.fileURL)
+            }
+        }
         guard
             let title = record[Drop.Keys.title] as? String,
             let dropperUserId = record[Drop.Keys.dropperUserId] as? CKReference,
