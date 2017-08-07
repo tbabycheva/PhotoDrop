@@ -11,10 +11,12 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
-
+    
     let centerOnLocationSpan = MKCoordinateSpanMake(0.01, 0.01)
-
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var inRangeButton: UIButton!
     
     var isWaitingToCenterOnLocation = true
     
@@ -65,11 +67,18 @@ class MapViewController: UIViewController {
         
         // Show current user location
         
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(updateLocaiton),
-            name: CurrentLocationController.shared.locationUpdatedNotification,
-            object: nil
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateLocaiton),
+                                               name: CurrentLocationController.shared.locationUpdatedNotification,
+                                               object: nil
         )
+        
+        // Show / hide inRange button
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showInRangeButton),
+                                               name: DropController.shared.dropsInRangeWereUpdatedNotification,
+                                               object: nil)
         
         centerOnLocation()
         
@@ -80,13 +89,7 @@ class MapViewController: UIViewController {
         self.view.addGestureRecognizer(singleTapRecognizer)
     }
     
-    func mapTapped() {
-        if annotationSelected == nil {
-            destinationLocation = nil
-        } else {
-            annotationSelected = nil
-        }
-    }
+    
     
     func centerOnLocation() {
         isWaitingToCenterOnLocation = true
@@ -107,6 +110,24 @@ class MapViewController: UIViewController {
             mapView.setRegion(region, animated: true)
         }
     }
+    
+    func showInRangeButton() {
+        if DropController.shared.dropsInRange.count >= 1 {
+            inRangeButton.isHidden = false
+        } else {
+            inRangeButton.isHidden = true
+        }
+    }
+    
+    func mapTapped() {
+        if annotationSelected == nil {
+            destinationLocation = nil
+        } else {
+            annotationSelected = nil
+        }
+    }
+    
+    // MARK: Action Functions
     
     @IBAction func currentLocationButtonTapped(_ sender: Any) {
         centerOnLocation()

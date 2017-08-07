@@ -36,7 +36,7 @@
                                     <segue destination="P7F-n8-CC3" kind="show" id="Fnw-hs-FPo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje" userLabel="PhotoList Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje" userLabel="inRange Button">
                                 <rect key="frame" x="242" y="443" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3WO-gE-kRD"/>
@@ -89,6 +89,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="inRangeButton" destination="P0c-s7-Hje" id="iWa-ot-0aR"/>
                         <outlet property="mapView" destination="EIf-wT-bnA" id="yeG-LD-FLH"/>
                         <segue destination="Nnq-6r-yrI" kind="show" identifier="toPhotoDetail" id="J5Y-uS-gOk"/>
                     </connections>

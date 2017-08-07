@@ -54,6 +54,7 @@ extension CloudKitSyncable {
 
   static func pull(
     predicate: NSPredicate = NSPredicate(value: true),
+    desiredKeys: [String]? = nil,
     objectsPerPage: Int = CKQueryOperationMaximumResults,
     pulledObject: ((_ record: Self) -> Void)? = nil,
     pageFinished: @escaping (_ pullNextPage: () -> Void) -> Void = { $0() },
@@ -80,6 +81,7 @@ extension CloudKitSyncable {
       if let queryCursor = queryCursor {
         pageFinished{
           let continuedQueryOperation = CKQueryOperation(cursor: queryCursor)
+          continuedQueryOperation.desiredKeys = desiredKeys
           continuedQueryOperation.resultsLimit = objectsPerPage
           continuedQueryOperation.recordFetchedBlock = perObjectBlock
           continuedQueryOperation.queryCompletionBlock = queryCompletionBlock
@@ -92,6 +94,7 @@ extension CloudKitSyncable {
       }
     }
 
+    queryOperation.desiredKeys = desiredKeys
     queryOperation.resultsLimit = objectsPerPage
     queryOperation.recordFetchedBlock = perObjectBlock
     queryOperation.queryCompletionBlock = queryCompletionBlock

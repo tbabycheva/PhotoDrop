@@ -65,6 +65,14 @@ class DropController {
             
             Drop.pull(
                 predicate: predicate,
+                desiredKeys: [
+                    "title",
+                    "dropperUserId",
+                    "timestamp",
+                    "numberOfLikes",
+                    "latitude",
+                    "longitude",
+                ],
                 objectsPerPage: amount,
                 pulledObject: { (drop) in
                     drops.append(drop)
@@ -86,23 +94,55 @@ class DropController {
         
         let dispatchGroup = DispatchGroup()
         
-        dispatchGroup.enter()
         
         //hasLiked
+        dispatchGroup.enter()
         DropLikeController.shared.pullDropLike(for: drop) { (dropLike) in
             drop.hasLiked = dropLike != nil
             dispatchGroup.leave()
         }
         
-        dispatchGroup.enter()
         
         //dropperUsername
+        dispatchGroup.enter()
         PhotoDropUserController.shared.pullUserWith(userRecordID: drop.dropperUserId) { (photoDropUser) in
             guard let photoDropUser = photoDropUser else { dispatchGroup.leave(); return }
             drop.dropperUserName = photoDropUser.username
             dispatchGroup.leave()
         }
+
         
+        //image
+        dispatchGroup.enter()
+        Drop.database.fetch(withRecordID: drop.getRecord().recordID) {
+            (record, error) in
+            defer {
+                dispatchGroup.leave()
+            }
+
+            guard let record = record else {
+                return
+            }
+
+            guard let imageAsset = record[Drop.Keys.image] as? CKAsset else {
+                return
+            }
+
+            defer {
+                if let imageAsset = record[Drop.Keys.image] as? CKAsset {
+                    try? FileManager.default.removeItem(at: imageAsset.fileURL)
+                }
+            }
+            guard
+                let data = NSData(contentsOf: imageAsset.fileURL),
+                let image = UIImage(data: data as Data)
+            else {
+                return
+            }
+
+            drop.image = image
+        }
+
         dispatchGroup.notify(queue: DispatchQueue.main) {
             completion(drop)
         }
