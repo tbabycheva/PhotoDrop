@@ -279,7 +279,7 @@
 <<<<<<< HEAD
 						DevelopmentTeam = WCS73R8992;
 =======
-						DevelopmentTeam = X7J6W2VA9A;
+						DevelopmentTeam = WC4MWVKQFQ;
 >>>>>>> develop
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -477,10 +477,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 =======
-				DEVELOPMENT_TEAM = X7J6W2VA9A;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
 >>>>>>> develop
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -498,10 +498,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.babycheva.PhotoDrops;
 =======
-				DEVELOPMENT_TEAM = X7J6W2VA9A;
+				DEVELOPMENT_TEAM = WC4MWVKQFQ;
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.KennyPeterson.PhotoDrop;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrop";
 >>>>>>> develop
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
