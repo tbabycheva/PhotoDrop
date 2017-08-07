@@ -11,21 +11,23 @@ import MapKit
 import CoreLocation
 
 class MapViewController: UIViewController {
-
+    
     let centerOnLocationSpan = MKCoordinateSpanMake(0.01, 0.01)
-
+    
     @IBOutlet weak var mapView: MKMapView!
-
+    
+    @IBOutlet weak var inRangeButton: UIButton!
+    
     var isWaitingToCenterOnLocation = true
-
+    
     var annotationSelected: Drop?
-
+    
     var sourceLocation: CLLocationCoordinate2D?{
         didSet {
             showRoute()
         }
     }
-
+    
     var destinationLocation: Drop? {
         willSet {
             destinationLocation?.subtitle = nil
@@ -36,7 +38,7 @@ class MapViewController: UIViewController {
     }
     
     var route: MKRoute?
-
+    
     var sightCircle: MKCircle? {
         willSet {
             guard let sightCircle = sightCircle else {
@@ -55,7 +57,7 @@ class MapViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,14 +67,21 @@ class MapViewController: UIViewController {
         
         // Show current user location
         
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(updateLocaiton),
-            name: CurrentLocationController.shared.locationUpdatedNotification,
-            object: nil
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateLocaiton),
+                                               name: CurrentLocationController.shared.locationUpdatedNotification,
+                                               object: nil
         )
         
+        // Show / hide inRange button
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showInRangeButton),
+                                               name: DropController.shared.dropsInRangeWereUpdatedNotification,
+                                               object: nil)
+        
         centerOnLocation()
-
+        
         // Tap map to clear route
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
         singleTapRecognizer.delegate = self
@@ -80,13 +89,7 @@ class MapViewController: UIViewController {
         self.view.addGestureRecognizer(singleTapRecognizer)
     }
     
-    func mapTapped() {
-        if annotationSelected == nil {
-            destinationLocation = nil
-        } else {
-            annotationSelected = nil
-        }
-    }
+    
     
     func centerOnLocation() {
         isWaitingToCenterOnLocation = true
@@ -107,6 +110,24 @@ class MapViewController: UIViewController {
             mapView.setRegion(region, animated: true)
         }
     }
+    
+    func showInRangeButton() {
+        if DropController.shared.dropsInRange.count >= 1 {
+            inRangeButton.isHidden = false
+        } else {
+            inRangeButton.isHidden = true
+        }
+    }
+    
+    func mapTapped() {
+        if annotationSelected == nil {
+            destinationLocation = nil
+        } else {
+            annotationSelected = nil
+        }
+    }
+    
+    // MARK: Action Functions
     
     @IBAction func currentLocationButtonTapped(_ sender: Any) {
         centerOnLocation()
@@ -182,16 +203,26 @@ extension MapViewController: MKMapViewDelegate {
             showDistanceButton.setImage(UIImage(named: "directions-button"), for: .normal)
             showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
             annotationView?.leftCalloutAccessoryView = showDistanceButton
-
+            
             // Right Detail
             let detailPhotoViewButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
             detailPhotoViewButton.setImage(UIImage(named: "photo-detail-button"), for: .normal)
             detailPhotoViewButton.addTarget(self, action: #selector(photoDetailButtonTapped), for: .touchUpInside)
             annotationView?.rightCalloutAccessoryView = detailPhotoViewButton
-
+            
             // prevent taps on annotationView from triggering tap on map
             let TapRecognizer = UITapGestureRecognizer()
             annotationView?.addGestureRecognizer(TapRecognizer)
+        }
+        
+        if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView {
+            if let annotationSelected = annotation as? Drop {
+                if DropController.shared.dropsInRange.contains(where: {annotationSelected.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
+                    detailPhotoViewButton.isHidden = false
+                } else {
+                    detailPhotoViewButton.isHidden = true
+                }
+            }
         }
         
         return annotationView
@@ -200,7 +231,7 @@ extension MapViewController: MKMapViewDelegate {
     func showDistanceButtonTapped() {
         destinationLocation = annotationSelected
     }
-
+    
     func photoDetailButtonTapped() {
         guard let destination = UIStoryboard.init(name: "Photo", bundle: nil).instantiateInitialViewController() as? PhotoViewController else {
             return
@@ -208,7 +239,7 @@ extension MapViewController: MKMapViewDelegate {
         destination.drop = annotationSelected
         present(destination, animated: true, completion: nil)
     }
-
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         guard let drop = view.annotation as? Drop else { return }
@@ -242,27 +273,27 @@ extension MapViewController: MKMapViewDelegate {
         DropController.shared.pullDrops(at: mapView.region, amount: 10) {
             [weak self] drops in
             guard let annotations = mapView.annotations.filter({$0 is Drop}) as? [Drop] else {
-               return
+                return
             }
-
+            
             update(
                 annotations,
                 to: drops,
                 equals: {
-                  $0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName
-                },
+                    $0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName
+            },
                 remove: {
                     drop in
                     DispatchQueue.main.async {
                         self?.mapView.removeAnnotation(drop)
                     }
-                },
+            },
                 add: {
                     drop in
                     DispatchQueue.main.async {
                         self?.mapView.addAnnotation(drop)
                     }
-                }
+            }
             )
         }
     }
