@@ -234,11 +234,17 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func photoDetailButtonTapped() {
+        guard let annotationSelected = annotationSelected else {
+            return
+        }
         guard let destination = UIStoryboard.init(name: "Photo", bundle: nil).instantiateInitialViewController() as? PhotoViewController else {
             return
         }
-        destination.drop = annotationSelected
-        present(destination, animated: true, completion: nil)
+        DropController.shared.pullDetailDropWith(for: annotationSelected) {
+            (_) in
+            destination.drop = annotationSelected
+            self.present(destination, animated: true, completion: nil)
+        }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
