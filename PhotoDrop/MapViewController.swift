@@ -260,7 +260,10 @@ extension MapViewController: MKMapViewDelegate {
             renderer.strokeColor = UIColor.red
             renderer.lineWidth = 4.0
             return renderer
-        } else if let overlay = overlay as? MKCircle {
+        }
+    
+            // Display inRange circle
+            else if let overlay = overlay as? MKCircle {
             let renderer = MKCircleRenderer(overlay: overlay)
             renderer.strokeColor = UIColor.cyan.withAlphaComponent(0.75)
             renderer.lineWidth = 2.0
