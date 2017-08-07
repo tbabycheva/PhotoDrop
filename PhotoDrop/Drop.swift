@@ -11,8 +11,8 @@ import CloudKit
 import MapKit
 
 class Drop: NSObject, CloudKitSyncable {
-    var title: String?
-    var subtitle: String?
+    dynamic var title: String?
+    dynamic var subtitle: String?
     var dropperUserId: CKRecordID
     var timestamp: Date
     var numberOfLikes: Int
