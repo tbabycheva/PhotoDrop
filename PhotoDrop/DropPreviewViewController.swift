@@ -90,6 +90,11 @@ extension DropPreviewViewController {
         titleTextField.resignFirstResponder()
         return true
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        titleTextField.resignFirstResponder()
+        return 
+    }
 }
 
 // MARK: - Save photos with proper orientation

@@ -22,6 +22,8 @@
 		2A480D3D1F2B9ABA00EBA965 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */; };
 		2A480D631F3236F300EBA965 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D621F3236F300EBA965 /* Launch Screen.storyboard */; };
 		2A480D671F33D4F500EBA965 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D661F33D4F500EBA965 /* Onboarding.swift */; };
+		2A480D691F34E25000EBA965 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A480D681F34E25000EBA965 /* OnboardingViewController.swift */; };
+		2A480D6B1F34E27700EBA965 /* OnboardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */; };
 		3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */; };
 		3F911D1B1F30DB5E002F2A45 /* HashableUsingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */; };
 		3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */; };
@@ -65,6 +67,8 @@
 		2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		2A480D621F3236F300EBA965 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2A480D661F33D4F500EBA965 /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		2A480D681F34E25000EBA965 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnboardingScreen.storyboard; sourceTree = "<group>"; };
 		3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayHelpers.swift; sourceTree = "<group>"; };
 		3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableUsingAddress.swift; sourceTree = "<group>"; };
 		3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
@@ -160,8 +164,8 @@
 		3F911D1C1F30DBBD002F2A45 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 				3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */,
+				21035F6F1F2BD88400D704B0 /* DateHelpers.swift */,
 				2A480D661F33D4F500EBA965 /* Onboarding.swift */,
 			);
 			name = Helpers;
@@ -210,13 +214,14 @@
 				2A480D621F3236F300EBA965 /* Launch Screen.storyboard */,
 				21D40D081F33B5B2008258F4 /* Loading.storyboard */,
 				2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */,
+				2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */,
 				219EE2981F2957A200CED555 /* Map.storyboard */,
-				B98DD84C1F269975000231E9 /* Points.storyboard */,
 				B98DD84E1F26997F000231E9 /* Drop.storyboard */,
 				B9894EBF1F27E29B008F4829 /* DropPreview.storyboard */,
-				B98DD8501F269984000231E9 /* Settings.storyboard */,
 				B98DD8521F26998E000231E9 /* PhotoList.storyboard */,
 				B98DD8541F2699A1000231E9 /* Photo.storyboard */,
+				B98DD84C1F269975000231E9 /* Points.storyboard */,
+				B98DD8501F269984000231E9 /* Settings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -226,14 +231,15 @@
 			children = (
 				21D40D061F33B576008258F4 /* LoadingViewController.swift */,
 				2A480D3C1F2B9ABA00EBA965 /* WelcomeViewController.swift */,
+				2A480D681F34E25000EBA965 /* OnboardingViewController.swift */,
 				B98DD8561F269A12000231E9 /* MapViewController.swift */,
-				B98DD8581F269A21000231E9 /* PointsViewController.swift */,
 				B98DD85A1F269A32000231E9 /* DropViewController.swift */,
 				B9894EC11F27E3B9008F4829 /* DropPreviewViewController.swift */,
-				B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */,
+				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
 				21035F6D1F2BD08B00D704B0 /* PhotoTableViewCell.swift */,
 				B98DD8601F269A53000231E9 /* PhotoViewController.swift */,
-				B98DD85E1F269A49000231E9 /* PhotoListViewController.swift */,
+				B98DD8581F269A21000231E9 /* PointsViewController.swift */,
+				B98DD85C1F269A3C000231E9 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -274,7 +280,7 @@
 						DevelopmentTeam = X7J6W2VA9A;
 =======
 						DevelopmentTeam = WC4MWVKQFQ;
->>>>>>> c264693fadf7ec110ed9b73dc6db937dd22e4ffd
+>>>>>>> 269ab5d3a1a73229d598045fa7ccaa0869bfe729
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -319,6 +325,7 @@
 				B98DD84D1F269975000231E9 /* Points.storyboard in Resources */,
 				B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */,
 				B98DD8511F269984000231E9 /* Settings.storyboard in Resources */,
+				2A480D6B1F34E27700EBA965 /* OnboardingScreen.storyboard in Resources */,
 				2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */,
 				B98DD84F1F26997F000231E9 /* Drop.storyboard in Resources */,
 			);
@@ -347,6 +354,7 @@
 				B98DD8571F269A12000231E9 /* MapViewController.swift in Sources */,
 				2A480D331F2B9A5A00EBA965 /* BlockedUserController.swift in Sources */,
 				21035F6E1F2BD08B00D704B0 /* PhotoTableViewCell.swift in Sources */,
+				2A480D691F34E25000EBA965 /* OnboardingViewController.swift in Sources */,
 				2A480D311F2B9A4B00EBA965 /* BlockedUser.swift in Sources */,
 				B98DD85D1F269A3C000231E9 /* SettingsViewController.swift in Sources */,
 				3FF2CC161F279F8C00C68903 /* PhotoDropUser.swift in Sources */,
@@ -473,7 +481,7 @@
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
->>>>>>> c264693fadf7ec110ed9b73dc6db937dd22e4ffd
+>>>>>>> 269ab5d3a1a73229d598045fa7ccaa0869bfe729
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -494,7 +502,7 @@
 				INFOPLIST_FILE = PhotoDrop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-hand.PhotoDrops";
->>>>>>> c264693fadf7ec110ed9b73dc6db937dd22e4ffd
+>>>>>>> 269ab5d3a1a73229d598045fa7ccaa0869bfe729
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
