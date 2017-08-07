@@ -207,6 +207,7 @@ extension MapViewController: MKMapViewDelegate {
             // Right Detail
             let detailPhotoViewButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
             detailPhotoViewButton.setImage(UIImage(named: "photo-detail-button"), for: .normal)
+            detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-not-available"), for: .disabled)
             detailPhotoViewButton.addTarget(self, action: #selector(photoDetailButtonTapped), for: .touchUpInside)
             annotationView?.rightCalloutAccessoryView = detailPhotoViewButton
             
@@ -218,9 +219,9 @@ extension MapViewController: MKMapViewDelegate {
         if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView as? UIButton {
             if let annotationSelected = annotation as? Drop {
                 if DropController.shared.dropsInRange.contains(where: {annotationSelected.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
-                    detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-not-available"), for: .normal) 
+                    detailPhotoViewButton.isEnabled = true
                 } else {
-                    detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-button"), for: .normal) 
+                    detailPhotoViewButton.isEnabled = false
                 }
             }
         }
