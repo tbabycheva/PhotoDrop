@@ -50,10 +50,10 @@ class PointsViewController: UIViewController {
         
         let numberValueLikesRecieved = user.numberOfRecievedDropLikes
         let numberPointsForLikesRecieved = user.numberOfRecievedDropLikes * 50
-        likesLabel.text = "\(numberValueLikesRecieved)"
+        likesLabel.text = "\(numberValueLikesRecieved) gems"
         let numberValueLikesGiven = user.numberOfGivenDropLikes
         let numberPointsForLikesGiven = user.numberOfGivenDropLikes * 30
-        ratedLabel.text = "\(numberValueLikesGiven)"
-        pointsLabel.text = "\(numberPointsForLikesRecieved + numberPointsForLikesGiven)"
+        ratedLabel.text = "\((numberValueLikesGiven)) rated"
+        pointsLabel.text = "\((numberPointsForLikesRecieved + numberPointsForLikesGiven)) pts!"
     }
  }

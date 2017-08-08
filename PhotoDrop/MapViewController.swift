@@ -60,7 +60,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         mapView.delegate = self
         // mapView.showsCompass = true
         mapView.showsUserLocation = true
@@ -175,7 +175,7 @@ class MapViewController: UIViewController {
             
             let distance = Measurement(value: response.routes[0].distance, unit: UnitLength.meters)
             let measurementFormatter = MeasurementFormatter()
-            measurementFormatter.unitStyle = .medium
+            measurementFormatter.unitStyle = .short
             let distanceString = measurementFormatter.string(from: distance)
             self.destinationLocation?.subtitle = distanceString
         }

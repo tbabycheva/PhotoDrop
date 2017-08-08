@@ -128,11 +128,6 @@ class DropController {
                 return
             }
 
-            defer {
-                if let imageAsset = record[Drop.Keys.image] as? CKAsset {
-                    try? FileManager.default.removeItem(at: imageAsset.fileURL)
-                }
-            }
             guard
                 let data = NSData(contentsOf: imageAsset.fileURL),
                 let image = UIImage(data: data as Data)
