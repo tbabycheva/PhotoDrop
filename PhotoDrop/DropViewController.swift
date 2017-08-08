@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreMedia
 
 class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
     
@@ -310,22 +311,28 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             
             if orientation == .portrait {
             let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
-                self.image = image
+                let newImage = image.resized(toWidth: 750)
+                self.image = newImage
             } else if orientation == .landscapeLeft {
                 let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.up)
-                self.image = image
+                let newImage = image.resized(toWidth: 1334)
+                self.image = newImage
             } else if orientation == .landscapeRight {
                 let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.down)
-                self.image = image
+                let newImage = image.resized(toWidth: 1334)
+                self.image = newImage
             } else if orientation == .faceUp {
                 let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
-                self.image = image
+                let newImage = image.resized(toWidth: 750)
+                self.image = newImage
             } else if orientation == .faceDown {
                 let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
-                self.image = image
+                let newImage = image.resized(toWidth: 750)
+                self.image = newImage
             } else if orientation == .portraitUpsideDown {
                 let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.left)
-                self.image = image
+                let newImage = image.resized(toWidth: 750)
+                self.image = newImage
             }
             
             turnTorchOff()
@@ -342,5 +349,15 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             let dropPreviewVC = segue.destination as? DropPreviewViewController
             dropPreviewVC?.image = image
         }
+    }
+}
+
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
