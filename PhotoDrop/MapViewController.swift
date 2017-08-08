@@ -62,7 +62,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
                 
         mapView.delegate = self
-        // mapView.showsCompass = true
+        mapView.showsCompass = false
         mapView.showsUserLocation = true
         
         // Show current user location

@@ -23,7 +23,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>PhotoDrop requires the camera to drop photos at your geographical location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>PhotoDrop requires your location to retrive photos near your location.</string>
+	<string>PhotoDrop requires your location to retrive photos near your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>PhotoDrop would like to use your current location when using the app</string>
 	<key>NSPhotoLibraryUsageDescription</key>
