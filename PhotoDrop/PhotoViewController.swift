@@ -63,15 +63,23 @@ class PhotoViewController: UIViewController {
     }
     
     @IBAction func dropLikeButtonTapped(_ sender: Any) {
-        
+        dropLikeButton.isEnabled = false
         guard let drop = drop else { return }
         guard let hasLiked = drop.hasLiked else { return }
         
         if hasLiked {
-            DropLikeController.shared.deleteDropLike(for: drop)
+            DropLikeController.shared.deleteDropLike(for: drop, completion: {
+                DispatchQueue.main.async {
+                    self.dropLikeButton.isEnabled = true
+                }
+            })
             drop.hasLiked = false
         } else {
-            _ = DropLikeController.shared.createDropLike(for: drop)
+            _ = DropLikeController.shared.createDropLike(for: drop, completion: { 
+                DispatchQueue.main.async {
+                    self.dropLikeButton.isEnabled = true
+                }
+            })
             drop.hasLiked = true
         }
         updateLikeGem()
