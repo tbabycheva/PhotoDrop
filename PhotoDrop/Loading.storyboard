@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,35 +19,38 @@
                         <viewControllerLayoutGuide type="top" id="KgF-Lw-OTv"/>
                         <viewControllerLayoutGuide type="bottom" id="NHR-q7-klw"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FXj-pu-fFG">
+                    <view key="view" contentMode="scaleToFill" id="TbS-Rk-Mc4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2017 PhotoDrop. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="LfP-cC-cyl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadingScreenBackground" translatesAutoresizingMaskIntoConstraints="NO" id="aGs-ks-2TE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2017 PhotoDrop. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="oMQ-BS-3zy">
                                 <rect key="frame" x="20" y="626.5" width="336" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhotoDrop" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="uhY-5M-CG3">
-                                <rect key="frame" x="20" y="202" width="335" height="43"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhotoDrop" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-mJ-l1t">
+                                <rect key="frame" x="20" y="144" width="335" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diamond app icon" translatesAutoresizingMaskIntoConstraints="NO" id="yD6-Ry-t9W">
-                                <rect key="frame" x="35" y="253" width="305" height="222"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509804" green="0.59215686270000001" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uhY-5M-CG3" firstAttribute="centerY" secondItem="FXj-pu-fFG" secondAttribute="bottom" multiplier="1/3" constant="1" id="6yL-28-vXK"/>
-                            <constraint firstAttribute="centerX" secondItem="uhY-5M-CG3" secondAttribute="centerX" id="8Hp-ig-R3o"/>
-                            <constraint firstAttribute="bottom" secondItem="LfP-cC-cyl" secondAttribute="bottom" constant="20" id="S4h-kH-2ZK"/>
-                            <constraint firstItem="uhY-5M-CG3" firstAttribute="leading" secondItem="FXj-pu-fFG" secondAttribute="leading" constant="20" symbolic="YES" id="Xad-HO-2R6"/>
-                            <constraint firstItem="LfP-cC-cyl" firstAttribute="leading" secondItem="FXj-pu-fFG" secondAttribute="leading" constant="20" symbolic="YES" id="iKU-AW-ERk"/>
-                            <constraint firstAttribute="centerX" secondItem="LfP-cC-cyl" secondAttribute="centerX" id="yep-CI-xLP"/>
+                            <constraint firstAttribute="centerX" secondItem="oMQ-BS-3zy" secondAttribute="centerX" id="3lb-zk-LIW"/>
+                            <constraint firstItem="oMQ-BS-3zy" firstAttribute="leading" secondItem="TbS-Rk-Mc4" secondAttribute="leading" constant="20" symbolic="YES" id="4gU-BB-CCq"/>
+                            <constraint firstItem="Igu-mJ-l1t" firstAttribute="leading" secondItem="TbS-Rk-Mc4" secondAttribute="leading" constant="20" symbolic="YES" id="G7u-g0-Ldk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aGs-ks-2TE" secondAttribute="trailing" constant="-16" id="TwW-SS-ZR9"/>
+                            <constraint firstAttribute="bottom" secondItem="oMQ-BS-3zy" secondAttribute="bottom" constant="20" id="Xsv-EF-Pfr"/>
+                            <constraint firstItem="Igu-mJ-l1t" firstAttribute="centerY" secondItem="TbS-Rk-Mc4" secondAttribute="bottom" multiplier="1/3" constant="-56.833333333333314" id="aZw-bg-fA5"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="aGs-ks-2TE" secondAttribute="bottom" id="h6w-HA-ii4"/>
+                            <constraint firstAttribute="centerX" secondItem="Igu-mJ-l1t" secondAttribute="centerX" id="kR3-PC-c2c"/>
+                            <constraint firstItem="aGs-ks-2TE" firstAttribute="leading" secondItem="TbS-Rk-Mc4" secondAttribute="leadingMargin" constant="-16" id="sa3-QH-CC0"/>
+                            <constraint firstItem="aGs-ks-2TE" firstAttribute="top" secondItem="TbS-Rk-Mc4" secondAttribute="topMargin" id="vRQ-bQ-yNi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -76,6 +80,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="diamond app icon" width="768" height="768"/>
+        <image name="loadingScreenBackground" width="375" height="667"/>
     </resources>
 </document>
