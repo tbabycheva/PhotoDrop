@@ -101,7 +101,7 @@
                                             <outlet property="pointsLabel" destination="ZKQ-vx-qic" id="82J-aW-D0o"/>
                                             <outlet property="titleLabel" destination="sCu-tl-2GL" id="3d2-7T-q37"/>
                                             <outlet property="usernameLabel" destination="HCz-vV-mWh" id="AbV-8V-QzP"/>
-                                            <segue destination="Baj-hE-43Z" kind="show" identifier="toPhotoDetail" id="dl7-SJ-HKw"/>
+                                            <segue destination="Baj-hE-43Z" kind="presentation" identifier="toPhotoDetail" modalTransitionStyle="flipHorizontal" id="dl7-SJ-HKw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -149,7 +149,7 @@
                 <viewControllerPlaceholder storyboardName="Photo" id="Baj-hE-43Z" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29i-Jq-s9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="130"/>
+            <point key="canvasLocation" x="677" y="87"/>
         </scene>
     </scenes>
     <resources>
