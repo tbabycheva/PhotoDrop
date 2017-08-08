@@ -135,6 +135,8 @@ class DropController {
                 return
             }
 
+            drop.imageAsset = imageAsset
+
             guard
                 let data = NSData(contentsOf: imageAsset.fileURL),
                 let image = UIImage(data: data as Data)
