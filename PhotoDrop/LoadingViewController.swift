@@ -2,10 +2,11 @@
 //  LoadingViewController.swift
 //  PhotoDrop
 //
-//  Created by Tetiana Babycheva on 8/3/17.
+//  Created by handje on 8/8/17.
 //  Copyright © 2017 babycheva. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class LoadingViewController: UIViewController {
@@ -35,9 +36,4 @@ class LoadingViewController: UIViewController {
         }
     }
 }
-
-
-
-
-
 
