@@ -11,11 +11,8 @@ import UIKit
 class PointsViewController: UIViewController {
 
     @IBOutlet weak var usernameLabel: UILabel!
-    
     @IBOutlet weak var pointsLabel: UILabel!
-
     @IBOutlet weak var likesLabel: UILabel!
-    
     @IBOutlet weak var ratedLabel: UILabel!
     
     override func viewDidLoad() {
@@ -39,7 +36,6 @@ class PointsViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     // MARK: - UpdatePtsView
     

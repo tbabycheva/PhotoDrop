@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="width" secondItem="WBp-9t-hTV" secondAttribute="height" multiplier="1:1" id="ra1-33-gGK"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="br8-FJ-N4o" kind="show" animates="NO" id="93Y-d8-hs1"/>
+                                            <segue destination="br8-FJ-N4o" kind="presentation" modalTransitionStyle="flipHorizontal" id="93Y-d8-hs1"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="V7j-VS-76B">

@@ -13,6 +13,11 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var changeUsernameTextField: UITextField!
     @IBOutlet weak var currentUsernameLabel: UILabel!
     
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
+        
+        modalTransitionStyle = .flipHorizontal
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -43,7 +48,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backButtonTapped(_ sender: Any) {
         
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
