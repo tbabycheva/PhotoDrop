@@ -30,18 +30,24 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
 
     var cameraPosition = AVCaptureDevicePosition.back
     
+    
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var takePhotoButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var flashToggle: UIButton!
     @IBOutlet weak var cameraPositionToggle: UIButton!
+    @IBOutlet weak var pictureCapturingView: UIView!
 
     
      // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up a black screen to view to use for photo capturing animation
+        pictureCapturingView?.alpha = 0
+        // pictureCapturingView?.backgroundColor = .black
 
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinchToZoom(_:)))
         pinchGestureRecognizer.delegate = self
@@ -53,6 +59,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     
     override func viewDidAppear(_ animated: Bool) {
         image = nil
+         pictureCapturingView?.alpha = 0
     }
     
     func updateCamPreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
@@ -266,11 +273,19 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             }
             camera.torchMode = .on
             camera.unlockForConfiguration()
+          
             
+            UIView.animate(withDuration: 0.1, delay: 0, options: .autoreverse, animations: { () -> Void in
+                self.pictureCapturingView.alpha = 0.75
+            }, completion: nil)
         cameraOutput.capturePhoto(with: settings, delegate: self)
             
         
         } else {
+            
+            UIView.animate(withDuration: 0.1, delay: 0, options: .autoreverse, animations: { () -> Void in
+                self.pictureCapturingView.alpha = 1
+            }, completion: nil)
             
             cameraOutput.capturePhoto(with: settings, delegate: self)
         }
@@ -298,6 +313,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         if let error = error {
             print("An error has occured: \(error.localizedDescription)")
         }
+        
         if let sampleBuffer = photoSampleBuffer,
             let previewBuffer = previewPhotoSampleBuffer,
             let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
@@ -334,9 +350,10 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
                 let newImage = image.resized(toWidth: 750)
                 self.image = newImage
             }
-            
+        
             turnTorchOff()
-            performSegue(withIdentifier: "toDropPreview", sender: nil)
+            self.performSegue(withIdentifier: "toDropPreview", sender: nil)
+            
         }
     }
     

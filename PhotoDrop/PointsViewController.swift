@@ -21,7 +21,7 @@ class PointsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        usernameLabel.text = PhotoDropUserController.shared.currentPhotoDropUser?.username
+        updatePtsView()
     }
     
     // MARK: - Appearance

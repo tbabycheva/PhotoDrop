@@ -23,15 +23,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C53-sZ-5Ka">
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C53-sZ-5Ka">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoO-eI-87W" userLabel="Back Button">
-                                <rect key="frame" x="313" y="20" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoO-eI-87W" userLabel="Back Button">
+                                <rect key="frame" x="318" y="28" width="35" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="pGX-SX-v5d"/>
+                                    <constraint firstAttribute="width" constant="35" id="pGX-SX-v5d"/>
                                     <constraint firstAttribute="width" secondItem="FoO-eI-87W" secondAttribute="height" multiplier="1:1" id="zcZ-j8-1tI"/>
                                 </constraints>
                                 <state key="normal" image="close-button"/>
@@ -39,11 +39,11 @@
                                     <action selector="backButtonTapped:" destination="lnm-mR-zJS" eventType="touchUpInside" id="GPh-qB-R9s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtw-c9-Cqg">
-                                <rect key="frame" x="145.5" y="566" width="85" height="85"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtw-c9-Cqg">
+                                <rect key="frame" x="148" y="571" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jtw-c9-Cqg" secondAttribute="height" multiplier="1:1" id="bec-sP-iN8"/>
-                                    <constraint firstAttribute="width" constant="85" id="enQ-pV-9oY"/>
+                                    <constraint firstAttribute="width" constant="80" id="enQ-pV-9oY"/>
                                 </constraints>
                                 <state key="normal" image="drop-gem">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,8 +52,8 @@
                                     <action selector="postButtonTapped:" destination="lnm-mR-zJS" eventType="touchUpInside" id="KFN-tA-iAm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give a hint about this place ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ame-RJ-Myd">
-                                <rect key="frame" x="20" y="492" width="335" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give a hint about this place ..." textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ame-RJ-Myd">
+                                <rect key="frame" x="20" y="497" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="C53-sZ-5Ka" firstAttribute="top" secondItem="gZW-fA-gHm" secondAttribute="topMargin" id="hdD-AP-zsZ"/>
                             <constraint firstItem="HJ6-f6-vGB" firstAttribute="top" secondItem="C53-sZ-5Ka" secondAttribute="bottom" id="o9d-MZ-tQ5"/>
                             <constraint firstItem="C53-sZ-5Ka" firstAttribute="leading" secondItem="gZW-fA-gHm" secondAttribute="leading" id="sE8-UF-9QV"/>
-                            <constraint firstItem="FoO-eI-87W" firstAttribute="top" secondItem="Lb1-jx-JC0" secondAttribute="bottom" id="smN-3S-PL6"/>
+                            <constraint firstItem="FoO-eI-87W" firstAttribute="top" secondItem="Lb1-jx-JC0" secondAttribute="bottom" constant="8" id="smN-3S-PL6"/>
                             <constraint firstItem="HJ6-f6-vGB" firstAttribute="top" secondItem="Jtw-c9-Cqg" secondAttribute="bottom" constant="16" id="u50-5c-4Iw"/>
                             <constraint firstItem="ame-RJ-Myd" firstAttribute="leading" secondItem="gZW-fA-gHm" secondAttribute="leading" constant="20" id="zgp-bA-S1u"/>
                         </constraints>
@@ -85,7 +85,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close-button" width="36" height="36"/>
-        <image name="drop-gem" width="101" height="87"/>
+        <image name="close-button" width="126" height="126"/>
+        <image name="drop-gem" width="88" height="88"/>
     </resources>
 </document>
