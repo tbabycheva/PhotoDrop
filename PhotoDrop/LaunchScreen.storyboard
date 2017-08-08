@@ -34,7 +34,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no border" translatesAutoresizingMaskIntoConstraints="NO" id="WkQ-R4-9JT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diamond app icon" translatesAutoresizingMaskIntoConstraints="NO" id="WkQ-R4-9JT">
                                 <rect key="frame" x="35" y="253" width="305" height="222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -56,6 +56,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="no border" width="1239" height="1107"/>
+        <image name="diamond app icon" width="1486" height="1328"/>
     </resources>
 </document>
