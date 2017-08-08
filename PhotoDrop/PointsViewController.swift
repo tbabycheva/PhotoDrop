@@ -23,6 +23,10 @@ class PointsViewController: UIViewController {
         updatePtsView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        usernameLabel.text = PhotoDropUserController.shared.currentPhotoDropUser?.username
+    }
+    
     // MARK: - Appearance
     
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{

@@ -94,8 +94,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         cameraSession.sessionPreset = AVCaptureSessionPresetPhoto
         cameraOutput = AVCapturePhotoOutput()
         
-//        let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        
         if let input = try? AVCaptureDeviceInput(device: camera) {
             if (cameraSession.canAddInput(input)) {
                 cameraSession.addInput(input)
@@ -188,7 +186,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     
     func turnTorchOff() {
         
-        guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+        guard let camera = camera else { return }
         
         if flashSwitch == true || flashSwitch == false {
             
@@ -251,14 +249,14 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         let previewType = settings.availablePreviewPhotoPixelFormatTypes.first!
         let previewFormat = [
             kCVPixelBufferPixelFormatTypeKey as String: previewType,
-            kCVPixelBufferHeightKey as String: 160,
-            kCVPixelBufferWidthKey as String: 160
+            kCVPixelBufferHeightKey as String: 0,
+            kCVPixelBufferWidthKey as String: 0
         ]
         settings.previewPhotoFormat = previewFormat
         
         if flashSwitch == true {
         
-            guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+            guard let camera = camera else { return }
             
             do {
                 try camera.lockForConfiguration()
@@ -303,7 +301,6 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             let previewBuffer = previewPhotoSampleBuffer,
             let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
             print(UIImage(data: dataImage)?.size as Any)
-            
             guard let dataProvider = CGDataProvider(data: dataImage as CFData),
                 let cgImageRef = CGImage(jpegDataProviderSource: dataProvider, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
                 else { return }
