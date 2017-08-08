@@ -42,6 +42,10 @@
                                     <constraint firstItem="R3h-lt-2Ib" firstAttribute="leading" secondItem="SAP-oG-9F0" secondAttribute="leading" id="uuS-u8-RGz"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4n-qA-1Od">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-99-MhP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <gestureRecognizers/>
@@ -112,6 +116,7 @@
                         <constraints>
                             <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="lZv-X8-pl4" secondAttribute="bottom" multiplier="1.03" constant="8" symbolic="YES" id="05R-qw-N8c"/>
                             <constraint firstItem="lZv-X8-pl4" firstAttribute="centerX" secondItem="s2D-MQ-qck" secondAttribute="centerX" id="60h-SP-tEM"/>
+                            <constraint firstAttribute="trailing" secondItem="T4n-qA-1Od" secondAttribute="trailing" id="783-Wz-fBg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ilc-ck-Ouy" secondAttribute="trailing" constant="16" id="9En-bq-ZhJ"/>
                             <constraint firstAttribute="trailing" secondItem="MRU-99-MhP" secondAttribute="trailing" id="AlX-JO-xDN"/>
                             <constraint firstItem="Ilc-ck-Ouy" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="topMargin" constant="22" id="CLg-hm-dBm"/>
@@ -121,9 +126,12 @@
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="top" id="SRz-25-F7T"/>
                             <constraint firstItem="Glr-hA-0P6" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="topMargin" constant="22" id="YrG-g4-nJ6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Eb-p0-Ft5" secondAttribute="trailing" constant="16" id="ZFE-MJ-n85"/>
+                            <constraint firstAttribute="bottom" secondItem="T4n-qA-1Od" secondAttribute="bottom" id="ZmO-wM-Fsu"/>
                             <constraint firstItem="Glr-hA-0P6" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leadingMargin" constant="22" id="bBK-7A-mhE"/>
+                            <constraint firstItem="T4n-qA-1Od" firstAttribute="top" secondItem="s2D-MQ-qck" secondAttribute="top" id="bBo-P0-gXI"/>
                             <constraint firstAttribute="trailing" secondItem="SAP-oG-9F0" secondAttribute="trailing" id="dqc-Wv-vzM"/>
                             <constraint firstItem="MRU-99-MhP" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="sMQ-J9-c3a"/>
+                            <constraint firstItem="T4n-qA-1Od" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="sUJ-M8-GMB"/>
                             <constraint firstItem="EZV-zB-8uH" firstAttribute="top" secondItem="MRU-99-MhP" secondAttribute="bottom" id="sVk-X9-yeq"/>
                             <constraint firstItem="SAP-oG-9F0" firstAttribute="leading" secondItem="s2D-MQ-qck" secondAttribute="leading" id="sme-7e-Uyn"/>
                         </constraints>
@@ -134,6 +142,7 @@
                         <outlet property="cameraView" destination="SAP-oG-9F0" id="YZt-Qz-NSd"/>
                         <outlet property="flashToggle" destination="Ilc-ck-Ouy" id="8Qy-Ca-BeH"/>
                         <outlet property="overlayView" destination="R3h-lt-2Ib" id="AjY-n2-aAb"/>
+                        <outlet property="pictureCapturingView" destination="T4n-qA-1Od" id="gwa-5d-dQq"/>
                         <outlet property="takePhotoButton" destination="lZv-X8-pl4" id="Ult-rt-5J8"/>
                         <segue destination="8FB-P5-UuS" kind="presentation" identifier="toDropPreview" modalTransitionStyle="crossDissolve" id="ab3-6t-R55"/>
                     </connections>
