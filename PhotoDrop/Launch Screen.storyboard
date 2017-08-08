@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,36 +17,30 @@
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="T3C-S1-p0F">
+                    <view key="view" contentMode="scaleToFill" id="8SY-Mu-70h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2017 PhotoDrop. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jAL-Cz-t32">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Copyright © 2017 PhotoDrop. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="SfX-2Z-RIK">
                                 <rect key="frame" x="20" y="626.5" width="336" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhotoDrop" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="3G0-UU-5dY">
-                                <rect key="frame" x="20" y="202" width="335" height="43"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PhotoDrop" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Pj1-UK-VWd">
+                                <rect key="frame" x="20" y="144" width="335" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diamond app icon" translatesAutoresizingMaskIntoConstraints="NO" id="CK7-U2-XNF">
-                                <rect key="frame" x="35" y="253" width="305" height="222"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diamond-blue-background" translatesAutoresizingMaskIntoConstraints="NO" id="3bB-H5-8mJ">
+                                <rect key="frame" x="41" y="195" width="295" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.2274509804" green="0.59215686270000001" blue="0.65490196079999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="jAL-Cz-t32" secondAttribute="centerX" id="7Fv-Uz-UZQ"/>
-                            <constraint firstItem="3G0-UU-5dY" firstAttribute="leading" secondItem="T3C-S1-p0F" secondAttribute="leading" constant="20" symbolic="YES" id="7PK-AI-2fC"/>
-                            <constraint firstAttribute="centerX" secondItem="3G0-UU-5dY" secondAttribute="centerX" id="hGb-kD-5nB"/>
-                            <constraint firstAttribute="bottom" secondItem="jAL-Cz-t32" secondAttribute="bottom" constant="20" id="hyN-I2-bL5"/>
-                            <constraint firstItem="3G0-UU-5dY" firstAttribute="centerY" secondItem="T3C-S1-p0F" secondAttribute="bottom" multiplier="1/3" constant="1" id="r5V-m0-FgD"/>
-                            <constraint firstItem="jAL-Cz-t32" firstAttribute="leading" secondItem="T3C-S1-p0F" secondAttribute="leading" constant="20" symbolic="YES" id="zIV-Mj-Rgj"/>
-                        </constraints>
+                        <color key="backgroundColor" red="1" green="0.9137254901960784" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,6 +49,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="diamond app icon" width="768" height="768"/>
+        <image name="diamond-blue-background" width="320" height="266"/>
     </resources>
 </document>
