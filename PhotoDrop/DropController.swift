@@ -16,7 +16,7 @@ class DropController {
     static let shared = DropController()
     let dropsPullNotification = Notification.Name(rawValue: "dropPullNotifiaction")
     let dropsInRangeWereUpdatedNotification = Notification.Name(rawValue: "dropsInRangeWereUpdatedNotification")
-    var dropsInRange = [Drop]()
+    private(set) var dropsInRange: [Drop] = []
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateInRangeDrops), name: CurrentLocationController.shared.locationUpdatedNotification, object: nil)
@@ -154,23 +154,28 @@ class DropController {
 
     private var currentlyUpdating = false
     @objc func updateInRangeDrops() {
+        guard let currentLocation = CurrentLocationController.shared.location else {
+          print("updateInRagneDrops in guard")
+            return
+        }
+
         if currentlyUpdating {
             return
         }
         currentlyUpdating = true
 
-        guard let currentLocation = CurrentLocationController.shared.location else { return }
         let region = MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(
             latitudeDelta: GeoFenceController.shared.spanRadius / 111000.0 /* degrees to meters for latitude */,
             longitudeDelta: GeoFenceController.shared.spanRadius / 111000.0 * cos(Double.pi * currentLocation.latitude / 180.0)
         ))
         var dropsInRange = [Drop]()
         pullDrops(at: region, amount: 20) { (drops) in
-            dropsInRange = drops
             let group = DispatchGroup()
             for drop in drops {
                 group.enter()
-                DropController.shared.pullDetailDropWith(for: drop, completion:{ (_) in
+                DropController.shared.pullDetailDropWith(for: drop, completion:{
+                    (drop) in
+                    dropsInRange.append(drop)
                     group.leave()
                 })
             }
