@@ -24,7 +24,7 @@
 		2A480D6B1F34E27700EBA965 /* OnboardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */; };
 		2AC653F81F3A154800AAA03E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC653F71F3A154800AAA03E /* ActivityIndicator.swift */; };
 		2AC653FE1F3A1E0E00AAA03E /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC653FD1F3A1E0E00AAA03E /* LoadingViewController.swift */; };
-		2AC654041F3A22D000AAA03E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC654031F3A22D000AAA03E /* LaunchScreen.storyboard */; };
+		2AC654121F3A30AF00AAA03E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AC654111F3A30AF00AAA03E /* Launch Screen.storyboard */; };
 		3F911D191F30DB41002F2A45 /* ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */; };
 		3F911D1B1F30DB5E002F2A45 /* HashableUsingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */; };
 		3FF2CC131F279F4800C68903 /* CloudKitSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */; };
@@ -70,7 +70,7 @@
 		2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnboardingScreen.storyboard; sourceTree = "<group>"; };
 		2AC653F71F3A154800AAA03E /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		2AC653FD1F3A1E0E00AAA03E /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		2AC654031F3A22D000AAA03E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2AC654111F3A30AF00AAA03E /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3F911D181F30DB41002F2A45 /* ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayHelpers.swift; sourceTree = "<group>"; };
 		3F911D1A1F30DB5E002F2A45 /* HashableUsingAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashableUsingAddress.swift; sourceTree = "<group>"; };
 		3FF2CC121F279F4800C68903 /* CloudKitSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitSyncable.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		B98DD8621F269A85000231E9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				2AC654031F3A22D000AAA03E /* LaunchScreen.storyboard */,
+				2AC654111F3A30AF00AAA03E /* Launch Screen.storyboard */,
 				21D40D081F33B5B2008258F4 /* Loading.storyboard */,
 				2A480D3A1F2B9AB500EBA965 /* Welcome.storyboard */,
 				2A480D6A1F34E27700EBA965 /* OnboardingScreen.storyboard */,
@@ -321,10 +321,10 @@
 				21D40D091F33B5B2008258F4 /* Loading.storyboard in Resources */,
 				B98DD8531F26998E000231E9 /* PhotoList.storyboard in Resources */,
 				B98DD84D1F269975000231E9 /* Points.storyboard in Resources */,
+				2AC654121F3A30AF00AAA03E /* Launch Screen.storyboard in Resources */,
 				B9894EC01F27E29B008F4829 /* DropPreview.storyboard in Resources */,
 				B98DD8511F269984000231E9 /* Settings.storyboard in Resources */,
 				2A480D6B1F34E27700EBA965 /* OnboardingScreen.storyboard in Resources */,
-				2AC654041F3A22D000AAA03E /* LaunchScreen.storyboard in Resources */,
 				2A480D3B1F2B9AB500EBA965 /* Welcome.storyboard in Resources */,
 				B98DD84F1F26997F000231E9 /* Drop.storyboard in Resources */,
 			);
