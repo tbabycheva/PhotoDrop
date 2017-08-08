@@ -15,9 +15,12 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ActivityIndiactor().showActivityIndicatory(uiView: self.view)
+
         var segueIdentifier = ""
 
         dispatchGroup.enter()
+
         PhotoDropUserController.shared.pullCurrentUser() { (currentUser) in
             if let currentPhotoDropUser = currentUser {
                 PhotoDropUserController.shared.currentPhotoDropUser = currentPhotoDropUser
@@ -43,6 +46,8 @@ class LoadingViewController: UIViewController {
         dispatchGroup.leave()
     }
 }
+
+
 
 
 
