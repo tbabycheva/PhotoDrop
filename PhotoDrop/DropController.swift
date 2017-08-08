@@ -149,8 +149,14 @@ class DropController {
             completion(drop)
         }
     }
-    
+
+    private var currentlyUpdating = false
     @objc func updateInRangeDrops() {
+        if currentlyUpdating {
+            return
+        }
+        currentlyUpdating = true
+
         guard let currentLocation = CurrentLocationController.shared.location else { return }
         let region = MKCoordinateRegion(center: currentLocation, span: MKCoordinateSpan(
             latitudeDelta: GeoFenceController.shared.spanRadius / 111000.0 /* degrees to meters for latitude */,
@@ -169,6 +175,7 @@ class DropController {
             
             group.notify(queue: DispatchQueue.main) {
                 self.dropsInRange = dropsInRange 
+                self.currentlyUpdating = false
                 NotificationCenter.default.post(name: self.dropsInRangeWereUpdatedNotification, object: nil)
             }
         }
