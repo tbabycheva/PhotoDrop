@@ -13,6 +13,8 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ActivityIndiactor().showActivityIndicatory(uiView: self.view)
+        
         PhotoDropUserController.shared.pullCurrentUser() { (currentUser) in
             if let currentPhotoDropUser = currentUser {
                 
@@ -33,6 +35,8 @@ class LoadingViewController: UIViewController {
         }
     }
 }
+
+
 
 
 
