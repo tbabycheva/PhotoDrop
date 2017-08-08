@@ -276,11 +276,8 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
           
             
             UIView.animate(withDuration: 0.1, delay: 0, options: .autoreverse, animations: { () -> Void in
-                self.pictureCapturingView.alpha = 1
-            }, completion: { _ in
-                self.performSegue(withIdentifier: "toDropPreview", sender: nil)
-            })
-            
+                self.pictureCapturingView.alpha = 0.75
+            }, completion: nil)
         cameraOutput.capturePhoto(with: settings, delegate: self)
             
         
@@ -288,9 +285,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             
             UIView.animate(withDuration: 0.1, delay: 0, options: .autoreverse, animations: { () -> Void in
                 self.pictureCapturingView.alpha = 1
-            }, completion: { _ in
-                self.performSegue(withIdentifier: "toDropPreview", sender: nil)
-            })
+            }, completion: nil)
             
             cameraOutput.capturePhoto(with: settings, delegate: self)
         }
@@ -357,6 +352,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             }
         
             turnTorchOff()
+            self.performSegue(withIdentifier: "toDropPreview", sender: nil)
             
         }
     }

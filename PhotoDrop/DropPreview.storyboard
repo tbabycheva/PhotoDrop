@@ -40,10 +40,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtw-c9-Cqg">
-                                <rect key="frame" x="145.5" y="566" width="85" height="85"/>
+                                <rect key="frame" x="148" y="571" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jtw-c9-Cqg" secondAttribute="height" multiplier="1:1" id="bec-sP-iN8"/>
-                                    <constraint firstAttribute="width" constant="85" id="enQ-pV-9oY"/>
+                                    <constraint firstAttribute="width" constant="80" id="enQ-pV-9oY"/>
                                 </constraints>
                                 <state key="normal" image="drop-gem">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,8 +52,8 @@
                                     <action selector="postButtonTapped:" destination="lnm-mR-zJS" eventType="touchUpInside" id="KFN-tA-iAm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give a hint about this place ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ame-RJ-Myd">
-                                <rect key="frame" x="20" y="492" width="335" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give a hint about this place ..." textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ame-RJ-Myd">
+                                <rect key="frame" x="20" y="497" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -86,6 +86,6 @@
     </scenes>
     <resources>
         <image name="close-button" width="126" height="126"/>
-        <image name="drop-gem" width="101" height="87"/>
+        <image name="drop-gem" width="88" height="88"/>
     </resources>
 </document>
