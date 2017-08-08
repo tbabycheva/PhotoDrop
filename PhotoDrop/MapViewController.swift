@@ -241,8 +241,8 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
         DropController.shared.pullDetailDropWith(for: annotationSelected) {
-            (_) in
-            destination.drop = annotationSelected
+            (drop) in
+            destination.drop = drop
             self.present(destination, animated: true, completion: nil)
         }
     }

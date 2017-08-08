@@ -87,11 +87,18 @@ class DropController {
     }
     
     func pullDetailDropWith(for drop: Drop, completion: @escaping (Drop) -> Void) {
+        if !dropsInRange.contains(drop) {
+          if let drop = dropsInRange.first(where: {drop.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
+            pullDetailDropWith(for: drop, completion: completion)
+            return
+          }
+        }
+
         if drop.hasDetailDrop {
             completion (drop)
             return
         }
-        
+
         let dispatchGroup = DispatchGroup()
         
         
