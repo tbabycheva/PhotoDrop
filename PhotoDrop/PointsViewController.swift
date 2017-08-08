@@ -40,16 +40,20 @@ class PointsViewController: UIViewController {
     // MARK: - UpdatePtsView
     
     func updatePtsView() {
-        guard let user = PhotoDropUserController.shared.currentPhotoDropUser else { return }
-        
-        usernameLabel.text = "\(user.username)," 
-        
-        let numberValueLikesRecieved = user.numberOfRecievedDropLikes
-        let numberPointsForLikesRecieved = user.numberOfRecievedDropLikes * 50
-        likesLabel.text = "\(numberValueLikesRecieved) gems"
-        let numberValueLikesGiven = user.numberOfGivenDropLikes
-        let numberPointsForLikesGiven = user.numberOfGivenDropLikes * 30
-        ratedLabel.text = "\((numberValueLikesGiven)) rated"
-        pointsLabel.text = "\((numberPointsForLikesRecieved + numberPointsForLikesGiven)) pts!"
+       
+        PhotoDropUserController.shared.pullCurrentUser { (user) in
+            
+            guard let user = user else { return }
+           
+            self.usernameLabel.text = "\(user.username),"
+            
+            let numberValueLikesRecieved = user.numberOfRecievedDropLikes
+            let numberPointsForLikesRecieved = user.numberOfRecievedDropLikes * 50
+            self.likesLabel.text = "\(numberValueLikesRecieved) gems"
+            let numberValueLikesGiven = user.numberOfGivenDropLikes
+            let numberPointsForLikesGiven = user.numberOfGivenDropLikes * 30
+            self.ratedLabel.text = "\((numberValueLikesGiven)) rated"
+            self.pointsLabel.text = "\((numberPointsForLikesRecieved + numberPointsForLikesGiven)) pts!"
+        }
     }
  }

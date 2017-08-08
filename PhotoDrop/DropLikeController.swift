@@ -33,31 +33,65 @@ class DropLikeController {
         })
     }
     
-    func createDropLike(for drop: Drop) -> DropLike? {
+    func createDropLike(for drop: Drop, completion: (() -> Void)? = nil) -> DropLike? {
         guard let user = PhotoDropUserController.shared.currentPhotoDropUser else { return nil }
         let userRecord = user.getRecord()
         let dropLike = DropLike(likerUserId: userRecord.recordID, dropId: drop.getRecord().recordID)
         
-        dropLike.push()
+        let dispatchGroup = DispatchGroup()
         
+        dispatchGroup.enter()
+        dropLike.push { (_, _) in
+            dispatchGroup.leave()
+        }
+        
+        
+        dispatchGroup.enter()
         user.numberOfGivenDropLikes += 1
         user.numberOfRecievedDropLikes += 1
-        user.push()
+        user.push { (_, _) in
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
         drop.numberOfLikes += 1
-        drop.push()
+        drop.push { (_, _) in
+            dispatchGroup.leave()
+        }
+        dispatchGroup.notify(queue: DispatchQueue.global()) { 
+            completion?() 
+        }
         
         return dropLike
     }
     
-    func deleteDropLike(for drop: Drop) {
+    func deleteDropLike(for drop: Drop, completion: (() -> Void)? = nil) {
         guard let user = PhotoDropUserController.shared.currentPhotoDropUser else { return }
         pullDropLike(for: drop) { (dropLike) in
-            dropLike?.delete()
+            
+            let dispatchGroup = DispatchGroup()
+            
+            dispatchGroup.enter()
+            dropLike?.delete(completion: { (_, _) in
+                dispatchGroup.leave()
+            })
+            
+            dispatchGroup.enter()
             user.numberOfGivenDropLikes -= 1
             user.numberOfRecievedDropLikes -= 1
-            user.push()
+            user.push(completion: { (_, _) in
+                dispatchGroup.leave()
+            })
+            
+            dispatchGroup.enter()
             drop.numberOfLikes -= 1
-            drop.push() 
+            drop.push(completion: { (_, _) in
+                dispatchGroup.leave()
+            })
+            
+            dispatchGroup.notify(queue: DispatchQueue.global(), execute: { 
+                completion?()
+            })
         }
     }
 }

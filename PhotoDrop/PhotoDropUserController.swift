@@ -25,6 +25,7 @@ class PhotoDropUserController {
           guard let cloudKitUserID = cloudKitUserID else { return }
           self.cloudKitUserID = cloudKitUserID
           let user = PhotoDropUser(username: username, userRecordId: cloudKitUserID)
+            self.currentPhotoDropUser = user 
           user.push()
         }
     }
@@ -45,6 +46,11 @@ class PhotoDropUserController {
     }
     
     func pullCurrentUser(completion: @escaping (PhotoDropUser?) -> Void) {
+        
+        if let currentPhotoDropUser = currentPhotoDropUser {
+            completion(currentPhotoDropUser)
+            return
+        }
         
         CKContainer.default().fetchUserRecordID { (userRecordID, error) in
             
