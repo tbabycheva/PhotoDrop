@@ -59,7 +59,7 @@
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BhG-Xv-OvX" userLabel="Username Label">
                                 <rect key="frame" x="36" y="122.5" width="303" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -70,10 +70,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ey-m7-dLw" userLabel="Back Button">
-                                <rect key="frame" x="28" y="24" width="32" height="32"/>
+                                <rect key="frame" x="28" y="24" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2Ey-m7-dLw" secondAttribute="height" multiplier="1:1" id="ZWI-X1-4Rt"/>
-                                    <constraint firstAttribute="width" constant="32" id="Zxq-t9-tnX"/>
+                                    <constraint firstAttribute="width" constant="40" id="Zxq-t9-tnX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="back-button-white"/>
@@ -89,7 +89,7 @@
                             <constraint firstItem="c0O-8Q-s0b" firstAttribute="top" secondItem="kfj-cK-bDD" secondAttribute="bottom" multiplier="1.03" constant="8" symbolic="YES" id="Jl3-U3-KR2"/>
                             <constraint firstItem="BhG-Xv-OvX" firstAttribute="leading" secondItem="GVI-vY-gUo" secondAttribute="leading" constant="8" id="OdV-BE-v35"/>
                             <constraint firstItem="BhG-Xv-OvX" firstAttribute="trailing" secondItem="GVI-vY-gUo" secondAttribute="trailing" constant="-8" id="OoZ-Qp-JLT"/>
-                            <constraint firstItem="2Ey-m7-dLw" firstAttribute="leading" secondItem="udy-T7-s2h" secondAttribute="leading" constant="28" id="W9h-z0-7kS"/>
+                            <constraint firstItem="2Ey-m7-dLw" firstAttribute="leading" secondItem="kfj-cK-bDD" secondAttribute="leading" id="U0o-rY-tiG"/>
                             <constraint firstItem="BhG-Xv-OvX" firstAttribute="centerY" secondItem="GVI-vY-gUo" secondAttribute="centerY" multiplier="0.5" id="YO4-0H-sOU"/>
                             <constraint firstItem="kfj-cK-bDD" firstAttribute="width" secondItem="udy-T7-s2h" secondAttribute="width" multiplier="0.85" id="aV4-qT-2da"/>
                             <constraint firstItem="kfj-cK-bDD" firstAttribute="centerX" secondItem="udy-T7-s2h" secondAttribute="centerX" id="l6I-WC-h03"/>
@@ -112,7 +112,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back-button-white" width="54" height="54"/>
+        <image name="back-button-white" width="126" height="126"/>
         <image name="save-button" width="88" height="88"/>
         <image name="settings-background" width="548" height="689"/>
     </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ay9-6C-557">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ay9-6C-557">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,19 +26,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qDa-Yu-J2w">
-                                <rect key="frame" x="8" y="22" width="359" height="50"/>
+                                <rect key="frame" x="8" y="22" width="351" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WoP-NV-9wB">
-                                        <rect key="frame" x="0.0" y="0.0" width="317" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="301" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kty-kj-1zu">
-                                                <rect key="frame" x="0.0" y="0.0" width="317" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="301" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsX-Y9-BJi">
-                                                <rect key="frame" x="0.0" y="29.5" width="317" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="29.5" width="301" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -46,9 +46,9 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwS-Ga-GWu" userLabel="Dismiss Button">
-                                        <rect key="frame" x="327" y="9" width="32" height="32"/>
+                                        <rect key="frame" x="311" y="5" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="Gp8-Tw-Taf"/>
+                                            <constraint firstAttribute="width" constant="40" id="Gp8-Tw-Taf"/>
                                             <constraint firstAttribute="width" secondItem="HwS-Ga-GWu" secondAttribute="height" multiplier="1:1" id="mNA-Xn-fGu"/>
                                         </constraints>
                                         <state key="normal" image="close-button"/>
@@ -58,16 +58,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3o-ZK-RFi" userLabel="Gem It Button ">
-                                <rect key="frame" x="286" y="578" width="75" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3o-ZK-RFi" userLabel="Gem It Button ">
+                                <rect key="frame" x="279" y="571" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="z3o-ZK-RFi" secondAttribute="height" multiplier="1:1" id="iKX-ge-LNW"/>
+                                    <constraint firstAttribute="width" constant="80" id="sz3-kc-s3a"/>
+                                </constraints>
                                 <state key="normal" image="diamond-gold-like-inactive"/>
                                 <connections>
                                     <action selector="dropLikeButtonTapped:" destination="ay9-6C-557" eventType="touchUpInside" id="p7l-jN-VC1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bo7-b8-vNw" userLabel="Report Button">
-                                <rect key="frame" x="335" y="80" width="32" height="32"/>
+                                <rect key="frame" x="323" y="80" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="4we-QC-7zq"/>
                                     <constraint firstAttribute="width" secondItem="bo7-b8-vNw" secondAttribute="height" multiplier="1:1" id="NSP-vX-0Sa"/>
@@ -81,13 +84,15 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="z3o-ZK-RFi" secondAttribute="trailing" constant="16" id="2xq-Ho-bbQ"/>
                             <constraint firstItem="6AG-Mu-gT5" firstAttribute="top" secondItem="hEo-0Z-VWN" secondAttribute="top" id="5Su-p0-qHh"/>
                             <constraint firstAttribute="trailing" secondItem="6AG-Mu-gT5" secondAttribute="trailing" id="7te-6L-cY6"/>
+                            <constraint firstItem="A7h-Cl-FQQ" firstAttribute="top" secondItem="z3o-ZK-RFi" secondAttribute="bottom" constant="16" id="GBq-w7-2Ir"/>
+                            <constraint firstItem="bo7-b8-vNw" firstAttribute="centerX" secondItem="HwS-Ga-GWu" secondAttribute="centerX" id="ROR-Us-6Zv"/>
                             <constraint firstItem="qDa-Yu-J2w" firstAttribute="top" secondItem="hEo-0Z-VWN" secondAttribute="top" constant="22" id="Uxc-da-3B4"/>
                             <constraint firstItem="qDa-Yu-J2w" firstAttribute="leading" secondItem="hEo-0Z-VWN" secondAttribute="leading" constant="8" id="e6l-8i-Pi9"/>
                             <constraint firstItem="bo7-b8-vNw" firstAttribute="top" secondItem="qDa-Yu-J2w" secondAttribute="bottom" constant="8" id="fJm-qH-yrz"/>
-                            <constraint firstAttribute="trailing" secondItem="qDa-Yu-J2w" secondAttribute="trailing" constant="8" id="fmR-cs-iOY"/>
-                            <constraint firstAttribute="trailing" secondItem="bo7-b8-vNw" secondAttribute="trailing" constant="8" id="k2s-vM-8F0"/>
+                            <constraint firstAttribute="trailing" secondItem="qDa-Yu-J2w" secondAttribute="trailing" constant="16" id="fmR-cs-iOY"/>
                             <constraint firstAttribute="bottom" secondItem="6AG-Mu-gT5" secondAttribute="bottom" id="lGh-XD-WuP"/>
                             <constraint firstItem="6AG-Mu-gT5" firstAttribute="leading" secondItem="hEo-0Z-VWN" secondAttribute="leading" id="xtv-sr-flJ"/>
                         </constraints>
@@ -106,7 +111,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close-button" width="39" height="39"/>
+        <image name="close-button" width="126" height="126"/>
         <image name="diamond-gold-like-inactive" width="73" height="62"/>
         <image name="report-user" width="21" height="21"/>
     </resources>
