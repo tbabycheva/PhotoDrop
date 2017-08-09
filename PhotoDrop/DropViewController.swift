@@ -337,8 +337,14 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             case .portrait:
                 newImage = portraitImage.resized(toWidth: 750)
             case .landscapeLeft:
+                if cameraPosition == .front {
+                    newImage = landscapeRightImage.resized(toWidth: 1334)
+                }
                 newImage = landscapeLeftImage.resized(toWidth: 1334)
             case .landscapeRight:
+                if cameraPosition == .back {
+                    newImage = landscapeLeftImage.resized(toWidth: 1334)
+                }
                 newImage = landscapeRightImage.resized(toWidth: 1334)
             case .faceUp:
                 newImage = portraitImage.resized(toWidth: 750)
