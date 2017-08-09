@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C53-sZ-5Ka">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C53-sZ-5Ka">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -40,10 +40,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtw-c9-Cqg">
-                                <rect key="frame" x="148" y="571" width="80" height="80"/>
+                                <rect key="frame" x="138" y="551" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Jtw-c9-Cqg" secondAttribute="height" multiplier="1:1" id="bec-sP-iN8"/>
-                                    <constraint firstAttribute="width" constant="80" id="enQ-pV-9oY"/>
+                                    <constraint firstAttribute="width" constant="100" id="enQ-pV-9oY"/>
                                 </constraints>
                                 <state key="normal" image="drop-gem">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,7 +64,7 @@
                             <constraint firstAttribute="trailing" secondItem="C53-sZ-5Ka" secondAttribute="trailing" id="3Eh-Gr-Nnz"/>
                             <constraint firstItem="Jtw-c9-Cqg" firstAttribute="centerX" secondItem="gZW-fA-gHm" secondAttribute="centerX" id="HPY-aO-jhb"/>
                             <constraint firstAttribute="trailing" secondItem="ame-RJ-Myd" secondAttribute="trailing" constant="20" id="NBf-Aq-JsF"/>
-                            <constraint firstItem="Jtw-c9-Cqg" firstAttribute="top" secondItem="ame-RJ-Myd" secondAttribute="bottom" constant="44" id="Qp5-DJ-mKA"/>
+                            <constraint firstItem="Jtw-c9-Cqg" firstAttribute="top" secondItem="ame-RJ-Myd" secondAttribute="bottom" constant="24" id="Qp5-DJ-mKA"/>
                             <constraint firstAttribute="trailing" secondItem="FoO-eI-87W" secondAttribute="trailing" constant="22" id="auL-So-Spr"/>
                             <constraint firstItem="C53-sZ-5Ka" firstAttribute="top" secondItem="gZW-fA-gHm" secondAttribute="topMargin" id="hdD-AP-zsZ"/>
                             <constraint firstItem="HJ6-f6-vGB" firstAttribute="top" secondItem="C53-sZ-5Ka" secondAttribute="bottom" id="o9d-MZ-tQ5"/>
@@ -75,6 +75,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="postButton" destination="Jtw-c9-Cqg" id="c1e-IF-i4m"/>
                         <outlet property="previewImage" destination="C53-sZ-5Ka" id="32I-jK-YX5"/>
                         <outlet property="titleTextField" destination="ame-RJ-Myd" id="MF5-0K-w0x"/>
                     </connections>

@@ -10,34 +10,15 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
-    let centerOnLocationSpan = MKCoordinateSpanMake(0.01, 0.01)
+    // MARK: - Properties and Outlets
     
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var inRangeButton: UIButton!
     
     var isWaitingToCenterOnLocation = true
-    
-    var annotationSelected: Drop?
-    
-    var sourceLocation: CLLocationCoordinate2D?{
-        didSet {
-            showRoute()
-        }
-    }
-    
-    var destinationLocation: Drop? {
-        willSet {
-            destinationLocation?.subtitle = nil
-        }
-        didSet {
-            showRoute()
-        }
-    }
-    
-    var route: MKRoute?
+    let centerOnLocationSpan = MKCoordinateSpanMake(0.01, 0.01)
     
     var sightCircle: MKCircle? {
         willSet {
@@ -58,15 +39,33 @@ class MapViewController: UIViewController {
         }
     }
     
+    var sourceLocation: CLLocationCoordinate2D?{
+        didSet {
+            showRoute()
+        }
+    }
+    
+    var destinationLocation: Drop? {
+        willSet {
+            destinationLocation?.subtitle = nil
+        }
+        didSet {
+            showRoute()
+        }
+    }
+    
+    var route: MKRoute?
+    
+    var annotationSelected: Drop?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         mapView.delegate = self
         mapView.showsCompass = false
         mapView.showsUserLocation = true
         
         // Show current user location
-        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateLocaiton),
                                                name: CurrentLocationController.shared.locationUpdatedNotification,
@@ -74,7 +73,6 @@ class MapViewController: UIViewController {
         )
         
         // Show / hide inRange button
-        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(showInRangeButton),
                                                name: DropController.shared.dropsInRangeWereUpdatedNotification,
@@ -87,13 +85,6 @@ class MapViewController: UIViewController {
         singleTapRecognizer.delegate = self
         singleTapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(singleTapRecognizer)
-    }
-    
-    
-    
-    func centerOnLocation() {
-        isWaitingToCenterOnLocation = true
-        updateLocaiton()
     }
     
     func updateLocaiton() {
@@ -114,9 +105,15 @@ class MapViewController: UIViewController {
     func showInRangeButton() {
         if DropController.shared.dropsInRange.count >= 1 {
             inRangeButton.isHidden = false
+            animateButton()
         } else {
             inRangeButton.isHidden = true
         }
+    }
+    
+    func centerOnLocation() {
+        isWaitingToCenterOnLocation = true
+        updateLocaiton()
     }
     
     func mapTapped() {
@@ -126,14 +123,63 @@ class MapViewController: UIViewController {
             annotationSelected = nil
         }
     }
-    
-    // MARK: Action Functions
-    
-    @IBAction func currentLocationButtonTapped(_ sender: Any) {
-        centerOnLocation()
+}
+
+
+// MARK: - Creating and Displaying Gems
+
+extension MapViewController {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MyGem"
+        
+        // exclude the annotation for current user location
+        if annotation.isKind(of: MKUserLocation.self) {
+            return nil
+        }
+        
+        var annotationView:MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.image = UIImage(named: "diamond-gold-shadow")
+            
+            // Pin thumbnail - Left Detail
+            let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
+            showDistanceButton.setImage(UIImage(named: "directions-button"), for: .normal)
+            showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
+            annotationView?.leftCalloutAccessoryView = showDistanceButton
+            
+            // Pin thumbnail - Right Detail
+            let detailPhotoViewButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
+            detailPhotoViewButton.setImage(UIImage(named: "photo-detail-button"), for: .normal)
+            detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-not-available"), for: .disabled)
+            detailPhotoViewButton.addTarget(self, action: #selector(photoDetailButtonTapped), for: .touchUpInside)
+            annotationView?.rightCalloutAccessoryView = detailPhotoViewButton
+            
+            // prevent taps on annotationView from triggering tap on map
+            let TapRecognizer = UITapGestureRecognizer()
+            annotationView?.addGestureRecognizer(TapRecognizer)
+        }
+        
+        // Photo detail access
+        if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView as? UIButton {
+            if let annotationSelected = annotation as? Drop {
+                if DropController.shared.dropsInRange.contains(where: {annotationSelected.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
+                    detailPhotoViewButton.isEnabled = true
+                } else {
+                    detailPhotoViewButton.isEnabled = false
+                }
+            }
+        }
+        return annotationView
     }
-    
-    // MARK: Creating and Displaying Routes
+}
+
+
+// MARK: Creating and Displaying Routes
+
+extension MapViewController {
     func showRoute() {
         
         guard let sourceLocation = sourceLocation else { return }
@@ -182,51 +228,13 @@ class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = "MyGem"
-        
-        // exclude the annotation for current user location
-        if annotation.isKind(of: MKUserLocation.self) {
-            return nil
-        }
-        
-        var annotationView:MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(named: "diamond-gold-shadow")
-            
-            // Pin thumbnail setup
-            let showDistanceButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
-            showDistanceButton.setImage(UIImage(named: "directions-button"), for: .normal)
-            showDistanceButton.addTarget(self, action: #selector(showDistanceButtonTapped), for: .touchUpInside)
-            annotationView?.leftCalloutAccessoryView = showDistanceButton
-            
-            // Right Detail
-            let detailPhotoViewButton = UIButton(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
-            detailPhotoViewButton.setImage(UIImage(named: "photo-detail-button"), for: .normal)
-            detailPhotoViewButton.setImage(#imageLiteral(resourceName: "photo-detail-not-available"), for: .disabled)
-            detailPhotoViewButton.addTarget(self, action: #selector(photoDetailButtonTapped), for: .touchUpInside)
-            annotationView?.rightCalloutAccessoryView = detailPhotoViewButton
-            
-            // prevent taps on annotationView from triggering tap on map
-            let TapRecognizer = UITapGestureRecognizer()
-            annotationView?.addGestureRecognizer(TapRecognizer)
-        }
-        
-        if let detailPhotoViewButton = annotationView?.rightCalloutAccessoryView as? UIButton {
-            if let annotationSelected = annotation as? Drop {
-                if DropController.shared.dropsInRange.contains(where: {annotationSelected.getRecord().recordID.recordName == $0.getRecord().recordID.recordName}) {
-                    detailPhotoViewButton.isEnabled = true
-                } else {
-                    detailPhotoViewButton.isEnabled = false
-                }
-            }
-        }
-        
-        return annotationView
+
+// MARK: - Action Functions
+
+extension MapViewController {
+    
+    @IBAction func currentLocationButtonTapped(_ sender: Any) {
+        centerOnLocation()
     }
     
     func showDistanceButtonTapped() {
@@ -247,6 +255,7 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
+    // Gem tapped
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         guard let drop = view.annotation as? Drop else { return }
@@ -260,17 +269,46 @@ extension MapViewController: MKMapViewDelegate {
         self.destinationLocation = nil
     }
     
-    // Display route on the map
+    
+    // Display gems based on location
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        DropController.shared.pullDrops(at: mapView.region, amount: 10) {
+            [weak self] drops in
+            guard let annotations = mapView.annotations.filter({$0 is Drop}) as? [Drop] else { return }
+            update( annotations,
+                    to: drops,
+                    equals: {
+                        $0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName
+            },
+                    remove: { drop in
+                        DispatchQueue.main.async {
+                            self?.mapView.removeAnnotation(drop)
+                        }
+            },
+                    add: { drop in
+                        DispatchQueue.main.async {
+                            self?.mapView.addAnnotation(drop)
+                        }
+            }
+            )
+        }
+    }
+}
+
+// MARK: - Overlays
+extension MapViewController {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        // Display the route
         if let overlay = overlay as? MKPolyline {
             let renderer = MKPolylineRenderer(overlay: overlay)
             renderer.strokeColor = UIColor.red
             renderer.lineWidth = 4.0
             return renderer
         }
-    
-            // Display inRange circle
-            else if let overlay = overlay as? MKCircle {
+            
+        // Display inRange circle
+        else if let overlay = overlay as? MKCircle {
             let renderer = MKCircleRenderer(overlay: overlay)
             renderer.strokeColor = UIColor.cyan.withAlphaComponent(0.75)
             renderer.lineWidth = 2.0
@@ -278,39 +316,10 @@ extension MapViewController: MKMapViewDelegate {
         }
         return MKOverlayRenderer()
     }
-    
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        DropController.shared.pullDrops(at: mapView.region, amount: 10) {
-            [weak self] drops in
-            guard let annotations = mapView.annotations.filter({$0 is Drop}) as? [Drop] else {
-                return
-            }
-            
-            update(
-                annotations,
-                to: drops,
-                equals: {
-                    $0.getRecord().recordID.recordName == $1.getRecord().recordID.recordName
-            },
-                remove: {
-                    drop in
-                    DispatchQueue.main.async {
-                        self?.mapView.removeAnnotation(drop)
-                    }
-            },
-                add: {
-                    drop in
-                    DispatchQueue.main.async {
-                        self?.mapView.addAnnotation(drop)
-                    }
-            }
-            )
-        }
-    }
 }
 
 
-// MARK: Gesture Recognition - Displaying / Dismissing Routes and Bubbles
+// MARK: - Gesture Recognition - Displaying / Dismissing Routes and Bubbles
 extension MapViewController: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -322,3 +331,33 @@ extension MapViewController: UIGestureRecognizerDelegate {
         }
     }
 }
+
+// MARK: - Animations
+extension MapViewController {
+    func animateButton() {
+       // AudioServicesPlaySystemSound(bubbleSound)
+        inRangeButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.4,
+                       initialSpringVelocity: 5.5,
+                       options: .allowUserInteraction,
+                       animations: { [weak self] in
+                        self?.inRangeButton.transform = .identity
+        },
+                       completion: nil
+        )
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

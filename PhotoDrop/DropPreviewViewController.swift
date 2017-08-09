@@ -17,7 +17,8 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var previewImage: UIImageView!
-
+    @IBOutlet weak var postButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,13 +69,16 @@ extension DropPreviewViewController {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         animateViewMoving(up: true, moveValue: 120)
+        postButton.isHidden = true
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         animateViewMoving(up: false, moveValue: 120)
+        postButton.isHidden = false
     }
     
-    func animateViewMoving (up:Bool, moveValue :CGFloat){
+    func animateViewMoving (up: Bool, moveValue: CGFloat){
         let movementDuration:TimeInterval = 0.3
         let movement:CGFloat = ( up ? -moveValue : moveValue)
         
@@ -113,25 +117,3 @@ extension UIImage {
         return normalImage
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

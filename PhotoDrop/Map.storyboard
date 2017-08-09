@@ -36,7 +36,7 @@
                                     <segue destination="P7F-n8-CC3" kind="show" id="Fnw-hs-FPo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje" userLabel="inRange Button">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0c-s7-Hje" userLabel="inRange Button">
                                 <rect key="frame" x="242" y="443" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3WO-gE-kRD"/>
@@ -104,7 +104,7 @@
                 <viewControllerPlaceholder storyboardName="PhotoList" id="Y2b-Re-S3v" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJa-o2-RT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="44"/>
+            <point key="canvasLocation" x="842" y="52"/>
         </scene>
         <!--Points-->
         <scene sceneID="vdj-T4-CP6">
@@ -112,7 +112,7 @@
                 <viewControllerPlaceholder storyboardName="Points" id="P7F-n8-CC3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cz-38-IRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="175"/>
+            <point key="canvasLocation" x="817" y="157"/>
         </scene>
         <!--Photo-->
         <scene sceneID="Po4-X1-4PT">
@@ -120,7 +120,7 @@
                 <viewControllerPlaceholder storyboardName="Photo" id="Nnq-6r-yrI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Co-7a-aaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="782" y="280"/>
+            <point key="canvasLocation" x="821" y="212"/>
         </scene>
         <!--Drop-->
         <scene sceneID="C0g-tx-Rvu">
@@ -128,7 +128,7 @@
                 <viewControllerPlaceholder storyboardName="Drop" id="ZEg-Wm-wY4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOJ-e5-5tY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="812" y="120"/>
+            <point key="canvasLocation" x="816" y="102"/>
         </scene>
     </scenes>
     <resources>
