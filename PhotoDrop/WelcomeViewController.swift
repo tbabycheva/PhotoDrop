@@ -18,6 +18,14 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         userNameTextField.delegate = self
     }
     
+    // MARK: - Appearance
+    // Lock tableview in portrait mode
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
+    
     @IBAction func userNameSubmitButtonTapped(_ sender: Any) {
         if let username = userNameTextField.text, !username.isEmpty {
             
