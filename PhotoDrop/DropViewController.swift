@@ -325,31 +325,31 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             let currentDevice: UIDevice = UIDevice.current
             let orientation: UIDeviceOrientation = currentDevice.orientation
             
-            if orientation == .portrait {
-            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
-                let newImage = image.resized(toWidth: 750)
-                self.image = newImage
-            } else if orientation == .landscapeLeft {
-                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.up)
-                let newImage = image.resized(toWidth: 1334)
-                self.image = newImage
-            } else if orientation == .landscapeRight {
-                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.down)
-                let newImage = image.resized(toWidth: 1334)
-                self.image = newImage
-            } else if orientation == .faceUp {
-                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
-                let newImage = image.resized(toWidth: 750)
-                self.image = newImage
-            } else if orientation == .faceDown {
-                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
-                let newImage = image.resized(toWidth: 750)
-                self.image = newImage
-            } else if orientation == .portraitUpsideDown {
-                let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.left)
-                let newImage = image.resized(toWidth: 750)
-                self.image = newImage
+            let portraitImage = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+            let landscapeLeftImage = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.up)
+            let landscapeRightImage = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.down)
+            let upsideDownImage = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.left)
+            
+            var newImage: UIImage?
+            
+            switch (orientation) {
+                
+            case .portrait:
+                newImage = portraitImage.resized(toWidth: 750)
+            case .landscapeLeft:
+                newImage = landscapeLeftImage.resized(toWidth: 1334)
+            case .landscapeRight:
+                newImage = landscapeRightImage.resized(toWidth: 1334)
+            case .faceUp:
+                newImage = portraitImage.resized(toWidth: 750)
+            case .faceDown:
+                newImage = portraitImage.resized(toWidth: 750)
+            case .portraitUpsideDown:
+                newImage = upsideDownImage.resized(toWidth: 750)
+            default: break
             }
+            
+            self.image = newImage
         
             turnTorchOff()
             self.performSegue(withIdentifier: "toDropPreview", sender: nil)
