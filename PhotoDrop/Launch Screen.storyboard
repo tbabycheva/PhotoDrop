@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,26 +22,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Copyright © 2017 PhotoDrop. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="SfX-2Z-RIK">
-                                <rect key="frame" x="20" y="626.5" width="336" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PhotoDrop" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Pj1-UK-VWd">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhotoDrop" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Pj1-UK-VWd">
                                 <rect key="frame" x="20" y="144" width="335" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diamond-blue-background" translatesAutoresizingMaskIntoConstraints="NO" id="3bB-H5-8mJ">
-                                <rect key="frame" x="41" y="195" width="295" height="249"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diamond-blue-background" translatesAutoresizingMaskIntoConstraints="NO" id="3bB-H5-8mJ">
+                                <rect key="frame" x="41" y="195" width="295" height="266"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2017 PhotoDrop. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="SfX-2Z-RIK">
+                                <rect key="frame" x="19" y="638" width="336" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.9137254901960784" blue="0.63529411764705879" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Pj1-UK-VWd" firstAttribute="leading" secondItem="SfX-2Z-RIK" secondAttribute="leading" constant="1" id="1il-t4-1VK"/>
+                            <constraint firstItem="SfX-2Z-RIK" firstAttribute="top" secondItem="3bB-H5-8mJ" secondAttribute="bottom" constant="177" id="94O-aQ-CQK"/>
+                            <constraint firstItem="3bB-H5-8mJ" firstAttribute="top" secondItem="Pj1-UK-VWd" secondAttribute="bottom" constant="8" id="FIS-Tu-YGC"/>
+                            <constraint firstItem="Pj1-UK-VWd" firstAttribute="centerX" secondItem="SfX-2Z-RIK" secondAttribute="centerX" id="Gkb-kv-c9x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3bB-H5-8mJ" secondAttribute="trailing" constant="23" id="Ucv-Ni-HnX"/>
+                            <constraint firstItem="Pj1-UK-VWd" firstAttribute="leading" secondItem="8SY-Mu-70h" secondAttribute="leadingMargin" constant="4" id="XFF-IB-xiw"/>
+                            <constraint firstItem="Pj1-UK-VWd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="124" id="Y0Y-Pc-UBR"/>
+                            <constraint firstItem="3bB-H5-8mJ" firstAttribute="leading" secondItem="8SY-Mu-70h" secondAttribute="leadingMargin" constant="25" id="fNp-6y-aLU"/>
+                            <constraint firstItem="Pj1-UK-VWd" firstAttribute="centerX" secondItem="8SY-Mu-70h" secondAttribute="centerX" id="sd9-sj-4m5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
