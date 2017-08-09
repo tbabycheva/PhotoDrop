@@ -43,23 +43,29 @@ class PhotoViewController: UIViewController {
         }
     }
     
-    func successfulBlockAlert(dropUser: String) {
+    func blockAlert(dropUser: String) {
         
-        let blockAlert = UIAlertController(title: "User \(dropUser) has been blocked!", message: "", preferredStyle: .alert)
-        blockAlert.addAction(UIAlertAction(title: "Good", style: .cancel, handler: nil))
+        guard let drop = drop,
+            let dropUser = drop.dropperUserName
+            else { return }
+        
+        let blockAlert = UIAlertController(title: "Block User: \(dropUser)?", message: "", preferredStyle: .alert)
+        blockAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
+            BlockedUserController.shared.blockUser(of: drop)
+        }))
+        blockAlert.addAction(UIAlertAction(title: "NO!", style: .cancel, handler: nil))
         self.present(blockAlert, animated: true, completion: nil)
     }
     
     // MARK: Action Functions
     
     @IBAction func blockUserButtonTapped(_ sender: Any) {
-        
+    
         guard let drop = drop,
-        let dropUser = drop.dropperUserName
+            let dropUser = drop.dropperUserName
             else { return }
         
-        BlockedUserController.shared.blockUser(of: drop)
-        successfulBlockAlert(dropUser: dropUser)
+        blockAlert(dropUser: dropUser)
     }
     
     @IBAction func dropLikeButtonTapped(_ sender: Any) {
