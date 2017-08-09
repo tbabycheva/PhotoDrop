@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import AVFoundation
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
@@ -58,6 +59,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     var annotationSelected: Drop?
     
+    let systemSoundID: SystemSoundID = 1107
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,6 +109,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if DropController.shared.dropsInRange.count >= 1 {
             inRangeButton.isHidden = false
             animateButton()
+            AudioServicesPlaySystemSound (systemSoundID)
         } else {
             inRangeButton.isHidden = true
         }
