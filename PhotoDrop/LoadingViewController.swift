@@ -11,8 +11,6 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
-    private var segueIdentifier = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,13 +18,13 @@ class LoadingViewController: UIViewController {
 
         PhotoDropUserController.shared.pullCurrentUser() { (currentUser) in
             if let currentPhotoDropUser = currentUser {
-                PhotoDropUserController.shared.currentPhotoDropUser = currentPhotoDropUser
-                self.segueIdentifier = "toMapView"
+                NotificationCenter.default.addObserver(self, selector: #selector(self.dropsInRangeWereUpdated), name: DropController.shared.dropsInRangeWereUpdatedNotification, object: nil)
+                DropController.shared.updateInRangeDrops()
             } else {
-                self.segueIdentifier = "toWelcomeView"
+                DispatchQueue.main.async{
+                    self.performSegue(withIdentifier: "toWelcomeView", sender: self)
+                }
             }
-            NotificationCenter.default.addObserver(self, selector: #selector(self.dropsInRangeWereUpdated), name: DropController.shared.dropsInRangeWereUpdatedNotification, object: nil)
-            DropController.shared.updateInRangeDrops() 
         }
     }
     
@@ -41,7 +39,7 @@ class LoadingViewController: UIViewController {
     func dropsInRangeWereUpdated() {
         NotificationCenter.default.removeObserver(self)
         DispatchQueue.main.async{
-            self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
+            self.performSegue(withIdentifier: "toMapView", sender: self)
         }
     }
 }
