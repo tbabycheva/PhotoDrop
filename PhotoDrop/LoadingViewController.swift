@@ -17,7 +17,7 @@ class LoadingViewController: UIViewController {
         ActivityIndiactor().showActivityIndicatory(uiView: self.view)
 
         PhotoDropUserController.shared.pullCurrentUser() { (currentUser) in
-            if let currentPhotoDropUser = currentUser {
+            if currentUser != nil {
                 NotificationCenter.default.addObserver(self, selector: #selector(self.dropsInRangeWereUpdated), name: DropController.shared.dropsInRangeWereUpdatedNotification, object: nil)
                 DropController.shared.updateInRangeDrops()
             } else {
