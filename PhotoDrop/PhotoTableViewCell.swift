@@ -32,7 +32,8 @@ class PhotoTableViewCell: UITableViewCell {
         titleLabel.text = drop.title
         usernameLabel.text = drop.dropperUserName
         dateLabel.text = drop.timestamp.stringValue()
-        pointsLabel.text = "\(drop.numberOfLikes) pts"
+        let numberPointsForLikesRecieved = drop.numberOfLikes * 50
+        pointsLabel.text = "\(numberPointsForLikesRecieved) pts"
         // gemImageView.image = // set different gem colors
     }
 }

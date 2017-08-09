@@ -31,8 +31,12 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             
             if username.characters.count >= 4 {
                 
-                PhotoDropUserController.shared.createCurrentUserWith(username: username)
-                self.performSegue(withIdentifier: "toMapView", sender: nil)
+                PhotoDropUserController.shared.createCurrentUserWith(username: username, completion: {
+                    DropController.shared.updateInRangeDrops()
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toMapView", sender: nil)
+                    }
+                })
                 
             } else {
                 

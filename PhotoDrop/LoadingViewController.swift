@@ -11,33 +11,19 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
-    private let dispatchGroup = DispatchGroup()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ActivityIndiactor().showActivityIndicatory(uiView: self.view)
 
-        var segueIdentifier = ""
-
-        dispatchGroup.enter()
-
         PhotoDropUserController.shared.pullCurrentUser() { (currentUser) in
-            if let currentPhotoDropUser = currentUser {
-                PhotoDropUserController.shared.currentPhotoDropUser = currentPhotoDropUser
-                segueIdentifier = "toMapView"
+            if currentUser != nil {
+                NotificationCenter.default.addObserver(self, selector: #selector(self.dropsInRangeWereUpdated), name: DropController.shared.dropsInRangeWereUpdatedNotification, object: nil)
+                DropController.shared.updateInRangeDrops()
             } else {
-                segueIdentifier = "toWelcomeView"
-            }
-            self.dispatchGroup.leave()
-        }
-
-        dispatchGroup.enter()
-        NotificationCenter.default.addObserver(self, selector: #selector(dropsInRangeWereUpdated), name: DropController.shared.dropsInRangeWereUpdatedNotification, object: nil)
-
-        dispatchGroup.notify(queue: DispatchQueue.main) {
-            DispatchQueue.main.async{
-                self.performSegue(withIdentifier: segueIdentifier, sender: self)
+                DispatchQueue.main.async{
+                    self.performSegue(withIdentifier: "toWelcomeView", sender: self)
+                }
             }
         }
     }
@@ -52,7 +38,9 @@ class LoadingViewController: UIViewController {
 
     func dropsInRangeWereUpdated() {
         NotificationCenter.default.removeObserver(self)
-        dispatchGroup.leave()
+        DispatchQueue.main.async{
+            self.performSegue(withIdentifier: "toMapView", sender: self)
+        }
     }
 }
 

@@ -19,14 +19,16 @@ class PhotoDropUserController {
         
     }
     
-    func createCurrentUserWith(username: String) {
-
+    func createCurrentUserWith(username: String, completion: (() -> Void)? = nil) {
+        
         CKContainer.default().fetchUserRecordID { (cloudKitUserID, error) in
-          guard let cloudKitUserID = cloudKitUserID else { return }
-          self.cloudKitUserID = cloudKitUserID
-          let user = PhotoDropUser(username: username, userRecordId: cloudKitUserID)
-            self.currentPhotoDropUser = user 
-          user.push()
+            guard let cloudKitUserID = cloudKitUserID else { completion?(); return }
+            self.cloudKitUserID = cloudKitUserID
+            let user = PhotoDropUser(username: username, userRecordId: cloudKitUserID)
+            self.currentPhotoDropUser = user
+            user.push(completion: { (_) in
+                completion?()
+            })
         }
     }
     
@@ -38,8 +40,8 @@ class PhotoDropUserController {
     func pullUserWith(userRecordID: CKRecordID, completion: @escaping (PhotoDropUser?) -> Void) {
         PhotoDropUser.database.fetch(withRecordID: userRecordID) { (record, error) in
             guard let record = record else {
-              completion(nil)
-              return
+                completion(nil)
+                return
             }
             completion(PhotoDropUser(record: record))
         }

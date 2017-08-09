@@ -47,12 +47,12 @@ class PointsViewController: UIViewController {
            
             self.usernameLabel.text = "\(user.username),"
             
-            let numberValueLikesRecieved = user.numberOfRecievedDropLikes
+            let numberLikesRecieved = user.numberOfRecievedDropLikes 
             let numberPointsForLikesRecieved = user.numberOfRecievedDropLikes * 50
-            self.likesLabel.text = "\(numberValueLikesRecieved) gems"
-            let numberValueLikesGiven = user.numberOfGivenDropLikes
+            self.likesLabel.text = "\(numberLikesRecieved) gems"
+            let numberLikesGiven = user.numberOfGivenDropLikes
             let numberPointsForLikesGiven = user.numberOfGivenDropLikes * 30
-            self.ratedLabel.text = "\((numberValueLikesGiven)) rated"
+            self.ratedLabel.text = "\((numberLikesGiven)) rated"
             self.pointsLabel.text = "\((numberPointsForLikesRecieved + numberPointsForLikesGiven)) pts!"
         }
     }

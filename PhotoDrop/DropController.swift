@@ -154,6 +154,7 @@ class DropController {
 
     private var currentlyUpdating = false
     @objc func updateInRangeDrops() {
+        guard PhotoDropUserController.shared.currentPhotoDropUser != nil else { return }
         guard let currentLocation = CurrentLocationController.shared.location else {
           print("updateInRagneDrops in guard")
             return
