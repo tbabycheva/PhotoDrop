@@ -41,6 +41,14 @@ class LoadingViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Appearance
+    // Lock tableview in portrait mode
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
 
     func dropsInRangeWereUpdated() {
         NotificationCenter.default.removeObserver(self)
