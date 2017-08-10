@@ -14,6 +14,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
     
     var dropViewController: DropViewController?
     var image: UIImage?
+    var frontUsed = false
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var previewImage: UIImageView!
@@ -25,7 +26,11 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
         titleTextField.delegate = self
 
         titleTextField.text = dropViewController?.photoTitle
-        previewImage.image = image?.fixOrientation()
+        previewImage.image = image
+        if frontUsed == true {
+            
+            previewImage.transform = previewImage.transform.rotated(by: CGFloat(135.1))
+        }
     }
     
     // MARK: - Action Functions
@@ -38,7 +43,7 @@ class DropPreviewViewController: UIViewController, UITextFieldDelegate {
             else { return }
         
         if titleTextField.text != "" {
-            guard let droppedImage = image?.fixOrientation() else { return }
+            guard let droppedImage = image else { return }
             
             DropController.shared.createDropWith(title: text, timestamp: Date(),
                                                  location: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude),
@@ -98,22 +103,5 @@ extension DropPreviewViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         titleTextField.resignFirstResponder()
         return 
-    }
-}
-
-// MARK: - Save photos with proper orientation
-extension UIImage {
-    
-    func fixOrientation() -> UIImage {
-        if self.imageOrientation == UIImageOrientation.up {
-            return self
-        }
-        
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-        let normalImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        return normalImage
     }
 }
