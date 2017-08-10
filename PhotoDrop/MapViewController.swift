@@ -92,9 +92,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func updateLocaiton() {
-        guard let location = CurrentLocationController.shared.location else {
-            return
-        }
+        guard let location = CurrentLocationController.shared.location else { return }
         sightCircle = MKCircle(center: location, radius: 200)
         sourceLocation = location
         
@@ -109,7 +107,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func showInRangeButton() {
         DispatchQueue.main.async {
             if DropController.shared.dropsInRange.count >= 1 {
-                if self.inRangeButton.isHidden == true {
+                if self.inRangeButton.isHidden {
                     self.inRangeButton.isHidden = false
                     AudioServicesPlaySystemSound (self.systemSoundID)
                     self.animateButton()
