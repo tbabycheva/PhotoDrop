@@ -68,6 +68,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.showsCompass = false
         mapView.showsUserLocation = true
         
+        centerOnLocation()
+        showInRangeButton()
+        
         // Show current user location
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateLocaiton),
@@ -80,8 +83,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                                selector: #selector(showInRangeButton),
                                                name: DropController.shared.dropsInRangeWereUpdatedNotification,
                                                object: nil)
-        
-        centerOnLocation()
         
         // Tap map to clear route
         let singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
@@ -106,12 +107,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func showInRangeButton() {
-        if DropController.shared.dropsInRange.count >= 1 {
-            inRangeButton.isHidden = false
-            animateButton()
-            AudioServicesPlaySystemSound (systemSoundID)
-        } else {
-            inRangeButton.isHidden = true
+        DispatchQueue.main.async {
+            if DropController.shared.dropsInRange.count >= 1 {
+                if self.inRangeButton.isHidden == true {
+                    self.inRangeButton.isHidden = false
+                    AudioServicesPlaySystemSound (self.systemSoundID)
+                    self.animateButton()
+                } else {
+                    self.inRangeButton.isHidden = false
+                }
+            } else {
+                self.inRangeButton.isHidden = true
+            }
         }
     }
     
