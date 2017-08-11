@@ -359,14 +359,3 @@ extension MapViewController {
         )
     }
 }
-
-
-
-
-
-
-
-
-
-
-
