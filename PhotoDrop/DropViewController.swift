@@ -19,17 +19,14 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
     var camPreviewLayer: AVCaptureVideoPreviewLayer!
     var image: UIImage?
     var photoTitle: String?
-    var cameraState: Bool?
     var flashSwitch = false
+    var frontUsed = false
     
     let minimumZoomRange: CGFloat = 1.0
     let maximumZoomRange: CGFloat = 5.0
     var latestZoom: CGFloat = 1.0
     
     let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-
-    var cameraPosition = AVCaptureDevicePosition.back
-    
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var overlayView: UIView!
@@ -335,15 +332,18 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
             switch (orientation) {
                 
             case .portrait:
+                if flashToggle.isHidden == true {
+                    frontUsed = false
+                }
                 newImage = portraitImage.resized(toWidth: 750)
             case .landscapeLeft:
-                if cameraPosition == .front {
-                    newImage = landscapeRightImage.resized(toWidth: 1334)
+                if flashToggle.isHidden == true {
+                    frontUsed = true
                 }
                 newImage = landscapeLeftImage.resized(toWidth: 1334)
             case .landscapeRight:
-                if cameraPosition == .back {
-                    newImage = landscapeLeftImage.resized(toWidth: 1334)
+                if flashToggle.isHidden == true {
+                    frontUsed = true
                 }
                 newImage = landscapeRightImage.resized(toWidth: 1334)
             case .faceUp:
@@ -370,6 +370,7 @@ class DropViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIIma
         if segue.identifier == "toDropPreview" {
             let image = self.image
             let dropPreviewVC = segue.destination as? DropPreviewViewController
+            dropPreviewVC?.frontUsed = frontUsed
             dropPreviewVC?.image = image
         }
     }
