@@ -17,15 +17,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>PhotoDrop requires the camera to drop photos at your geographical location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>PhotoDrop requires your location to retrive photos near your location</string>
+	<string>PhotoDrop would like to use your location to retrive photos near you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>PhotoDrop would like to use your current location when using the app</string>
+	<string>PhotoDrop would like to use your location to retrive photos near you</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>PhotoDrop would like access to your Photo Library</string>
 	<key>UILaunchStoryboardName</key>
